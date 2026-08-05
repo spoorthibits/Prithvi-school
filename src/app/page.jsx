@@ -5,6 +5,8 @@ import FeaturesTabs from "@/components/FeaturesTabs";
 
 import Philosophy from "@/components/Philosophy";
 import Image from "next/image";
+import BeyondClassroom from "@/components/BeyondClassroom";
+import FAQSection from "@/components/Faqs";
 
 
 export default function Home() {
@@ -133,38 +135,67 @@ export default function Home() {
       priority={false}
     />
   </div>
-</section>
+      </section>
       {/* <Philosophy/> */}
      
       <CurriculumSection/>
-{/* ================= WHAT MAKES US DIFFERENT ================= */}
+      <BeyondClassroom/>
+  {/* ================= WHAT MAKES US DIFFERENT ================= */}
 
-<section className="relative bg-[#FAF9F5] overflow-hidden">
+      <section className="relative bg-[#FAF9F5] overflow-hidden">
 
-  {/* DON'T CHANGE YOUR CURVE */}
-  <div className="relative z-0">
-    <CoreHeader
-      title1=""
-      badge="Purpose"
+        {/* ================= TOP CURVE ================= */}
+
+
+        {/* DON'T CHANGE YOUR CURVE */}
+        <div className="relative z-0">
+          <CoreHeader
+            title1=""
+            badge="Purpose"
+          />
+        </div>
+
+        {/* FEATURES — OVERLAPS THE CURVE */}
+        <div
+        className="
+          relative
+          z-20
+
+          mt-0
+
+          lg:-mt-[260px]
+          xl:-mt-[280px]
+        "
+      >
+        <FeaturesTabs />
+      </div>
+      <div
+    className="
+      pointer-events-none
+      absolute
+      bottom-0
+      left-0
+      z-20
+      h-[75px]
+      w-full
+      overflow-hidden
+      
+      sm:h-[90px]
+      md:h-[115px]
+    "
+  >
+    <Image
+      src="/calloutcurve.webp"
+      alt=""
+      fill
+      className="object-fill"
+      sizes="100vw"
+      priority={false}
     />
   </div>
-
-  {/* FEATURES — OVERLAPS THE CURVE */}
-  <div
-  className="
-    relative
-    z-20
-
-    mt-0
-
-    lg:-mt-[260px]
-    xl:-mt-[280px]
-  "
->
-  <FeaturesTabs />
-</div>
-
-</section>
+      </section>
+      
+      <FAQSection/>
     </>
   );
 }

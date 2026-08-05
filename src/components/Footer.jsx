@@ -2,30 +2,21 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F7F5EC] !font-sans !text-[#26382F]">
+    <footer className="bg-[#0F3D2E] !font-sans !text-white">
 
       {/* ================= MAIN FOOTER ================= */}
-      <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-10">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-6 py-8 sm:px-8 lg:px-10">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
 
           {/* ================= LOGO ================= */}
           <div>
             <img
               src="/logo1.png"
               alt="Prithvi Global School"
-              className="mb-3 h-40 w-auto object-contain"
+              className="mb-2 h-24 w-auto object-contain"
             />
 
-            <p
-              className="
-                max-w-[280px]
-                !font-sans
-                !text-[15px]
-                !font-normal
-                !leading-7
-                !text-[#5B625D]
-              "
-            >
+            <p className="max-w-[280px] !font-sans text-[14px] font-normal leading-6 !text-[#B9C9BE]">
               Nurturing young minds through meaningful learning, creativity,
               values, and experiences that inspire a brighter future.
             </p>
@@ -33,66 +24,37 @@ export default function Footer() {
 
           {/* ================= QUICK LINKS ================= */}
           <div>
-            <h3
-              className="
-                mb-6
-                !font-serif
-                !text-[24px]
-                !font-semibold
-                !leading-tight
-                !text-[#26382F]
-              "
-            >
+            <h3 className="mb-4 !font-sans text-[17px] font-semibold leading-tight !text-white">
               Quick Links
             </h3>
 
-            <ul
-              className="
-                space-y-3.5
-                !font-sans
-                !text-[15px]
-                !font-normal
-                !text-[#5B625D]
-              "
-            >
+            <ul className="space-y-2.5 !font-sans text-[14px] font-normal !text-[#B9C9BE]">
               <li>
-                <Link href="/" className="!font-sans hover:!text-[#64B0E2]">
+                <Link href="/" className="!font-sans transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
                   Home
                 </Link>
               </li>
 
               <li>
-                <Link
-                  href="/about"
-                  className="!font-sans hover:!text-[#64B0E2]"
-                >
+                <Link href="/about" className="!font-sans transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
                   About Us
                 </Link>
               </li>
 
               <li>
-                <Link
-                  href="/academics"
-                  className="!font-sans hover:!text-[#64B0E2]"
-                >
+                <Link href="/academics" className="!font-sans transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
                   Academics
                 </Link>
               </li>
 
               <li>
-                <Link
-                  href="/gallery"
-                  className="!font-sans hover:!text-[#64B0E2]"
-                >
+                <Link href="/gallery" className="!font-sans transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
                   Gallery
                 </Link>
               </li>
 
               <li>
-                <Link
-                  href="/contact"
-                  className="!font-sans hover:!text-[#64B0E2]"
-                >
+                <Link href="/contact" className="!font-sans transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
                   Contact Us
                 </Link>
               </li>
@@ -101,52 +63,26 @@ export default function Footer() {
 
           {/* ================= CONTACT ================= */}
           <div>
-            <h3
-              className="
-                mb-6
-                !font-serif
-                !text-[24px]
-                !font-semibold
-                !leading-tight
-                !text-[#26382F]
-              "
-            >
+            <h3 className="mb-4 !font-sans text-[17px] font-semibold leading-tight !text-white">
               Contact Us
             </h3>
 
-            <div
-              className="
-                space-y-5
-                !font-sans
-                !text-[15px]
-                !font-normal
-                !leading-7
-                !text-[#5B625D]
-              "
-            >
-              <p className="!font-sans">
+            <div className="space-y-3 !font-sans text-[14px] font-normal leading-6 !text-[#B9C9BE]">
+              <p className="!font-sans !text-[#B9C9BE]">
                 Your School Address,
                 <br />
                 Hyderabad, Telangana
               </p>
 
-              <p className="!font-sans">
-                <span className="!font-sans !font-semibold !text-[#26382F]">
-                  Phone:
-                </span>
-
+              <p className="!font-sans !text-[#B9C9BE]">
+                <span className="!font-sans font-semibold !text-white">Phone:</span>
                 <br />
-
                 +91 98765 43210
               </p>
 
-              <p className="!font-sans">
-                <span className="!font-sans !font-semibold !text-[#26382F]">
-                  Email:
-                </span>
-
+              <p className="!font-sans !text-[#B9C9BE]">
+                <span className="!font-sans font-semibold !text-white">Email:</span>
                 <br />
-
                 info@yourschool.com
               </p>
             </div>
@@ -154,30 +90,11 @@ export default function Footer() {
 
           {/* ================= ADMISSIONS ================= */}
           <div>
-            <h3
-              className="
-                mb-6
-                !font-serif
-                !text-[24px]
-                !font-semibold
-                !leading-tight
-                !text-[#26382F]
-              "
-            >
+            <h3 className="mb-4 !font-sans text-[17px] font-semibold leading-tight !text-white">
               Admissions
             </h3>
 
-            <p
-              className="
-                mb-6
-                max-w-[290px]
-                !font-sans
-                !text-[15px]
-                !font-normal
-                !leading-7
-                !text-[#5B625D]
-              "
-            >
+            <p className="mb-4 max-w-[290px] !font-sans text-[14px] font-normal leading-6 !text-[#B9C9BE]">
               Give your child the opportunity to learn, explore, and grow in a
               nurturing environment.
             </p>
@@ -189,20 +106,17 @@ export default function Footer() {
                 items-center
                 justify-center
                 rounded-full
-                bg-[#64B0E2]
-                px-7
-                py-3
-
+                bg-[#E8962E]
+                px-6
+                py-2.5
                 !font-sans
-                !text-[14px]
-                !font-semibold
-                !text-white
-
+                text-[13px]
+                font-semibold
+                !text-[#0F3D2E]
                 transition-all
                 duration-300
-
                 hover:-translate-y-0.5
-                hover:bg-[#075A36]
+                hover:bg-white
               "
             >
               Enquire Now
@@ -212,7 +126,7 @@ export default function Footer() {
       </div>
 
       {/* ================= BOTTOM ================= */}
-      <div className="border-t border-[#26382F]/10">
+      <div className="border-t border-white/10">
         <div
           className="
             mx-auto
@@ -221,38 +135,32 @@ export default function Footer() {
             flex-col
             items-center
             justify-between
-            gap-4
+            gap-3
             px-6
-            py-5
+            py-4
             text-center
 
             !font-sans
-            !text-[13px]
-            !font-normal
-            !text-[#6A706C]
+            text-[12px]
+            font-normal
+            !text-[#8FA396]
 
             sm:px-8
             md:flex-row
             md:text-left
           "
         >
-          <p className="!font-sans !text-[13px] !font-normal">
+          <p className="!font-sans !text-[#8FA396]">
             © {new Date().getFullYear()} Prithvi Global School. All Rights
             Reserved.
           </p>
 
-          <div className="flex items-center gap-6 !font-sans">
-            <Link
-              href="/privacy"
-              className="!font-sans !text-[13px] hover:!text-[#075A36]"
-            >
+          <div className="flex items-center gap-5 !font-sans">
+            <Link href="/privacy" className="!font-sans transition-colors !text-[#8FA396] hover:!text-[#E8962E]">
               Privacy Policy
             </Link>
 
-            <Link
-              href="/terms"
-              className="!font-sans !text-[13px] hover:!text-[#075A36]"
-            >
+            <Link href="/terms" className="!font-sans transition-colors !text-[#8FA396] hover:!text-[#E8962E]">
               Terms & Conditions
             </Link>
           </div>
