@@ -41,7 +41,7 @@ export default function CurriculumSection() {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="bg-white py-14 md:py-20">
+    <section className="relative overflow-hidden bg-white pt-14 pb-[110px] md:pt-10 md:pb-[100px]">
       <div className="container-custom">
 
         {/* =========================================
@@ -480,6 +480,10 @@ export default function CurriculumSection() {
         </div>
 
       </div>
+          {/* =========================================
+          BOTTOM CURVE
+      ========================================= */}
+     
     </section>
   );
 }
