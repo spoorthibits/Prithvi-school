@@ -131,12 +131,12 @@ export default function Navbar() {
           {/* LOGO */}
           <Link href="/" className="relative z-10 shrink-0" aria-label="Prithvi Global School Home">
             <Image
-              src="/logo3.png"
+              src="/logo4.png"
               alt="Prithvi Global School"
               width={210}
               height={75}
               priority
-              className="h-auto w-[135px] sm:w-[145px] md:w-[155px] lg:w-[195px] xl:w-[215px]"
+              className="h-auto w-[135px] sm:w-[145px] md:w-[255px] lg:w-[395px] xl:w-[250px]"
             />
           </Link>
 

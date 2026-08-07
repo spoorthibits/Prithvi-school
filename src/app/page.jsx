@@ -2,8 +2,6 @@ import CurriculumSection from "@/components/CurriculumSection";
 import Hero from "@/components/HeroSection";
 import CoreHeader from "@/components/CoreHeader";
 import FeaturesTabs from "@/components/FeaturesTabs";
-
-import Philosophy from "@/components/Philosophy";
 import Image from "next/image";
 import BeyondClassroom from "@/components/BeyondClassroom";
 import FAQSection from "@/components/Faqs";
