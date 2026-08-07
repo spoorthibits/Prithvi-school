@@ -4,7 +4,11 @@ import BeyondClassroom from "@/components/BeyondClassroom";
 export default function Academics() {
   return (
     <>
-      <PageBanner image="/aca.png"/>
+      <PageBanner
+        image="/academicsnewimg.png"
+        alt="Academics Banner"
+      />
+      
      
     </>
   );

@@ -14,7 +14,7 @@ export default function PageBanner({ image, alt = "Page Banner" }) {
         quality={85}
       />
 
-      <div className="absolute bottom-0 left-0 w-full h-2/5 bg-gradient-to-t from-[#0b3d91]/90 via-[#0b3d91]/45 to-transparent pointer-events-none" />
+      
     </section>
   );
 }
