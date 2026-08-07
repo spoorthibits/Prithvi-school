@@ -151,7 +151,7 @@ export default function Navbar() {
               />
             ))}
 
-            <button
+            {/* <button
               type="button"
               className="group flex h-full items-center gap-1.5 text-[14px] font-medium tracking-[-0.01em] text-[#666666] transition-colors duration-300 hover:text-[#438e42]"
             >
@@ -161,7 +161,7 @@ export default function Navbar() {
                 strokeWidth={1.8}
                 className="transition-transform duration-300 group-hover:translate-y-[2px]"
               />
-            </button>
+            </button> */}
 
             {NAV_LINKS.slice(3).map((link) => (
               <DesktopNavLink
