@@ -51,8 +51,7 @@ const aboutSlides = [
           heading="OUR STORY"
           imagePosition="left"
           imageTransition="vertical"
-          decorativeImage="/assets/SVG/below-dark-half.svg"
-          decorativeImageMobile="/assets/SVG/below-dark-half.svg"
+          
           dotActiveColor="#a44a1f"
           dotInactiveColor="#4a4a4a"
           textColor="#000000"

@@ -1,55 +1,96 @@
-// components/PhilosophySection.jsx
-// "Our Philosophy" section for Prithvi Global School — Next.js App Router
-//
-// Usage: import PhilosophySection from "@/components/PhilosophySection";
-//        <PhilosophySection />
-//
-// Uses the global tokens from your CSS file (--dark-green, --white,
-// Montserrat). Laurel is a proper branch (curved stem + alternating,
-// tapering leaves, bottom-heavy) matching the reference — not a straight
-// line of leaves. Vertically centered, bleeding slightly off the left/right
-// edges the same way the reference does.
+import Image from "next/image";
 
 export default function PhilosophySection() {
   return (
-    <section
-      style={{ background: "var(--dark-green)" }}
-      className="relative w-full overflow-hidden py-14 sm:py-20 lg:py-24"
-    >
-      {/* Laurel — left */}
-      <Laurel className="pointer-events-none absolute left-0 top-1/2 hidden h-56 w-24 -translate-x-6 -translate-y-1/2 opacity-90 sm:block sm:h-64 sm:w-28 lg:h-80 lg:w-32" />
+    <>
+      <section
+        className="relative w-full bg-cover bg-center py-10 md:py-28"
+        style={{
+          backgroundColor: "#f3ebe4",
+        }}
+      >
+        <Image
+          src="/right-leaf.png"
+          alt=""
+          width={180}
+          height={300}
+          className="
+            pointer-events-none
+            absolute
+            left-0
+            top-1/2
+            hidden
+            -translate-y-1/2
+            opacity-80
 
-      {/* Laurel — right, mirrored */}
-      <Laurel className="pointer-events-none absolute right-0 top-1/2 hidden h-56 w-24 translate-x-6 -translate-y-1/2 scale-x-[-1] opacity-90 sm:block sm:h-64 sm:w-28 lg:h-80 lg:w-32" />
+            [filter:brightness(0)_saturate(100%)_invert(100%)]
 
-      <div className="container-custom relative flex flex-col items-center text-center">
-        {/* Eyebrow badge */}
-        <span
-          style={{ background: "var(--white)", color: "var(--dark-green)" }}
-          className="mb-8 inline-block rounded px-4 py-2 text-xs font-bold tracking-wide sm:text-sm"
-        >
-          OUR PHILOSOPHY
-        </span>
+            md:block
+          "
+          loading="lazy"
+        />
 
-        <div className="max-w-3xl space-y-6">
-          <p style={{ color: "var(--white)" }} className="text-sm leading-relaxed sm:text-base lg:text-lg">
+        <Image
+          src="/left-leaf.png"
+          alt=""
+          width={180}
+          height={300}
+          className="
+            pointer-events-none
+            absolute
+            right-0
+            top-1/2
+            hidden
+            -translate-y-1/2
+            opacity-80
+
+            [filter:brightness(0)_saturate(100%)_invert(100%)]
+
+            md:block
+          "
+          loading="lazy"
+        />
+        {/* Top Center Label */}
+        <div className="absolute top-0 left-1/2 z-10 -translate-x-1/2">
+          <div
+            className="
+              bg-[#FFFFFF]
+              px-4 py-5
+              md:h-20
+              md:px-6
+              md:py-4
+              font-semibold
+              tracking-widest
+              text-[#0F5132]
+              border border-[#F7F6F2]
+              flex items-end justify-center
+              text-md !font-bold md:text-base      /* smaller on mobile */
+              whitespace-nowrap          /* prevents line break */
+            "
+          >
+            OUR PHILOSOPHY
+          </div>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-5xl md:max-w-6xl px-6 md:px-0 md:text-center text-white">
+          <p className="mt-4 mb-6 text-white md:text-lg leading-relaxed">
             At Prithvi Global School, education is guided by strong academics
-            and deeply rooted values. We believe learning goes beyond
-            academic achievement to include character, discipline,
-            compassion, and cultural grounding.
+            and deeply rooted values. We believe learning goes beyond academic
+            achievement to include character, discipline, compassion, and
+            cultural grounding.
           </p>
 
-          <p style={{ color: "var(--white)" }} className="text-sm leading-relaxed sm:text-base lg:text-lg">
-            Modern, globally aligned teaching practices are balanced with
-            values such as integrity, respect, responsibility, and empathy
-            drawn from India&apos;s heritage. Each child is supported in a
-            safe and engaging environment that encourages clear thinking,
-            confidence, and a sense of responsibility, preparing learners
-            not only for the classroom but for life beyond it.
+          <p className="text-white md:text-lg leading-relaxed">
+            Modern, globally aligned teaching practices are balanced with values
+            such as integrity, respect, responsibility, and empathy drawn from
+            India&apos;s heritage. Each child is supported in a safe and
+            engaging environment that encourages clear thinking, confidence, and
+            a sense of responsibility, preparing learners not only for the
+            classroom but for life beyond it.
           </p>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
