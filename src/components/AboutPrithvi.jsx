@@ -1,22 +1,6 @@
 "use client";
 
-// components/AboutPrithvi.jsx
-// Responsive "About" section for Prithvi Global School — Next.js App Router
-//
-// Usage: import AboutPrithvi from "@/components/AboutPrithvi";  <AboutPrithvi />
-//
-// Uses the global tokens from your CSS file (--dark-green, --orange, --cream,
-// Playfair Display / Montserrat, .container-custom) — no Tailwind color/font
-// utility classes, so it inherits your site's look automatically.
-//
-// Marked "use client": it tracks whether the logo image fails to load (via
-// useState) so it can fall back to the placeholder crest. In the App Router,
-// a component that needs interactivity/state like this must be a Client
-// Component — trying to pass a raw DOM event handler straight into a Server
-// Component's next/image is what causes a "stringify" crash.
-//
-// Logo: drop your real logo file at /public/prithvi-logo.png (or .svg).
-// Until it exists, the component automatically shows PlaceholderCrest below.
+
 
 import { useState } from "react";
 import Image from "next/image";
@@ -25,10 +9,11 @@ export default function AboutPrithvi() {
   const [logoFailed, setLogoFailed] = useState(false);
 
   return (
-    <section style={{ background: "var(--white)" }} className="w-full py-12 sm:py-16 lg:py-20">
-      <div className="container-custom flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-16">
+    <>
+    <section style={{ background: "var(--white)" }} className="relative w-full overflow-hidden">
+      <div className="container-custom flex flex-col lg:flex-row lg:items-stretch">
         {/* Text column */}
-        <div className="w-full lg:w-3/5">
+        <div className="w-full py-12 sm:py-16 lg:w-3/5 lg:py-20 flex flex-col justify-center lg:pr-16">
           <h2 style={{ color: "var(--dark-green)" }} className="mb-6 !text-[28px] sm:!text-[36px]">
             At Prithvi Global School
           </h2>
@@ -54,18 +39,18 @@ export default function AboutPrithvi() {
           </p>
         </div>
 
-        {/* Logo column */}
-        <div className="flex w-full justify-center lg:w-2/5 lg:justify-end">
-          <div className="relative h-40 w-40 sm:h-48 sm:w-48 lg:h-56 lg:w-56">
+        {/* Image column — bleeds full section height, extends to viewport edge on the right */}
+        <div className="relative h-72 w-full sm:h-96 lg:h-auto lg:w-2/5 lg:absolute lg:inset-y-0 lg:right-0">
+          <div className="relative h-full w-full lg:w-[calc(50vw+2rem)] lg:ml-auto">
             {logoFailed ? (
               <PlaceholderCrest className="h-full w-full" />
             ) : (
               <Image
-                src="/prithvi-logo.png"
-                alt="Prithvi Global School logo"
+                src="/student.png"
+                alt="Prithvi Global School student"
                 fill
-                sizes="(max-width: 1024px) 12rem, 14rem"
-                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
                 onError={() => setLogoFailed(true)}
               />
             )}
@@ -73,6 +58,9 @@ export default function AboutPrithvi() {
         </div>
       </div>
     </section>
+    </>
+
+    
   );
 }
 

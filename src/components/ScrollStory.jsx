@@ -16,8 +16,7 @@ export default function ScrollStory({
   dotInactiveColor = "#e6b8a2",
   heading = "OUR STORY",
   headingClassName = "",
-  decorativeImage = "/assets/SVG/below-right.svg",
-  decorativeImageMobile = "/assets/stick.webp",
+
   ctaText = "",
   ctaDescription = "",
   ctaLink = "",
@@ -33,6 +32,21 @@ export default function ScrollStory({
   const [active, setActive] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
 
+  // Scroll distance per slide (in vh) — different values for mobile vs desktop.
+  // Lower = shorter gap / faster transitions.
+  const [vhPerSlide, setVhPerSlide] = useState(35);
+
+  useEffect(() => {
+    const updateVh = () => {
+      setVhPerSlide(window.innerWidth < 1024 ? 45 : 35);
+    };
+    updateVh();
+    window.addEventListener("resize", updateVh);
+    return () => window.removeEventListener("resize", updateVh);
+  }, []);
+
+  const scrollHeight = `${slides.length * vhPerSlide}vh`;
+
   useEffect(() => {
     let ticking = false;
     const onScroll = () => {
@@ -44,7 +58,10 @@ export default function ScrollStory({
           const scrollY = window.scrollY;
 
           if (scrollY >= start && scrollY <= start + height) {
-            const progress = Math.min(Math.max((scrollY - start) / height, 0), 1);
+            const progress = Math.min(
+              Math.max((scrollY - start) / height, 0),
+              1,
+            );
             setActive(Math.round(progress * (slides.length - 1)));
           }
           ticking = false;
@@ -82,9 +99,19 @@ export default function ScrollStory({
       style={{ transform: `translateX(-${active * 100}%)` }}
     >
       {slides.map((item, i) => (
-        <div key={i} className={isMobile ? "w-full flex-shrink-0" : "min-w-full"}>
+        <div
+          key={i}
+          className={isMobile ? "w-full flex-shrink-0" : "min-w-full"}
+        >
           {item.paragraphs?.map((para, idx) => (
-            <p key={idx} className={`para mb-2 sm:mb-3 ${layoutType === "discover" ? "text-[#555]" : "text-gray-600 text-[15px] sm:text-[16px] md:text-[18px]"}`}>
+            <p
+              key={idx}
+              className={`para mb-2 sm:mb-3 ${
+                layoutType === "discover"
+                  ? "text-[#555]"
+                  : "text-gray-600 text-[15px] sm:text-[16px] md:text-[18px]"
+              }`}
+            >
               {para}
             </p>
           ))}
@@ -94,13 +121,21 @@ export default function ScrollStory({
   );
 
   const renderDots = (isMobile = false) => (
-    <div className={`flex gap-2 w-fit bg-[#f5f0ed] rounded-full p-3 ${isMobile ? "mt-8 justify-center" : "mt-12"}`}>
+    <div
+      className={`flex gap-1 w-fit bg-[#f5f0ed] rounded-full p-3 ${
+        isMobile ? "mt-4 justify-center" : "mt-8"
+      }`}
+    >
       {slides.map((_, i) => (
         <button
           key={i}
           onClick={() => handleDotClick(i)}
-          className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-10" : "w-2"}`}
-          style={{ backgroundColor: i === active ? dotActiveColor : dotInactiveColor }}
+          className={`h-2 rounded-full transition-all duration-300 ${
+            i === active ? "w-10" : "w-2"
+          }`}
+          style={{
+            backgroundColor: i === active ? dotActiveColor : dotInactiveColor,
+          }}
           aria-label={`Go to slide ${i + 1}`}
         />
       ))}
@@ -108,29 +143,37 @@ export default function ScrollStory({
   );
 
   const renderImageSection = (isMobile = false) => {
-    const imageWrapperClass = layoutType === "discover" 
-      ? `${isMobile ? "w-full mb-3 mt-15" : "w-[460px] mt-15 flex-shrink-0"}` 
-      : `${isMobile ? "w-full mb-3 mt-12" : "w-[400px] flex-shrink-0"}`;
+    const imageWrapperClass =
+      layoutType === "discover"
+        ? `${isMobile ? "w-full mb-3 mt-15x" : "w-[460px] mt-15 flex-shrink-0"}`
+        : `${
+            isMobile
+              ? "w-full mb-3 mt-12"
+              : "w-[400px] flex-shrink-0 flex flex-col h-full"
+          }`;
 
-    const imageHeightClass = layoutType === "discover"
-      ? `${isMobile ? "h-[240px] mt-12" : "h-[400px]"}`
-      : `${isMobile ? "h-[200px] mt-18" : "h-[353px]"}`;
+    const imageHeightClass =
+      layoutType === "discover"
+        ? `${isMobile ? "h-[240px] mt-12" : "h-[400px]"}`
+        : `${isMobile ? "h-[200px] mt-18" : "h-[353px]"}`;
 
     return (
       <div className={imageWrapperClass}>
-        <div className={`relative overflow-hidden rounded-[24px] ${imageHeightClass} ${imageClassName}`}>
+        <div
+          className={`relative overflow-hidden rounded-[24px] ${imageHeightClass} ${imageClassName}`}
+        >
           {imageTransition === "vertical" ? (
             // Fixed vertical image transition
-            <div 
+            <div
               className="relative w-full transition-transform duration-700 ease-out"
               style={{
                 height: `${slides.length * 100}%`,
-                transform: `translateY(-${(active / slides.length) * 100}%)`
+                transform: `translateY(-${(active / slides.length) * 100}%)`,
               }}
             >
               {slides.map((slide, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className="relative w-full"
                   style={{ height: `${100 / slides.length}%` }}
                 >
@@ -157,9 +200,15 @@ export default function ScrollStory({
         </div>
 
         {(currentSlide.imageTitle || currentSlide.imageDescription) && (
-          <div className="mt-4 px-1 h-[140px]">
+          <div className="mt-4 px-1">
             {currentSlide.imageTitle && (
-              <h3 className={`font-semibold mb-2 ${layoutType === "discover" ? "text-[#A54220] text-[20px] sm:text-[24px] md:text-[28px]" : "text-gray-800"}`}>
+              <h3
+                className={`font-semibold mb-2 ${
+                  layoutType === "discover"
+                    ? "text-[#A54220] text-[20px] sm:text-[24px] md:text-[28px]"
+                    : "text-gray-800"
+                }`}
+              >
                 {currentSlide.imageTitle}
               </h3>
             )}
@@ -176,19 +225,22 @@ export default function ScrollStory({
 
   const renderDiscoverContent = () => (
     <div className="relative rounded-[32px] p-12 pl-4 max-w-[480px]">
-      <div 
-        className="bg-[#f5f0ed]" 
-        style={{ 
-          height: '370px', 
-          width: '140px', 
-          borderRadius: '25px', 
-          color: 'rgba(160, 61, 19, 0.08)' 
+      <div
+        className="bg-[#f5f0ed]"
+        style={{
+          height: "370px",
+          width: "140px",
+          borderRadius: "25px",
+          color: "rgba(160, 61, 19, 0.08)",
         }}
       ></div>
 
-      <div className="absolute" style={{ top: '100px', left: '70px', width: '500px' }}>
-        <h2 
-          className={`font-serif mb-8 tracking-wider ${headingClassName}`} 
+      <div
+        className="absolute"
+        style={{ top: "100px", left: "70px", width: "500px" }}
+      >
+        <h2
+          className={`font-serif mb-8 tracking-wider ${headingClassName}`}
           style={{ color: textColor }}
         >
           {heading}
@@ -224,19 +276,23 @@ export default function ScrollStory({
 
   if (layoutType === "discover") {
     return (
-      <div ref={wrapperRef} className="h-[300vh]" style={{ backgroundColor }}>
+      <div ref={wrapperRef} style={{ backgroundColor, height: scrollHeight }}>
         <section
-          className={`sticky top-0 container-custom py-12 md:py-14 lg:py-20 xl:py-18 min-h-screen flex flex-col justify-center ${sectionClassName}`}
+          className={`sticky top-0 container-custom py-12 md:py-14 lg:py-20 xl:py- min-h-screen flex flex-col justify-center ${sectionClassName}`}
         >
-          <div className={`hidden lg:flex items-end flex-row gap-16 ${containerClassName} justify-between`}>
-            {showBulletPoints ? renderDiscoverContent() : (
+          <div
+            className={`hidden lg:flex items-end flex-row gap-16 ${containerClassName} justify-between`}
+          >
+            {showBulletPoints ? (
+              renderDiscoverContent()
+            ) : (
               <div className={`max-w-xl flex-1 ${contentClassName}`}>
-                <h2 className={`tracking-[0.2em] mb-2 ${headingClassName}`} style={{ color: textColor }}>
+                <h2
+                  className={`tracking-[0.2em] mb-2 ${headingClassName}`}
+                  style={{ color: textColor }}
+                >
                   {heading}
                 </h2>
-                <div className="mb-6">
-                  <Image src={decorativeImage} alt="" width={200} height={12} />
-                </div>
                 {renderTextContent()}
                 {renderDots()}
               </div>
@@ -248,7 +304,10 @@ export default function ScrollStory({
             {renderImageSection(true)}
             {showBulletPoints ? (
               <div className="bg-[#f5f0ed] rounded-[24px] p-6 resp">
-                <h2 className={`font-serif mb-3 ${headingClassName}`} style={{ color: textColor }}>
+                <h2
+                  className={`font-serif mb-3 ${headingClassName}`}
+                  style={{ color: textColor }}
+                >
                   {heading}
                 </h2>
                 <ul className="space-y-4 mb-6">
@@ -265,13 +324,15 @@ export default function ScrollStory({
               </div>
             ) : (
               <>
-                <h3 className={`tracking-[0.2em] mb-1 ${headingClassName}`} style={{ color: textColor }}>
+                <h3
+                  className={`tracking-[0.2em] mb-1 ${headingClassName}`}
+                  style={{ color: textColor }}
+                >
                   {heading}
                 </h3>
-                <div className="mb-2">
-                  <Image src={decorativeImageMobile} alt="" width={160} height={10} />
+                <div className="w-full overflow-hidden">
+                  {renderTextContent(true)}
                 </div>
-                <div className="w-full overflow-hidden">{renderTextContent(true)}</div>
                 {renderDots(true)}
               </>
             )}
@@ -279,7 +340,11 @@ export default function ScrollStory({
 
           {(ctaText || ctaDescription) && (
             <div className="text-center mt-6 md:mt-8 lg:mt-10">
-              {ctaDescription && <p className="text-gray-500 mb-4 md:mb-5 para">{ctaDescription}</p>}
+              {ctaDescription && (
+                <p className="text-gray-500 mb-4 md:mb-5 para">
+                  {ctaDescription}
+                </p>
+              )}
               {ctaText && renderCtaButton()}
             </div>
           )}
@@ -289,21 +354,27 @@ export default function ScrollStory({
   }
 
   return (
-    <div ref={wrapperRef} className="h-[300vh]">
+    <div ref={wrapperRef} style={{ height: scrollHeight }}>
       <section
-        className={`sticky top-0 container-custom py-8 md:py-10 lg:py-12 xl:py-14 min-h-screen flex flex-col justify-center ${sectionClassName}`}
+        className={`sticky top-0 container-custom py-8 md:py-10 lg:py-12 xl:py-13 flex flex-col justify-center ${sectionClassName}`}
         style={{ backgroundColor }}
       >
-        <div className={`hidden lg:flex items-center ${imagePosition === "right" ? "flex-row-reverse" : ""} gap-16 overflow-hidden ${containerClassName}`}>
+        <div
+          className={`hidden lg:flex items-start ${
+            imagePosition === "right" ? "flex-row-reverse" : ""
+          } gap-16 overflow-hidden ${containerClassName}`}
+        >
           {renderImageSection()}
-          
-          <div className={`max-w-xl flex-1 overflow-hidden mt-4 ${contentClassName}`}>
-            <h3 className={`tracking-[0.2em] mb-2 ${headingClassName}`} style={{ color: textColor }}>
+
+          <div
+            className={`max-w-xl flex-1 overflow-hidden flex flex-col justify-center h-full ${contentClassName}`}
+          >
+            <h3
+              className={`tracking-[0.2em] mb-2 ${headingClassName}`}
+              style={{ color: textColor }}
+            >
               {heading}
             </h3>
-            <div className="mb-6">
-              <Image src={decorativeImage} alt="" width={200} height={12} />
-            </div>
             {renderTextContent()}
             {renderDots()}
           </div>
@@ -311,21 +382,27 @@ export default function ScrollStory({
 
         <div className="lg:hidden">
           {renderImageSection(true)}
-          
-          <h3 className={`tracking-[0.2em] mb-2 ${headingClassName}`} style={{ color: textColor }}>
+
+          <h3
+            className={`tracking-[0.2em] mb-2 ${headingClassName}`}
+            style={{ color: textColor }}
+          >
             {heading}
           </h3>
-          <div className="mb-2">
-            <Image src={decorativeImageMobile} alt="" width={160} height={10} />
-          </div>
 
-          <div className="w-full overflow-hidden">{renderTextContent(true)}</div>
+          <div className="w-full overflow-hidden">
+            {renderTextContent(true)}
+          </div>
           {renderDots(true)}
         </div>
 
         {(ctaText || ctaDescription) && (
           <div className="text-center mt-6 md:mt-8 lg:mt-10">
-            {ctaDescription && <p className="text-gray-500 mb-4 md:mb-5 para">{ctaDescription}</p>}
+            {ctaDescription && (
+              <p className="text-gray-500 mb-4 md:mb-5 para">
+                {ctaDescription}
+              </p>
+            )}
             {ctaText && renderCtaButton()}
           </div>
         )}
