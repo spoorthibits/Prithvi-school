@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Button from "@/components/Button";
 
@@ -21,391 +20,1019 @@ export default function ScrollStory({
   ctaDescription = "",
   ctaLink = "",
   onCtaClick = null,
+
   imagePosition = "left",
   layoutType = "default",
   imageTransition = "horizontal",
-  textColor = "#374151",
+
+  textColor = "#075a36",
+
   showBulletPoints = false,
   bulletPoints = [],
 }) {
   const wrapperRef = useRef(null);
+
   const [active, setActive] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
 
-  // Scroll distance per slide (in vh) — different values for mobile vs desktop.
-  // Lower = shorter gap / faster transitions.
-  const [vhPerSlide, setVhPerSlide] = useState(35);
+  const totalSlides = slides?.length || 0;
+
+  /* =========================================
+     SCROLL SETTINGS
+
+     Compact scroll-story.
+
+     1 slide  = 100vh
+     2 slides = 145vh
+     3 slides = 190vh
+     4 slides = 235vh
+
+     Much smaller than 100vh per slide.
+  ========================================= */
+
+  const scrollHeight =
+    totalSlides > 1
+      ? `${100 + (totalSlides - 1) * 45}vh`
+      : "100vh";
+
+  /* =========================================
+     SCROLL HANDLER
+  ========================================= */
 
   useEffect(() => {
-    const updateVh = () => {
-      setVhPerSlide(window.innerWidth < 1024 ? 45 : 35);
-    };
-    updateVh();
-    window.addEventListener("resize", updateVh);
-    return () => window.removeEventListener("resize", updateVh);
-  }, []);
+    if (!totalSlides) return;
 
-  const scrollHeight = `${slides.length * vhPerSlide}vh`;
-
-  useEffect(() => {
     let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (!wrapperRef.current) return;
-          const start = wrapperRef.current.offsetTop;
-          const height = wrapperRef.current.offsetHeight - window.innerHeight;
-          const scrollY = window.scrollY;
 
-          if (scrollY >= start && scrollY <= start + height) {
-            const progress = Math.min(
-              Math.max((scrollY - start) / height, 0),
-              1,
-            );
-            setActive(Math.round(progress * (slides.length - 1)));
-          }
-          ticking = false;
-        });
+    const updateActiveSlide = () => {
+      if (!wrapperRef.current) {
+        ticking = false;
+        return;
+      }
+
+      const wrapper = wrapperRef.current;
+      const rect = wrapper.getBoundingClientRect();
+
+      /*
+       * Amount scrolled inside this component.
+       */
+      const scrolled = Math.max(
+        -rect.top,
+        0
+      );
+
+      /*
+       * Total scroll distance.
+       */
+      const maxScroll = Math.max(
+        wrapper.offsetHeight -
+          window.innerHeight,
+        1
+      );
+
+      /*
+       * Progress 0 -> 1
+       */
+      const progress = Math.min(
+        Math.max(
+          scrolled / maxScroll,
+          0
+        ),
+        1
+      );
+
+      /*
+       * Current slide.
+       */
+      const nextActive = Math.round(
+        progress *
+          (totalSlides - 1)
+      );
+
+      setActive((previous) =>
+        previous === nextActive
+          ? previous
+          : nextActive
+      );
+
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(
+          updateActiveSlide
+        );
+
         ticking = true;
       }
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("touchmove", onScroll, { passive: true });
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      {
+        passive: true,
+      }
+    );
+
+    window.addEventListener(
+      "resize",
+      updateActiveSlide
+    );
+
+    updateActiveSlide();
+
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("touchmove", onScroll);
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+
+      window.removeEventListener(
+        "resize",
+        updateActiveSlide
+      );
     };
-  }, [slides.length]);
+  }, [totalSlides]);
+
+  /* =========================================
+     DOT CLICK
+  ========================================= */
 
   const handleDotClick = (index) => {
-    if (isScrolling) return;
+    if (
+      !wrapperRef.current ||
+      !totalSlides ||
+      isScrolling
+    ) {
+      return;
+    }
+
     setActive(index);
     setIsScrolling(true);
-    if (wrapperRef.current) {
-      const start = wrapperRef.current.offsetTop;
-      const height = wrapperRef.current.offsetHeight - window.innerHeight;
-      const target = start + (height / (slides.length - 1)) * index;
-      window.scrollTo({ top: target, behavior: "smooth" });
-      setTimeout(() => setIsScrolling(false), 1000);
-    }
+
+    const wrapper =
+      wrapperRef.current;
+
+    const rect =
+      wrapper.getBoundingClientRect();
+
+    const wrapperTop =
+      window.scrollY + rect.top;
+
+    const scrollableHeight =
+      Math.max(
+        wrapper.offsetHeight -
+          window.innerHeight,
+        0
+      );
+
+    const target =
+      wrapperTop +
+      (scrollableHeight /
+        Math.max(
+          totalSlides - 1,
+          1
+        )) *
+        index;
+
+    window.scrollTo({
+      top: target,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
+      setIsScrolling(false);
+    }, 800);
   };
 
-  const currentSlide = slides[active] || slides[0];
+  /* =========================================
+     CURRENT SLIDE
+  ========================================= */
 
-  const renderTextContent = (isMobile = false) => (
-    <div
-      className={`flex transition-transform duration-500 ease-out ${isMobile ? "w-full" : ""}`}
-      style={{ transform: `translateX(-${active * 100}%)` }}
-    >
-      {slides.map((item, i) => (
-        <div
-          key={i}
-          className={isMobile ? "w-full flex-shrink-0" : "min-w-full"}
-        >
-          {item.paragraphs?.map((para, idx) => (
-            <p
-              key={idx}
-              className={`para mb-2 sm:mb-3 ${
-                layoutType === "discover"
-                  ? "text-[#555]"
-                  : "text-gray-600 text-[15px] sm:text-[16px] md:text-[18px]"
-              }`}
-            >
-              {para}
-            </p>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
+  const currentSlide =
+    slides[active] || slides[0];
 
-  const renderDots = (isMobile = false) => (
-    <div
-      className={`flex gap-1 w-fit bg-[#f5f0ed] rounded-full p-3 ${
-        isMobile ? "mt-4 justify-center" : "mt-8"
-      }`}
-    >
-      {slides.map((_, i) => (
-        <button
-          key={i}
-          onClick={() => handleDotClick(i)}
-          className={`h-2 rounded-full transition-all duration-300 ${
-            i === active ? "w-10" : "w-2"
-          }`}
-          style={{
-            backgroundColor: i === active ? dotActiveColor : dotInactiveColor,
-          }}
-          aria-label={`Go to slide ${i + 1}`}
-        />
-      ))}
-    </div>
-  );
+  if (!currentSlide) {
+    return null;
+  }
 
-  const renderImageSection = (isMobile = false) => {
-    const imageWrapperClass =
-      layoutType === "discover"
-        ? `${isMobile ? "w-full mb-3 mt-15x" : "w-[460px] mt-15 flex-shrink-0"}`
-        : `${
-            isMobile
-              ? "w-full mb-3 mt-12"
-              : "w-[400px] flex-shrink-0 flex flex-col h-full"
-          }`;
+  /* =========================================
+     TEXT CONTENT
+  ========================================= */
 
-    const imageHeightClass =
-      layoutType === "discover"
-        ? `${isMobile ? "h-[240px] mt-12" : "h-[400px]"}`
-        : `${isMobile ? "h-[200px] mt-18" : "h-[353px]"}`;
-
+  const renderTextContent = () => {
     return (
-      <div className={imageWrapperClass}>
-        <div
-          className={`relative overflow-hidden rounded-[24px] ${imageHeightClass} ${imageClassName}`}
-        >
-          {imageTransition === "vertical" ? (
-            // Fixed vertical image transition
+      <div
+        className="
+          flex
+          w-full
+          transition-transform
+          duration-700
+          ease-out
+        "
+        style={{
+          transform: `translateX(-${
+            active * 100
+          }%)`,
+          willChange: "transform",
+        }}
+      >
+        {slides.map(
+          (slide, index) => (
             <div
-              className="relative w-full transition-transform duration-700 ease-out"
-              style={{
-                height: `${slides.length * 100}%`,
-                transform: `translateY(-${(active / slides.length) * 100}%)`,
-              }}
+              key={index}
+              className="
+                w-full
+                min-w-full
+                flex-shrink-0
+              "
             >
-              {slides.map((slide, i) => (
-                <div
-                  key={i}
-                  className="relative w-full"
-                  style={{ height: `${100 / slides.length}%` }}
-                >
-                  <Image
-                    src={slide.image}
-                    alt={slide.imageAlt || heading}
-                    fill
-                    priority={i === 0}
-                    className="object-cover"
-                  />
-                </div>
-              ))}
+              {slide.paragraphs?.map(
+                (
+                  paragraph,
+                  paragraphIndex
+                ) => (
+                  <p
+                    key={
+                      paragraphIndex
+                    }
+                    className={`
+                      mb-3
+                      ${
+                        layoutType ===
+                        "discover"
+                          ? "text-[#555]"
+                          : "text-gray-600"
+                      }
+                      text-[15px]
+                      sm:text-[16px]
+                      md:text-[17px]
+                      lg:text-[17px]
+                      xl:text-[18px]
+                      leading-[1.5]
+                      md:leading-[1.55]
+                    `}
+                  >
+                    {paragraph}
+                  </p>
+                )
+              )}
             </div>
-          ) : (
-            // Horizontal fade transition
-            <Image
-              src={currentSlide.image}
-              alt={currentSlide.imageAlt || heading}
-              fill
-              priority
-              className="object-cover transition-opacity duration-500"
-            />
-          )}
-        </div>
-
-        {(currentSlide.imageTitle || currentSlide.imageDescription) && (
-          <div className="mt-4 px-1">
-            {currentSlide.imageTitle && (
-              <h3
-                className={`font-semibold mb-2 ${
-                  layoutType === "discover"
-                    ? "text-[#A54220] text-[20px] sm:text-[24px] md:text-[28px]"
-                    : "text-gray-800"
-                }`}
-              >
-                {currentSlide.imageTitle}
-              </h3>
-            )}
-            {currentSlide.imageDescription && (
-              <p className="text-gray-600 para text-[16px] sm:text-[18px] md:text-[20px]">
-                {currentSlide.imageDescription}
-              </p>
-            )}
-          </div>
+          )
         )}
       </div>
     );
   };
 
-  const renderDiscoverContent = () => (
-    <div className="relative rounded-[32px] p-12 pl-4 max-w-[480px]">
-      <div
-        className="bg-[#f5f0ed]"
-        style={{
-          height: "370px",
-          width: "140px",
-          borderRadius: "25px",
-          color: "rgba(160, 61, 19, 0.08)",
-        }}
-      ></div>
+  /* =========================================
+     DOTS
+  ========================================= */
 
-      <div
-        className="absolute"
-        style={{ top: "100px", left: "70px", width: "500px" }}
-      >
-        <h2
-          className={`font-serif mb-8 tracking-wider ${headingClassName}`}
-          style={{ color: textColor }}
-        >
-          {heading}
-        </h2>
-        <ul className="space-y-6">
-          {bulletPoints.map((point, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <h3>
-                <span className="text-[#A54220] text-xl mt-1">•</span>
-                <span className="text-[#2b2b2b] tracking-wide uppercase pl-5 font-light md:text-[16px] lg:text-[18px] xl:text-[20px]">
-                  {point}
-                </span>
-              </h3>
-            </li>
-          ))}
-        </ul>
-      </div>
-      {renderDots()}
-    </div>
-  );
-
-  const renderCtaButton = () => {
+  const renderDots = (
+    isMobile = false
+  ) => {
     return (
-      <Button
-        text={ctaText}
-        href={ctaLink}
-        onClick={onCtaClick}
-        variant="primary"
-        className="!bg-[#a44a1f] !px-8 !py-3 hover:!bg-[#8a3d19]"
-      />
+      <div
+        className={`
+          flex
+          items-center
+          gap-1
+          w-fit
+          bg-[#f5f0ed]
+          rounded-full
+          px-3
+          py-2.5
+          ${
+            isMobile
+              ? "mt-5"
+              : "mt-5"
+          }
+        `}
+      >
+        {slides.map(
+          (_, index) => (
+            <button
+              key={index}
+              type="button"
+              disabled={
+                isScrolling
+              }
+              onClick={() =>
+                handleDotClick(
+                  index
+                )
+              }
+              className={`
+                h-2
+                rounded-full
+                transition-all
+                duration-500
+                ease-out
+                ${
+                  index === active
+                    ? "w-9"
+                    : "w-2"
+                }
+                ${
+                  isScrolling
+                    ? "cursor-default"
+                    : "cursor-pointer"
+                }
+              `}
+              style={{
+                backgroundColor:
+                  index === active
+                    ? dotActiveColor
+                    : dotInactiveColor,
+              }}
+              aria-label={`Go to slide ${
+                index + 1
+              }`}
+            />
+          )
+        )}
+      </div>
     );
   };
 
-  if (layoutType === "discover") {
+  /* =========================================
+     IMAGE SECTION
+  ========================================= */
+
+  const renderImageSection = (
+    isMobile = false
+  ) => {
     return (
-      <div ref={wrapperRef} style={{ backgroundColor, height: scrollHeight }}>
-        <section
-          className={`sticky top-0 container-custom py-12 md:py-14 lg:py-20 xl:py- min-h-screen flex flex-col justify-center ${sectionClassName}`}
+      <div
+        className={`
+          w-full
+          ${
+            isMobile
+              ? ""
+              : "lg:w-[350px] xl:w-[370px] flex-shrink-0"
+          }
+        `}
+      >
+        <div
+          className={`
+            relative
+            w-full
+            aspect-[3/2]
+            overflow-hidden
+            rounded-[22px]
+            ${imageClassName}
+          `}
+        >
+          {/* =================================
+              VERTICAL IMAGE
+          ================================= */}
+
+          {imageTransition ===
+          "vertical" ? (
+            <div
+              className="
+                absolute
+                inset-0
+                w-full
+                transition-transform
+                duration-700
+                ease-out
+              "
+              style={{
+                height: `${
+                  slides.length * 100
+                }%`,
+                transform: `translateY(-${
+                  (active /
+                    slides.length) *
+                  100
+                }%)`,
+                willChange:
+                  "transform",
+              }}
+            >
+              {slides.map(
+                (
+                  slide,
+                  index
+                ) => (
+                  <div
+                    key={index}
+                    className="
+                      relative
+                      w-full
+                    "
+                    style={{
+                      height: `${
+                        100 /
+                        slides.length
+                      }%`,
+                    }}
+                  >
+                    <Image
+                      src={
+                        slide.image
+                      }
+                      alt={
+                        slide.imageAlt ||
+                        heading
+                      }
+                      fill
+                      priority={
+                        index === 0
+                      }
+                      className="
+                        object-cover
+                      "
+                      sizes="
+                        (max-width: 1024px) 100vw,
+                        370px
+                      "
+                    />
+                  </div>
+                )
+              )}
+            </div>
+          ) : (
+            /* =================================
+               NORMAL IMAGE
+            ================================= */
+
+            <Image
+              src={
+                currentSlide.image
+              }
+              alt={
+                currentSlide.imageAlt ||
+                heading
+              }
+              fill
+              priority
+              className="
+                object-cover
+                transition-opacity
+                duration-700
+                ease-out
+              "
+              sizes="
+                (max-width: 1024px) 100vw,
+                370px
+              "
+            />
+          )}
+        </div>
+
+        {/* =================================
+            IMAGE TITLE
+        ================================= */}
+
+        {currentSlide.imageTitle && (
+          <h3
+            className="
+              font-serif
+              font-semibold
+              text-[#142f4b]
+              text-[22px]
+              sm:text-[24px]
+              md:text-[25px]
+              mt-3
+              px-1
+            "
+          >
+            {
+              currentSlide.imageTitle
+            }
+          </h3>
+        )}
+
+        {/* =================================
+            IMAGE DESCRIPTION
+        ================================= */}
+
+        {currentSlide.imageDescription && (
+          <p
+            className="
+              text-gray-600
+              text-[15px]
+              md:text-[16px]
+              mt-1
+              px-1
+              leading-[1.5]
+            "
+          >
+            {
+              currentSlide.imageDescription
+            }
+          </p>
+        )}
+      </div>
+    );
+  };
+
+  /* =========================================
+     DISCOVER CONTENT
+  ========================================= */
+
+  const renderDiscoverContent =
+    () => {
+      return (
+        <div
+          className="
+            relative
+            max-w-[440px]
+            p-5
+            pl-2
+          "
         >
           <div
-            className={`hidden lg:flex items-end flex-row gap-16 ${containerClassName} justify-between`}
+            className="
+              absolute
+              left-0
+              top-0
+              w-[90px]
+              h-[280px]
+              bg-[#f5f0ed]
+              rounded-[22px]
+            "
+          />
+
+          <div
+            className="
+              relative
+              ml-10
+              pt-8
+            "
           >
-            {showBulletPoints ? (
-              renderDiscoverContent()
-            ) : (
-              <div className={`max-w-xl flex-1 ${contentClassName}`}>
-                <h2
-                  className={`tracking-[0.2em] mb-2 ${headingClassName}`}
-                  style={{ color: textColor }}
-                >
-                  {heading}
-                </h2>
-                {renderTextContent()}
-                {renderDots()}
-              </div>
-            )}
-            {renderImageSection()}
-          </div>
+            <h2
+              className={`
+                font-serif
+                mb-6
+                tracking-wider
+                ${headingClassName}
+              `}
+              style={{
+                color:
+                  textColor,
+              }}
+            >
+              {heading}
+            </h2>
 
-          <div className="lg:hidden">
-            {renderImageSection(true)}
-            {showBulletPoints ? (
-              <div className="bg-[#f5f0ed] rounded-[24px] p-6 resp">
-                <h2
-                  className={`font-serif mb-3 ${headingClassName}`}
-                  style={{ color: textColor }}
-                >
-                  {heading}
-                </h2>
-                <ul className="space-y-4 mb-6">
-                  <h3>
-                    {bulletPoints.map((point, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-[#A54220]">•</span>
-                        <span className="text-[#2b2b2b]">{point}</span>
-                      </li>
-                    ))}
-                  </h3>
-                </ul>
-                {renderDots(true)}
-              </div>
-            ) : (
-              <>
-                <h3
-                  className={`tracking-[0.2em] mb-1 ${headingClassName}`}
-                  style={{ color: textColor }}
-                >
-                  {heading}
-                </h3>
-                <div className="w-full overflow-hidden">
-                  {renderTextContent(true)}
-                </div>
-                {renderDots(true)}
-              </>
-            )}
-          </div>
+            <ul className="space-y-4">
+              {bulletPoints.map(
+                (
+                  point,
+                  index
+                ) => (
+                  <li
+                    key={index}
+                    className="
+                      flex
+                      items-start
+                      gap-3
+                    "
+                  >
+                    <span className="text-[#A54220] text-lg">
+                      •
+                    </span>
 
-          {(ctaText || ctaDescription) && (
-            <div className="text-center mt-6 md:mt-8 lg:mt-10">
-              {ctaDescription && (
-                <p className="text-gray-500 mb-4 md:mb-5 para">
-                  {ctaDescription}
-                </p>
+                    <span
+                      className="
+                        text-[#2b2b2b]
+                        tracking-wide
+                        uppercase
+                        font-light
+                        text-[15px]
+                        lg:text-[17px]
+                      "
+                    >
+                      {point}
+                    </span>
+                  </li>
+                )
               )}
-              {ctaText && renderCtaButton()}
+            </ul>
+
+            {renderDots()}
+          </div>
+        </div>
+      );
+    };
+
+  /* =========================================
+     CTA
+  ========================================= */
+
+  const renderCtaButton =
+    () => {
+      return (
+        <Button
+          text={ctaText}
+          href={ctaLink}
+          onClick={onCtaClick}
+          variant="primary"
+          className="
+            !bg-[#a44a1f]
+            !px-7
+            !py-2.5
+            hover:!bg-[#8a3d19]
+          "
+        />
+      );
+    };
+
+  /* =========================================
+     DISCOVER LAYOUT
+  ========================================= */
+
+  if (
+    layoutType === "discover"
+  ) {
+    return (
+      <div
+        ref={wrapperRef}
+        className="
+          relative
+          w-full
+        "
+        style={{
+          height:
+            scrollHeight,
+        }}
+      >
+        <section
+          className={`
+            sticky
+            top-[76px]
+            lg:top-[88px]
+            w-full
+            ${sectionClassName}
+          `}
+          style={{
+            backgroundColor,
+          }}
+        >
+          <div
+            className={`
+              container-custom
+              w-full
+              py-4
+              sm:py-5
+              lg:py-6
+              ${containerClassName}
+            `}
+          >
+            {/* DESKTOP */}
+
+            <div
+              className="
+                hidden
+                lg:flex
+                items-start
+                justify-between
+                gap-10
+                xl:gap-14
+              "
+            >
+              {showBulletPoints ? (
+                renderDiscoverContent()
+              ) : (
+                <div
+                  className={`
+                    flex-1
+                    max-w-[560px]
+                    overflow-hidden
+                    ${contentClassName}
+                  `}
+                >
+                  <h2
+                    className={`
+                      font-serif
+                      tracking-[0.12em]
+                      text-[30px]
+                      xl:text-[32px]
+                      mb-3
+                      ${headingClassName}
+                    `}
+                    style={{
+                      color:
+                        textColor,
+                    }}
+                  >
+                    {heading}
+                  </h2>
+
+                  {renderTextContent()}
+
+                  {renderDots()}
+                </div>
+              )}
+
+              {renderImageSection()}
             </div>
-          )}
+
+            {/* MOBILE / TABLET */}
+
+            <div
+              className="
+                lg:hidden
+                w-full
+              "
+            >
+              {renderImageSection(
+                true
+              )}
+
+              {showBulletPoints ? (
+                <div
+                  className="
+                    bg-[#f5f0ed]
+                    rounded-[22px]
+                    p-5
+                    mt-4
+                  "
+                >
+                  <h2
+                    className={`
+                      font-serif
+                      text-[24px]
+                      mb-3
+                      ${headingClassName}
+                    `}
+                    style={{
+                      color:
+                        textColor,
+                    }}
+                  >
+                    {heading}
+                  </h2>
+
+                  <ul className="space-y-3">
+                    {bulletPoints.map(
+                      (
+                        point,
+                        index
+                      ) => (
+                        <li
+                          key={index}
+                          className="
+                            flex
+                            items-start
+                            gap-3
+                          "
+                        >
+                          <span className="text-[#A54220]">
+                            •
+                          </span>
+
+                          <span className="text-[#2b2b2b]">
+                            {point}
+                          </span>
+                        </li>
+                      )
+                    )}
+                  </ul>
+
+                  {renderDots(
+                    true
+                  )}
+                </div>
+              ) : (
+                <>
+                  <h3
+                    className={`
+                      font-serif
+                      tracking-[0.12em]
+                      text-[24px]
+                      mt-4
+                      mb-2
+                      ${headingClassName}
+                    `}
+                    style={{
+                      color:
+                        textColor,
+                    }}
+                  >
+                    {heading}
+                  </h3>
+
+                  <div
+                    className="
+                      w-full
+                      overflow-hidden
+                    "
+                  >
+                    {renderTextContent()}
+                  </div>
+
+                  {renderDots(
+                    true
+                  )}
+                </>
+              )}
+            </div>
+
+            {/* CTA */}
+
+            {(ctaText ||
+              ctaDescription) && (
+              <div
+                className="
+                  text-center
+                  mt-5
+                "
+              >
+                {ctaDescription && (
+                  <p className="text-gray-500 mb-3">
+                    {
+                      ctaDescription
+                    }
+                  </p>
+                )}
+
+                {ctaText &&
+                  renderCtaButton()}
+              </div>
+            )}
+          </div>
         </section>
       </div>
     );
   }
 
+  /* =========================================
+     DEFAULT LAYOUT
+  ========================================= */
+
   return (
-    <div ref={wrapperRef} style={{ height: scrollHeight }}>
+    <div
+      ref={wrapperRef}
+      className="
+        relative
+        w-full
+      "
+      style={{
+        height:
+          scrollHeight,
+      }}
+    >
       <section
-        className={`sticky top-0 container-custom py-8 md:py-10 lg:py-12 xl:py-13 flex flex-col justify-center ${sectionClassName}`}
-        style={{ backgroundColor }}
+        className={`
+          sticky
+          top-[76px]
+          lg:top-[88px]
+          w-full
+          ${sectionClassName}
+        `}
+        style={{
+          backgroundColor,
+        }}
       >
         <div
-          className={`hidden lg:flex items-start ${
-            imagePosition === "right" ? "flex-row-reverse" : ""
-          } gap-16 overflow-hidden ${containerClassName}`}
+          className={`
+            container-custom
+            w-full
+            py-4
+            sm:py-5
+            lg:py-6
+            ${containerClassName}
+          `}
         >
-          {renderImageSection()}
+          {/* =================================
+              DESKTOP
+          ================================= */}
 
           <div
-            className={`max-w-xl flex-1 overflow-hidden flex flex-col justify-center h-full ${contentClassName}`}
+            className={`
+              hidden
+              lg:flex
+              items-start
+              ${
+                imagePosition ===
+                "right"
+                  ? "flex-row-reverse"
+                  : ""
+              }
+              gap-10
+              xl:gap-14
+            `}
           >
+            {/* IMAGE */}
+
+            {renderImageSection()}
+
+            {/* CONTENT */}
+
+            <div
+              className={`
+                flex-1
+                max-w-[590px]
+                overflow-hidden
+                ${contentClassName}
+              `}
+            >
+              <h3
+                className={`
+                  font-serif
+                  tracking-[0.12em]
+                  text-[30px]
+                  xl:text-[32px]
+                  mb-3
+                  ${headingClassName}
+                `}
+                style={{
+                  color:
+                    textColor,
+                }}
+              >
+                {heading}
+              </h3>
+
+              {renderTextContent()}
+
+              {renderDots()}
+            </div>
+          </div>
+
+          {/* =================================
+              MOBILE / TABLET
+          ================================= */}
+
+          <div
+            className="
+              lg:hidden
+              w-full
+            "
+          >
+            {/* IMAGE */}
+
+            {renderImageSection(
+              true
+            )}
+
+            {/* HEADING */}
+
             <h3
-              className={`tracking-[0.2em] mb-2 ${headingClassName}`}
-              style={{ color: textColor }}
+              className={`
+                font-serif
+                tracking-[0.12em]
+                text-[24px]
+                sm:text-[26px]
+                mt-4
+                mb-2
+                ${headingClassName}
+              `}
+              style={{
+                color:
+                  textColor,
+              }}
             >
               {heading}
             </h3>
-            {renderTextContent()}
-            {renderDots()}
+
+            {/* TEXT */}
+
+            <div
+              className="
+                w-full
+                overflow-hidden
+              "
+            >
+              {renderTextContent()}
+            </div>
+
+            {/* DOTS */}
+
+            {renderDots(true)}
           </div>
+
+          {/* =================================
+              CTA
+          ================================= */}
+
+          {(ctaText ||
+            ctaDescription) && (
+            <div
+              className="
+                text-center
+                mt-5
+              "
+            >
+              {ctaDescription && (
+                <p className="text-gray-500 mb-3">
+                  {
+                    ctaDescription
+                  }
+                </p>
+              )}
+
+              {ctaText &&
+                renderCtaButton()}
+            </div>
+          )}
         </div>
-
-        <div className="lg:hidden">
-          {renderImageSection(true)}
-
-          <h3
-            className={`tracking-[0.2em] mb-2 ${headingClassName}`}
-            style={{ color: textColor }}
-          >
-            {heading}
-          </h3>
-
-          <div className="w-full overflow-hidden">
-            {renderTextContent(true)}
-          </div>
-          {renderDots(true)}
-        </div>
-
-        {(ctaText || ctaDescription) && (
-          <div className="text-center mt-6 md:mt-8 lg:mt-10">
-            {ctaDescription && (
-              <p className="text-gray-500 mb-4 md:mb-5 para">
-                {ctaDescription}
-              </p>
-            )}
-            {ctaText && renderCtaButton()}
-          </div>
-        )}
       </section>
     </div>
   );

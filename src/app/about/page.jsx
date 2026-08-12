@@ -1,8 +1,8 @@
-import PhilosophySection from "@/components/PhilosophySection";
+
 import PageBanner from "@/components/PageBanner";
 import ScrollStory from "@/components/ScrollStory";
-import OurMission from "@/components/OurMission";
-import WhoWeAre from "@/components/WhoWeAre";
+import SplitContent from "@/components/SplitContent";
+
 
 const aboutSlides = [
   {
@@ -46,6 +46,7 @@ export default function AboutPage() {
       <PageBanner 
       image = "/academicsnewimg.png"
        />
+      
       {/* <AboutPrithvi /> */}
        <ScrollStory
           slides={aboutSlides}
@@ -57,14 +58,54 @@ export default function AboutPage() {
          
           dotActiveColor="#a44a1f"
           dotInactiveColor="#a09b9b"
-          textColor="#000000"
-          headingClassName="text-[#d4af37]"
+          textColor="#0F5132"
+          headingClassName="text-[#0F5132]"
           contentClassName="text-black"
         />
-      <WhoWeAre/>
-      <PhilosophySection />
-      <OurMission/>
-      
+    <SplitContent
+  eyebrow="Our Vision"
+  heading="A school built around one simple idea."
+  paragraphs={[
+    "We believe every child learns best when they understand the 'why' behind every lesson, not just the answer.",
+    "That belief shapes every classroom, every teacher, and every day at our school.",
+  ]}
+  image="/ourvision.png"
+  imageAlt="Students exploring and learning together"
+  imagePosition="left"
+/>
+<SplitContent
+  eyebrow="Our Mission"
+  heading="Building strong foundations for lifelong learning."
+  paragraphs={[
+    "We provide a safe, inclusive and engaging learning environment where every child is encouraged to learn, create and grow.",
+    "Through meaningful experiences, creativity and strong values, we prepare children for a confident future.",
+  ]}
+  image="/ourmission.png"
+  imageAlt="Students working together"
+  imagePosition="right"
+/>
+<SplitContent
+  eyebrow="Why Choose Us"
+  heading="What makes Prithvi different"
+  paragraphs={[
+    "Every detail of our campus, our teachers, and our classrooms is built around one question: what does this child need to thrive?",
+    "That belief shapes the experience every single day.",
+  ]}
+  image="/whychooseus.png"
+  imageAlt="Students learning at Prithvi Global School"
+  imagePosition="left"
+  badgeNumber="12+"
+  badgeText={
+    <>
+      Years of nurturing
+      <br />
+      confident learners
+    </>
+  }
+  ctaText="Book a Campus Tour"
+  ctaLink="/contact"
+/>
+
     </>
   );
 }
