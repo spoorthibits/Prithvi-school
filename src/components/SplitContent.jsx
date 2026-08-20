@@ -59,7 +59,7 @@ export default function ImageContentSplit({
   return (
     <section
       ref={sectionRef}
-      className={`${backgroundColor} w-full overflow-hidden py-6 md:py-14 lg:py-16`}
+      className={`${backgroundColor} w-full overflow-hidden py-6 md:py-14 lg:py-10`}
     >
       <div className="container-custom">
         <div
