@@ -1,33 +1,50 @@
-import AdmissionProcess from "@/components/AdmissionProcess";
-import Hero from "@/components/HeroSection";
-import VideoHero from "@/components/VideoHero";
-
+import PageBanner from "@/components/PageBanner";
+import VideoHeroAnimation from "@/components/VideoHeroAnimation";
+import CoreHeader from "@/components/CoreHeader";
+import FeaturesTabs from "@/components/FeaturesTabs"; 
+import Image from "next/image";
+import FAQSection from "@/components/Faqs";
 
 export default function AboutPage() {
   return (
    <>
-   <Hero/>
-   {/* <AdmissionProcess/> */}
-   <VideoHero
-        videoSrc="/assets/academic-aivideo.mp4"
-        title="LEARNING JOURNEY"
-        slides={[
-          {
-            headingTop: "EARLY YEARS",
-            subTitle: "Empathy, Healthy,",
-            description:
-              "The early years are shaped around warmth, security, and gentle exploration. Children are encouraged to observe, ask questions, and engage with the world through play, stories, movement, and conversation. Learning experiences are thoughtfully guided to help children develop language, social awareness, and early thinking skills. With consistent routines and a caring environment, children begin to feel safe, confident, and ready to learn.",
-            image: "/assets/academicsanimation1.webp",
-          },
-          {
-            headingTop: "PRIMARY YEARS",
-            subTitle: "Simple. Personal. Child-first.",
-            description:
-              "The primary years focus on building strong academic foundations while developing independence and curiosity. Learning becomes more structured, helping children make connections, express ideas clearly, and develop confidence in their abilities.Teachers support students in understanding concepts deeply rather than memorizing outcomes. Equal importance is given to academic growth, emotional development, and responsible behaviour, allowing children to grow into thoughtful and capable learners.",
-            image: "/assets/academicsanimation2.webp",
-          },
-        ]}
-      />
+   <PageBanner
+           image="/academicsbanner.png"
+            title=""
+     subtitle=""
+         />
+          <section className="relative bg-[#FAF9F5] overflow-hidden">
+
+        {/* ================= TOP CURVE ================= */}
+
+
+        {/* DON'T CHANGE YOUR CURVE */}
+        <div className="relative z-0">
+          <CoreHeader
+            title1=""
+            badge="Purpose"
+          />
+        </div>
+
+        {/* FEATURES — OVERLAPS THE CURVE */}
+        <div
+        className="
+          relative
+          z-20
+
+          mt-0
+
+          lg:-mt-[260px]
+          xl:-mt-[280px]
+        "
+      >
+        <FeaturesTabs />
+      </div>
+     
+      </section>
+   <VideoHeroAnimation/>
+  
+      <FAQSection/>
    </>
   );
 }

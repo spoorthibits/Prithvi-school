@@ -26,7 +26,7 @@ export default function ScrollSlider({
     );
 
   return (
-    <section className={`relative py-8 md:py-18 overflow-hidden`}>
+    <section className={`relative py-8 md:py-15 overflow-hidden`}>
       <div className="container-custom">
 
         {/* MOBILE TITLE */}

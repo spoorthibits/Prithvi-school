@@ -42,7 +42,7 @@ export default function BeyondClassroom() {
   return (
     <section
       className="pt-14 pb-16 md:pb-20"
-      style={{ background: "#DDD4CA" }}
+      style={{ background: "#f1ebe3" }}
     >
       <div className="container-custom">
         {/* Top row: tabs (left) + big heading (right) */}

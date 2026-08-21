@@ -73,7 +73,7 @@ export default function VideoHero({
   const Heading = ({ top, bottom }) => (
     <div className="mb-4">
       {top && (
-        <div className="bg-lightblue inline-block px-4 py-2 mb-2">
+        <div className="!bg-[#d3e9f8] inline-block px-4 py-2 mb-2">
           <h2
             className="leading-[100%]"
             style={{
@@ -95,6 +95,7 @@ export default function VideoHero({
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,
               fontSize: "clamp(32px, 6vw, 48px)",
+              
             }}
           >
             {bottom}
@@ -122,7 +123,7 @@ export default function VideoHero({
                 fontFamily: "Playfair Display, serif",
                 fontWeight: 700,
                 fontSize: "clamp(18px, 2.5vw, 24px)",
-                color: "#9B1B2F",
+                color: "#075a36",
               }}
             >
               {slide.subTitle}
@@ -201,10 +202,10 @@ export default function VideoHero({
 
                 <div className="relative z-10 flex items-center justify-center h-full text-center px-6">
                   <h2
-                    className="text-white uppercase leading-[100%]"
+                    className="!text-white uppercase leading-[100%]"
                     style={{
                       fontFamily: "Montserrat, sans-serif",
-                      fontWeight: 630,
+                      fontWeight: 730,
                       fontVariant: "small-caps",
                       fontSize: "clamp(36px, 8vw, 160px)",
                     }}
