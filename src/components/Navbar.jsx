@@ -18,13 +18,13 @@ const CTA_LINKS = [
   {
     name: "Admissions",
     href: "/admissions",
-    bg: "bg-[#f7941d]",
+    bg: "bg-[#d59238]",
     hoverBg: "hover:bg-[#e88612]",
   },
   {
     name: "Enquire Now",
     href: "/contact",
-    bg: "bg-[#64b0e2]",
+    bg: "bg-[#196191]",
     hoverBg: "hover:bg-[#438e42]",
   },
 ];
@@ -41,7 +41,9 @@ function DesktopNavLink({ href, label, active }) {
       href={href}
       className={cn(
         "relative flex h-full items-center text-[14px] font-medium tracking-[-0.01em] transition-colors duration-300 text-[#666666] hover:text-[#438e42] after:absolute after:bottom-[25px] after:left-0 after:h-[3px] after:bg-[#438e42] after:transition-all after:duration-300",
-        active ? "text-[#438e42] after:w-full" : "after:w-0 hover:after:w-full"
+        active
+          ? "text-[#438e42] after:w-full"
+          : "after:w-0 hover:after:w-full"
       )}
     >
       {label}
@@ -58,21 +60,38 @@ function MobileNavLink({ href, label, active, onClick }) {
       onClick={onClick}
       className={cn(
         "flex items-center justify-between border-b border-black/[0.07] py-[16px] text-[15px] font-medium transition-colors duration-300",
-        active ? "text-[#438e42]" : "text-[#666666] hover:text-[#438e42]"
+        active
+          ? "text-[#438e42]"
+          : "text-[#666666] hover:text-[#438e42]"
       )}
     >
       <div className="flex items-center gap-3">
-        {active && <span className="h-[6px] w-[6px] rounded-full bg-[#f7941d]" />}
+        {active && (
+          <span className="h-[6px] w-[6px] rounded-full bg-[#f7941d]" />
+        )}
+
         {label}
       </div>
-      <ArrowRight size={17} strokeWidth={1.8} className="text-[#aaaaaa]" />
+
+      <ArrowRight
+        size={17}
+        strokeWidth={1.8}
+        className="text-[#aaaaaa]"
+      />
     </Link>
   );
 }
 
 /* ================= CTA BUTTON ================= */
 
-function CtaButton({ href, label, bg, hoverBg, size = "desktop", onClick }) {
+function CtaButton({
+  href,
+  label,
+  bg,
+  hoverBg,
+  size = "desktop",
+  onClick,
+}) {
   const isMobile = size === "mobile";
 
   return (
@@ -83,11 +102,18 @@ function CtaButton({ href, label, bg, hoverBg, size = "desktop", onClick }) {
         "rounded-[9px] px-3.5 py-2 text-[13px] font-medium tracking-[0.01em] text-white transition-all duration-300 ease-out",
         bg,
         isMobile
-          ? cn("flex w-full items-center justify-between rounded-[12px] px-5 py-[15px]", hoverBg)
-          : cn("hidden lg:block xl:px-5 hover:-translate-y-[2px]", hoverBg)
+          ? cn(
+              "flex w-full items-center justify-between rounded-[12px] px-5 py-[15px]",
+              hoverBg
+            )
+          : cn(
+              "hidden lg:block xl:px-5 hover:-translate-y-[2px]",
+              hoverBg
+            )
       )}
     >
       {label}
+
       {isMobile && <ArrowRight size={17} />}
     </Link>
   );
@@ -108,6 +134,7 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+
     return () => {
       document.body.style.overflow = "";
     };
@@ -117,7 +144,9 @@ export default function Navbar() {
     const handleEscape = (e) => {
       if (e.key === "Escape") setMenuOpen(false);
     };
+
     window.addEventListener("keydown", handleEscape);
+
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
 
@@ -126,21 +155,36 @@ export default function Navbar() {
       {/* ================= MAIN NAVBAR ================= */}
 
       <header className="fixed top-0 left-0 z-50 w-full bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] font-[family-name:var(--font-manrope)]">
-        <div className="container-custom flex h-[74px] items-center justify-between sm:h-[68px] md:h-[74px] lg:h-[86px]">
+        <div className="container-custom flex h-[74px] items-center justify-between sm:h-[68px] md:h-[80px] lg:h-[86px]">
 
           {/* LOGO */}
-          <Link href="/" className="relative z-10 shrink-0" aria-label="Prithvi Global School Home">
-            <Image
-              src="/logo4.png"
-              alt="Prithvi Global School"
-              width={210}
-              height={75}
-              priority
-              className="h-auto w-[135px] sm:w-[145px] md:w-[255px] lg:w-[395px] xl:w-[250px]"
-            />
-          </Link>
 
-          {/* DESKTOP NAV */}
+          {/* LOGO */}
+
+<Link
+  href="/"
+  className="relative z-10 shrink-0 -translate-x-[8px] sm:-translate-x-[10px] md:-translate-x-[12px] lg:translate-x-0"
+  aria-label="Prithvi Global School Home"
+>
+  <Image
+    src="/logo4.png"
+    alt="Prithvi Global School"
+    width={340}
+    height={122}
+    priority
+    className="
+      h-auto
+      w-[210px]
+      sm:w-[230px]
+      md:w-[250px]
+      lg:w-[240px]
+      xl:w-[260px]
+    "
+  />
+</Link>
+
+          {/* DESKTOP NAV (desktop only from lg) */}
+
           <nav className="hidden h-full items-center gap-6 lg:flex xl:gap-8">
             {NAV_LINKS.slice(0, 3).map((link) => (
               <DesktopNavLink
@@ -151,16 +195,16 @@ export default function Navbar() {
               />
             ))}
 
-            {/* <button
-              type="button"
-              className="group flex h-full items-center gap-1.5 text-[14px] font-medium tracking-[-0.01em] text-[#666666] transition-colors duration-300 hover:text-[#438e42]"
-            >
-              Learning
-              <ChevronDown
-                size={15}
-                strokeWidth={1.8}
-                className="transition-transform duration-300 group-hover:translate-y-[2px]"
-              />
+            {/* <button 
+              type="button" 
+              className="group flex h-full items-center gap-1.5 text-[14px] font-medium tracking-[-0.01em] text-[#666666] transition-colors duration-300 hover:text-[#438e42]" 
+            > 
+              Learning 
+              <ChevronDown 
+                size={15} 
+                strokeWidth={1.8} 
+                className="transition-transform duration-300 group-hover:translate-y-[2px]" 
+              /> 
             </button> */}
 
             {NAV_LINKS.slice(3).map((link) => (
@@ -174,9 +218,15 @@ export default function Navbar() {
           </nav>
 
           {/* RIGHT SIDE */}
+
           <div className="flex items-center gap-3 xl:gap-4">
             {CTA_LINKS.map((cta) => (
-              <CtaButton key={cta.href} {...cta} href={cta.href} label={cta.name} />
+              <CtaButton
+                key={cta.href}
+                {...cta}
+                href={cta.href}
+                label={cta.name}
+              />
             ))}
 
             <button
@@ -193,7 +243,8 @@ export default function Navbar() {
       </header>
 
       {/* Spacer so fixed header doesn't overlap page content */}
-      <div className="h-[74px] sm:h-[68px] md:h-[74px] lg:h-[86px]" />
+
+      <div className="h-[74px] sm:h-[68px] md:h-[80px] lg:h-[86px]" />
 
       {/* ================= MOBILE BACKDROP ================= */}
 
@@ -201,7 +252,9 @@ export default function Navbar() {
         onClick={() => setMenuOpen(false)}
         className={cn(
           "fixed inset-0 z-[90] bg-black/35 backdrop-blur-[3px] transition-opacity duration-300 lg:hidden",
-          menuOpen ? "visible opacity-100" : "invisible opacity-0"
+          menuOpen
+            ? "visible opacity-100"
+            : "invisible opacity-0"
         )}
       />
 
@@ -210,25 +263,39 @@ export default function Navbar() {
       <aside
         className={cn(
           "fixed left-0 top-0 z-[100] flex h-[100dvh] w-[88%] max-w-[390px] flex-col overflow-y-auto bg-[#fffdf8] shadow-[20px_0_60px_rgba(0,0,0,0.14)] transition-transform duration-500 ease-out lg:hidden",
-          menuOpen ? "translate-x-0" : "-translate-x-full"
+          menuOpen
+            ? "translate-x-0"
+            : "-translate-x-full"
         )}
       >
-        <div className="flex items-center justify-between border-b border-black/[0.06] px-6 py-5">
-          <Link href="/" onClick={() => setMenuOpen(false)}>
-            <Image
-              src="/logo1.png"
-              alt="Prithvi Global School"
-              width={180}
-              height={65}
-              className="h-auto w-[145px]"
-            />
-          </Link>
+        <div className="flex items-center justify-between border-b border-black/[0.06] px-3 py-5">
+
+          {/* LARGE MOBILE / TABLET DRAWER LOGO */}
+
+         <Link
+  href="/"
+  onClick={() => setMenuOpen(false)}
+  className="shrink-0 -translate-x-[8px] sm:-translate-x-[10px] md:-translate-x-[12px]"
+>
+  <Image
+    src="/logo1.png"
+    alt="Prithvi Global School"
+    width={300}
+    height={115}
+    className="
+      h-auto
+      w-[220px]
+      sm:w-[245px]
+      md:w-[260px]
+    "
+  />
+</Link>
 
           <button
             type="button"
             onClick={() => setMenuOpen(false)}
             aria-label="Close navigation menu"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F2F2F2] text-[#333333] transition-all duration-300 hover:bg-[#438e42] hover:text-white"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F2F2F2] text-[#333333] transition-all duration-300 hover:bg-[#438e42] hover:text-white"
           >
             <X size={19} />
           </button>
@@ -250,13 +317,20 @@ export default function Navbar() {
             className="group flex items-center justify-between border-b border-black/[0.07] py-[16px] text-left text-[15px] font-medium text-[#666666] transition-colors duration-300 hover:text-[#438e42]"
           >
             Learning
-            <ChevronDown size={17} className="text-[#aaaaaa]" />
+
+            <ChevronDown
+              size={17}
+              className="text-[#aaaaaa]"
+            />
           </button>
         </nav>
 
         <div className="px-6 pt-7">
           {CTA_LINKS.map((cta, index) => (
-            <div key={cta.href} className={index > 0 ? "mt-3" : ""}>
+            <div
+              key={cta.href}
+              className={index > 0 ? "mt-3" : ""}
+            >
               <CtaButton
                 {...cta}
                 href={cta.href}
@@ -270,14 +344,17 @@ export default function Navbar() {
 
         <div className="mt-auto px-6 pb-7 pt-10">
           <div className="border-t border-black/[0.07] pt-5">
+
             <div className="mb-4 flex gap-2">
               <span className="h-[5px] w-10 rounded-full bg-[#438e42]" />
               <span className="h-[5px] w-6 rounded-full bg-[#f7941d]" />
               <span className="h-[5px] w-6 rounded-full bg-[#64b0e2]" />
             </div>
+
             <p className="max-w-[280px] text-[11px] leading-[1.7] text-[#999999]">
               Shaping confident, knowledgeable and responsible learners prepared for a global future.
             </p>
+
           </div>
         </div>
       </aside>

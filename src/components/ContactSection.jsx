@@ -3,6 +3,16 @@
 import { useState } from "react";
 import Image from "next/image";
 
+// Shared field styling — lifted out so every input/select/textarea stays
+// in sync and we're not repeating the same style object five times.
+const FIELD_STYLE = {
+  background: "var(--white)",
+  color: "var(--dark)",
+  "--tw-ring-color": "var(--orange)",
+};
+const FIELD_CLASS =
+  "w-full rounded-md border-0 px-4 py-3 text-sm outline-none focus:ring-2";
+
 export default function ContactSection({
   imageSrc = "/student.png",
   imageAlt = "Student writing in notebook",
@@ -41,32 +51,32 @@ export default function ContactSection({
   };
 
   return (
-    <section className="w-full" style={{ background: "var(--cream)" }}>
-      <div className="container-custom py-10 md:py-16">
-        <div className="flex flex-col overflow-hidden rounded-2xl shadow-xl md:flex-row">
+    <section className="w-full">
+      <div className="container-custom py-8 sm:py-10 md:py-12 lg:py-16">
+        <div className="flex flex-col overflow-hidden rounded-2xl shadow-lg lg:flex-row">
           {/* LEFT: photo */}
-          <div className="relative h-64 w-full md:h-auto md:w-1/2 md:min-h-[560px]">
+          <div className="relative h-56 w-full sm:h-72 md:h-96 lg:h-auto lg:w-1/2 lg:min-h-[560px]">
             <Image
               src={imageSrc}
               alt={imageAlt}
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-top"
               priority
             />
           </div>
 
           {/* RIGHT: form panel */}
           <div
-            className="w-full p-6 sm:p-10 md:w-1/2"
-            style={{ background: "var(--dark-green)" }}
+            className="w-full p-6 sm:p-8 md:p-9 lg:w-1/2 lg:p-10"
+            style={{ background: "#13538a" }}
           >
             <h2 style={{ color: "var(--white)" }}>Contact us</h2>
-            <p className="mt-2" style={{ color: "var(--blue)" }}>
+            <p className="mt-2 text-sm sm:text-base" style={{ color: "rgba(255,255,255,0.75)" }}>
               Admissions enquiries for {schoolName} — we usually reply within a day.
             </p>
 
-            <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3 sm:gap-4">
               <input
                 type="text"
                 name="parentName"
@@ -74,12 +84,8 @@ export default function ContactSection({
                 onChange={handleChange}
                 placeholder="Parent name"
                 required
-                className="w-full rounded-md border-0 px-4 py-3 text-sm outline-none focus:ring-2"
-                style={{
-                  background: "var(--white)",
-                  color: "var(--dark)",
-                  "--tw-ring-color": "var(--orange)",
-                }}
+                className={FIELD_CLASS}
+                style={FIELD_STYLE}
               />
 
               <select
@@ -87,12 +93,8 @@ export default function ContactSection({
                 value={form.grade}
                 onChange={handleChange}
                 required
-                className="w-full rounded-md border-0 px-4 py-3 text-sm outline-none focus:ring-2"
-                style={{
-                  background: "var(--white)",
-                  color: "var(--dark)",
-                  "--tw-ring-color": "var(--orange)",
-                }}
+                className={FIELD_CLASS}
+                style={FIELD_STYLE}
               >
                 <option value="" disabled>
                   Grade
@@ -102,38 +104,31 @@ export default function ContactSection({
                 <option value="grade-3">Grade 3</option>
                 <option value="grade-4">Grade 4</option>
                 <option value="grade-5">Grade 5</option>
-
               </select>
 
-              <input
-                type="tel"
-                name="mobile"
-                value={form.mobile}
-                onChange={handleChange}
-                placeholder="Mobile number"
-                required
-                className="w-full rounded-md border-0 px-4 py-3 text-sm outline-none focus:ring-2"
-                style={{
-                  background: "var(--white)",
-                  color: "var(--dark)",
-                  "--tw-ring-color": "var(--orange)",
-                }}
-              />
+              <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+                <input
+                  type="tel"
+                  name="mobile"
+                  value={form.mobile}
+                  onChange={handleChange}
+                  placeholder="Mobile number"
+                  required
+                  className={FIELD_CLASS}
+                  style={FIELD_STYLE}
+                />
 
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Email address"
-                required
-                className="w-full rounded-md border-0 px-4 py-3 text-sm outline-none focus:ring-2"
-                style={{
-                  background: "var(--white)",
-                  color: "var(--dark)",
-                  "--tw-ring-color": "var(--orange)",
-                }}
-              />
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="Email address"
+                  required
+                  className={FIELD_CLASS}
+                  style={FIELD_STYLE}
+                />
+              </div>
 
               <textarea
                 name="message"
@@ -141,27 +136,20 @@ export default function ContactSection({
                 onChange={handleChange}
                 placeholder="Message"
                 rows={4}
-                className="w-full resize-none rounded-md border-0 px-4 py-3 text-sm outline-none focus:ring-2"
-                style={{
-                  background: "var(--white)",
-                  color: "var(--dark)",
-                  "--tw-ring-color": "var(--orange)",
-                }}
+                className={`${FIELD_CLASS} resize-none`}
+                style={FIELD_STYLE}
               />
 
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="text-cta mt-2 w-full rounded-md py-3 uppercase transition disabled:opacity-60"
-                style={{ background: "var(--orange)", color: "var(--white)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "var(--dark-green)")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}
+                className="text-cta mt-2 w-full rounded-md bg-[#ffffff] py-3 uppercase text-[var(--dark-green)] transition-colors duration-300 hover:bg-[var(--white)] disabled:opacity-60 disabled:hover:bg-[var(--orange)]"
               >
                 {status === "submitting" ? "Submitting..." : "Submit"}
               </button>
 
               {status === "success" && (
-                <p className="text-small" style={{ color: "var(--blue)" }}>
+                <p className="text-small" style={{ color: "var(--orange)" }}>
                   Thanks! We&apos;ll get back to you shortly.
                 </p>
               )}

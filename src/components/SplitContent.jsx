@@ -4,175 +4,119 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Button from "@/components/Button";
 
-export default function ImageContentSplit({
-  eyebrow = "Our Vision",
 
-  heading = "A school built around one simple idea.",
+// Static class strings lifted out — never re-computed on re-render
+const ROW_BASE = "flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-24";
+const ROW_REVERSE = "flex flex-col md:flex-row-reverse items-start md:items-center gap-6 md:gap-24";
+const PT_WITH_LABEL = "container-custom mx-auto px-6 pb-6 pt-24 md:pt-28";
+const PT_NO_LABEL = "container-custom mx-auto px-6 pb-6 pt-6 md:pt-24";
 
-  paragraphs = [
-    "We believe every child learns best when they understand the 'why' behind every lesson, not just the answer.",
-    "That belief shapes every classroom, every teacher, and every day at our school.",
-  ],
-
-  image = "",
-  imageAlt = "",
-
-  // "left" | "right"
-  imagePosition = "left",
-
-  ctaText = "",
-  ctaLink = "",
-  onCtaClick = null,
-
-  badgeNumber = "",
-  badgeText = "",
-
-  backgroundColor = "bg-white",
+export default function ImageSection({
+  topLabel,
+  introText,
+  tag,
+  subTag,
+  heading,
+  description,
+  image,
+  className = "",
+  buttonLink = null,
+  onButtonClick = null,
+  reverse = false,
+  showButton = false,
+  buttonText = "DISCOVER MORE",
 }) {
-  const sectionRef = useRef(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const element = sectionRef.current;
-
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.unobserve(element);
-        }
-      },
-      {
-        threshold: 0.15,
-      }
-    );
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
-  const isImageRight = imagePosition === "right";
+  const altText = heading || `${tag ?? "Section"} image`;
 
   return (
     <section
-      ref={sectionRef}
-      className={`${backgroundColor} w-full overflow-hidden py-6 md:py-14 lg:py-10`}
+      className={`relative w-full bg-offwhite overflow-hidden bg-[url('/assets/linesbg.png')] bg-cover bg-center bg-no-repeat ${className}`}
     >
-      <div className="container-custom">
-        <div
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch ${
-            isImageRight ? "lg:[&>*:first-child]:order-2" : ""
-          }`}
-        >
-          {/* =====================================
-              IMAGE
-          ====================================== */}
-          <div
-            className={`relative w-full min-w-0 transition-all duration-700 ease-out ${
-              inView
-                ? "opacity-100 translate-x-0"
-                : isImageRight
-                ? "opacity-0 translate-x-8"
-                : "opacity-0 -translate-x-8"
-            }`}
-          >
-            <div className="relative w-full h-full min-h-[420px] rounded-[26px] overflow-hidden">
-              {image ? (
-                <Image
-                  src={image}
-                  alt={imageAlt || heading}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                />
-              ) : (
-                <div className="w-full h-full min-h-[420px] bg-[var(--dark-green)]" />
-              )}
-
-              {/* =====================================
-                  BADGE
-              ====================================== */}
-              {badgeNumber && (
-                <div
-                  className={`absolute bottom-0 z-10 bg-white rounded-tr-[20px] px-5 py-4 shadow-[0_18px_40px_rgba(0,0,0,0.12)] flex items-center gap-3 min-w-[220px] transition-all duration-700 delay-300 ${
-                    isImageRight
-                      ? "right-0 rounded-tl-[20px] rounded-tr-none"
-                      : "left-0"
-                  } ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-5"
-                  }`}
-                >
-                  <span
-                    className="text-[28px] font-bold leading-none text-[var(--orange)]"
-                    style={{
-                      fontFamily: "'Playfair Display', serif",
-                    }}
-                  >
-                    {badgeNumber}
-                  </span>
-
-                  {badgeText && (
-                    <span className="text-[12px] leading-snug text-[var(--dark)]/70">
-                      {badgeText}
-                    </span>
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* =====================================
-              CONTENT
-          ====================================== */}
-          <div
-            className={`w-full min-w-0 flex flex-col justify-center transition-all duration-700 ease-out delay-150 ${
-              inView
-                ? "opacity-100 translate-x-0"
-                : isImageRight
-                ? "opacity-0 -translate-x-8"
-                : "opacity-0 translate-x-8"
-            }`}
-          >
-            {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-5">
-              <span className="w-7 h-[2px] bg-[var(--orange)] shrink-0" />
-
-              <span className="text-[13px] font-semibold uppercase tracking-[2px] text-[var(--orange)]">
-                {eyebrow}
+      {/* TOP LABEL */}
+      {topLabel && (
+        <div className="absolute top-0 left-0 w-full">
+          <div className="container-custom mx-auto px-6">
+            <div className="bg-primary inline-block px-5 md:px-8 pt-6 md:pt-9 pb-3 md:pb-4">
+              <span className="text-white text-xs md:text-sm font-semibold uppercase tracking-wider">
+                {topLabel}
               </span>
             </div>
+          </div>
+        </div>
+      )}
 
-            {/* Heading */}
-            <h2 className="!mb-5">
-              {heading}
-            </h2>
+      {/* CONTENT */}
+      <div className={topLabel ? PT_WITH_LABEL : PT_NO_LABEL}>
+        {/* INTRO TEXT */}
+        {introText && (
+          <p className="paragraph intro-text max-w-[520px] text-dark mb-6 md:mb-10">
+            {introText}
+          </p>
+        )}
 
-            {/* Paragraphs */}
-            <div className="max-w-[650px] !mb-7">
-              {paragraphs.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="!mb-4 last:!mb-0"
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+        {/* MAIN ROW */}
+        <div className={reverse ? ROW_REVERSE : ROW_BASE}>
+          {/* IMAGE */}
+          <div className="w-full md:w-2/3 order-2 md:order-1">
+            <Image
+              src={image}
+              alt={altText}
+              width={1000}
+              height={500}
+              className="w-full h-[240px] md:h-[500px] object-cover"
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 768px) 100vw, 66vw"
+            />
 
-            {/* CTA */}
-            {ctaText && (
-              <div>
+            {/* MOBILE DESCRIPTION */}
+            <p className="md:hidden paragraph text-dark text-base leading-relaxed mt-4 mb-4">
+              {description}
+            </p>
+
+            {/* BUTTON — MOBILE */}
+            {showButton && (
+              <div className="md:hidden mt-4">
                 <Button
-                  text={ctaText}
-                  href={ctaLink}
-                  onClick={onCtaClick}
-                  variant="primary"
-                  className="!bg-[var(--dark-green)] hover:!bg-[var(--orange)] !text-white !px-8 !py-3.5 !rounded-full transition-all duration-300"
+                  text={buttonText}
+                  link={buttonLink}
+                  onClick={onButtonClick}
+                  className="w-[140px] h-[46px] text-sm"
+                />
+              </div>
+            )}
+          </div>
+
+          {/* TEXT */}
+          <div className="w-full md:w-1/2 order-1 md:order-2">
+            {tag && (
+              <h3 className="inline-block mb-2 bg-lightblue text-dark md:text-5xl px-3 py-1 uppercase tracking-wider">
+                {tag}
+              </h3>
+            )}
+
+            {/* Only render <br> when both tag and subTag exist */}
+            {tag && subTag && <br />}
+
+            {subTag && (
+              <h3 className="inline-block mb-4 bg-lightblue text-dark md:text-5xl px-3 py-1 uppercase tracking-wider">
+                {subTag}
+              </h3>
+            )}
+
+            {/* DESKTOP DESCRIPTION */}
+            <p className="hidden md:block paragraph max-w-[447px] text-dark text-base md:text-lg leading-relaxed mb-5">
+              {description}
+            </p>
+
+            {/* BUTTON — DESKTOP */}
+            {showButton && (
+              <div className="hidden md:block">
+                <Button
+                  text={buttonText}
+                  link={buttonLink}
+                  onClick={onButtonClick}
+                  className="w-[150px] h-[46px]"
                 />
               </div>
             )}

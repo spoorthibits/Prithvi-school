@@ -4,39 +4,38 @@ import Image from "next/image";
 
 /**
  * ContactSchool
- * Full building photo shown COMPLETELY (no cropping, no zoom) with
- * headline/CTAs overlaid on the right. Built with Prithvi's global
- * tokens (--dark-green, --orange, --white).
+ * Full building photo shown COMPLETELY (no cropping, no zoom).
+ * Built with Prithvi's global tokens (--dark-green, --orange, --white).
  *
- * WHY THE PREVIOUS VERSION LOOKED ZOOMED IN:
- * The section had a fixed height (h-[250px] md:h-[300px] ...) AND the
- * inner div had its own aspect-ratio (aspect-[16/9] sm:aspect-[15/9]).
- * Those fight each other — aspect-ratio computes its OWN height from
- * the width regardless of the section's fixed height, so the div ended
- * up much taller than the section, and overflow-hidden on the section
- * chopped off everything below the fixed height — hence the extreme
- * close-up crop on just the roofline/logo.
+ * RESPONSIVE APPROACH:
+ * Below `sm` (640px), a dedicated mobile image (imageSrcMobile) is used
+ * instead of the desktop banner, since the desktop image's aspect ratio
+ * renders too short on phone widths to look intentional. The
+ * heading/subheading/CTAs are overlaid directly ON TOP of that mobile
+ * image (centered, stacked buttons), with a dark gradient behind the
+ * text for legibility — matching the desktop treatment rather than
+ * sitting in a separate band underneath.
  *
- * THIS VERSION:
- * No fixed height, no aspect-ratio, no object-cover. The <Image> uses
- * its real `width`/`height` and scales with `w-full h-auto`, so the
- * browser shows 100% of the photo, full stop. Size is controlled only
- * via `max-w-*` on the wrapper — narrower width = shorter height too,
- * automatically, since the ratio never changes. Adjust `max-w-6xl`
- * below (max-w-4xl, 5xl, 6xl, 7xl...) to make it bigger/smaller.
+ * From `sm` up, the original desktop image (imageSrc) is shown full and
+ * uncropped, with heading/subheading/CTAs overlaid on top of it, and
+ * type sizing that keeps scaling through `lg`/`xl` so it doesn't look
+ * undersized on large desktop screens.
  *
  * Usage:
- *   <ContactSchool imageSrc="/schoolbuilding.png" />
+ *   <ContactSchool imageSrc="/schoolbuilding.png" imageSrcMobile="/contactmobile.png" />
  *
  * NOTE: files placed in /public are referenced from the root — a file
  * at public/schoolbuilding.png is "/schoolbuilding.png", never
  * "public/schoolbuilding.png".
  */
 export default function ContactSchool({
-  imageSrc = "/schoolbuilding.png",
+  imageSrc = "/contactfooterbannerimg.webp",
+  imageSrcMobile = "/contactmobile.png",
   imageAlt = "Prithvi Global School building",
   imageWidth = 1900,
   imageHeight = 700,
+  imageWidthMobile = 800,
+  imageHeightMobile = 1000,
   heading = "We'd love to hear from you!",
   subheading = "Feel free to get in touch, or apply now.",
   contactHref = "/contact",
@@ -44,8 +43,9 @@ export default function ContactSchool({
 }) {
   return (
     <section className="relative m-0 block w-full overflow-hidden p-0">
-      <div className="relative w-full">
-        {/* Full, uncropped image — height comes purely from its own
+      {/* ---------------- Desktop / tablet (sm and up) ---------------- */}
+      <div className="relative hidden w-full sm:block">
+        {/* Full, uncropped desktop image — height comes purely from its own
             aspect ratio (w-full h-auto). Nothing here forces a crop. */}
         <Image
           src={imageSrc}
@@ -57,8 +57,7 @@ export default function ContactSchool({
           priority
         />
 
-        {/* Very light overlay — just enough to keep the photo from
-            competing with the text on the right */}
+        {/* Overlay gradient — tablet/desktop only. */}
         <div
           className="absolute inset-0"
           style={{
@@ -67,11 +66,12 @@ export default function ContactSchool({
           }}
         />
 
-        {/* Content */}
+        {/* Overlay content — sm and up, where the image is tall enough
+            to carry text comfortably. */}
         <div className="container-custom absolute inset-0 z-10 flex items-center">
-          <div className="ml-auto w-full text-center sm:max-w-md sm:text-right md:max-w-lg">
+          <div className="ml-auto w-full text-right sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
             <h2
-              className="text-lg sm:text-2xl md:text-3xl"
+              className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
               style={{
                 color: "var(--white)",
                 textShadow: "0 2px 10px rgba(0,0,0,0.35)",
@@ -80,7 +80,7 @@ export default function ContactSchool({
               {heading}
             </h2>
             <p
-              className="mt-2 text-xs sm:text-base"
+              className="mt-2 text-sm md:text-base lg:text-lg"
               style={{
                 color: "var(--white)",
                 textShadow: "0 1px 6px rgba(0,0,0,0.3)",
@@ -89,17 +89,17 @@ export default function ContactSchool({
               {subheading}
             </p>
 
-            <div className="mt-4 flex flex-col justify-center gap-2 sm:mt-6 sm:flex-row sm:justify-end sm:gap-3">
+            <div className="mt-4 flex justify-end gap-2 sm:mt-6 sm:gap-3 lg:mt-8">
               <a
                 href={contactHref}
-                className="text-cta rounded-full px-4 py-2 text-center text-xs uppercase transition hover:opacity-90 sm:px-6 sm:py-3 sm:text-sm"
+                className="text-cta rounded-full px-4 py-2 text-center text-xs uppercase transition hover:opacity-90 sm:px-6 sm:py-3 sm:text-sm lg:px-8 lg:py-3.5 lg:text-base"
                 style={{ background: "var(--orange)", color: "var(--white)" }}
               >
                 Contact Us
               </a>
               <a
                 href={applyHref}
-                className="text-cta rounded-full px-4 py-2 text-center text-xs uppercase transition hover:opacity-90 sm:px-6 sm:py-3 sm:text-sm"
+                className="text-cta rounded-full px-4 py-2 text-center text-xs uppercase transition hover:opacity-90 sm:px-6 sm:py-3 sm:text-sm lg:px-8 lg:py-3.5 lg:text-base"
                 style={{
                   background: "var(--dark-green)",
                   color: "var(--white)",
@@ -108,6 +108,67 @@ export default function ContactSchool({
                 Apply Now
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ---------------- Mobile (below sm) ---------------- */}
+      {/* Text + buttons overlaid directly on the mobile image, centered,
+          with a dark gradient behind the content for legibility. */}
+      <div className="relative block h-[55vh] max-h-[420px] min-h-[320px] w-full sm:hidden">
+        <Image
+          src={imageSrcMobile}
+          alt={imageAlt}
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+        />
+
+        {/* Dark gradient so white text stays legible over the photo */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.1) 35%, rgba(0,0,0,0.55) 68%, rgba(0,0,0,0.7) 100%)",
+          }}
+        />
+
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-8 text-center">
+          <h2
+            className="text-2xl"
+            style={{
+              color: "var(--white)",
+              textShadow: "0 2px 10px rgba(0,0,0,0.45)",
+            }}
+          >
+            {heading}
+          </h2>
+          <p
+            className="mt-2 text-sm"
+            style={{
+              color: "var(--white)",
+              textShadow: "0 1px 6px rgba(0,0,0,0.4)",
+            }}
+          >
+            {subheading}
+          </p>
+
+          <div className="mt-5 flex w-full flex-col gap-3">
+            <a
+              href={contactHref}
+              className="text-cta w-full rounded-full px-6 py-3 text-center text-xs uppercase transition hover:opacity-90"
+              style={{ background: "var(--orange)", color: "var(--white)" }}
+            >
+              Contact Us
+            </a>
+            <a
+              href={applyHref}
+              className="text-cta w-full rounded-full px-6 py-3 text-center text-xs uppercase transition hover:opacity-90"
+              style={{ background: "var(--dark-green)", color: "var(--white)" }}
+            >
+              Apply Now
+            </a>
           </div>
         </div>
       </div>

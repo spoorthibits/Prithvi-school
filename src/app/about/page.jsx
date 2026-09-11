@@ -1,7 +1,11 @@
 
 import PageBanner from "@/components/PageBanner";
 import ScrollStory from "@/components/ScrollStory";
-import SplitContent from "@/components/SplitContent";
+import ImageSection from "@/components/SplitContent";
+import Internationalschool from "@/components/Internationalschool";
+import OurPhilosophySection from "@/components/OurPhilosophy";
+import AboutZoom from "@/components/AboutZoom";
+import VisionSection from "@/components/OurVision";
 
 
 const aboutSlides = [
@@ -46,66 +50,21 @@ export default function AboutPage() {
       <PageBanner 
       image = "/academicsnewimg.png"
        />
-      
+       <Internationalschool
+        title="At Westbrook International School"
+        image="/kids.png"
+        
+        titleClass="text-[22px] sm:text-[26px] md:text-[34px] font-semibold text-[var(--color-primary)] mb-4 leading-tight"
+        paragraphs={[
+          "Westbrook International School is built on the belief that education must do more than deliver academic results. For families exploring the international school in madhapur, the school focuses on shaping thinking, character, and confidence in a way that supports children throughout their school years and beyond. As parents search for the Best international school in madhapur, they often look for an environment where academic clarity, balanced learning, and strong values come together to support each child’s development.",
+        ]}
+      />
+      <OurPhilosophySection />
+      <AboutZoom />
+      <VisionSection />
       {/* <AboutPrithvi /> */}
-       <ScrollStory
-          slides={aboutSlides}
-          layoutType="default"
-          backgroundColor="#ffffff"
-          heading="OUR STORY"
-          imagePosition="left"
-          imageTransition="vertical"
-         
-          dotActiveColor="#a44a1f"
-          dotInactiveColor="#a09b9b"
-          textColor="#0F5132"
-          headingClassName="text-[#0F5132]"
-          contentClassName="text-black"
-        />
-    <SplitContent
-  eyebrow="Our Vision"
-  heading="A school built around one simple idea."
-  paragraphs={[
-    "We believe every child learns best when they understand the 'why' behind every lesson, not just the answer.",
-    "That belief shapes every classroom, every teacher, and every day at our school.",
-  ]}
-  image="/ourvision.png"
-  imageAlt="Students exploring and learning together"
-  imagePosition="left"
-/>
-<SplitContent
-  eyebrow="Our Mission"
-  heading="Building strong foundations for lifelong learning."
-  paragraphs={[
-    "We provide a safe, inclusive and engaging learning environment where every child is encouraged to learn, create and grow.",
-    "Through meaningful experiences, creativity and strong values, we prepare children for a confident future.",
-  ]}
-  image="/ourmission.png"
-  imageAlt="Students working together"
-  imagePosition="right"
-/>
-<SplitContent
-  eyebrow="Why Choose Us"
-  heading="What makes Prithvi different"
-  paragraphs={[
-    "Every detail of our campus, our teachers, and our classrooms is built around one question: what does this child need to thrive?",
-    "That belief shapes the experience every single day.",
-  ]}
-  image="/whychooseus.png"
-  imageAlt="Students learning at Prithvi Global School"
-  imagePosition="left"
-  badgeNumber="12+"
-  badgeText={
-    <>
-      Years of nurturing
-      <br />
-      confident learners
-    </>
-  }
-  ctaText="Book a Campus Tour"
-  ctaLink="/contact"
-/>
-
+       
+ 
     </>
   );
 }
