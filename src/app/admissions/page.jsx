@@ -1,5 +1,5 @@
 import PageBanner from "@/components/PageBanner";
-import VideoHeroAnimation from "@/components/VideoHeroAnimation";
+import AdmissionProcess from "@/components/VideoHeroAnimation";
 import CoreHeader from "@/components/CoreHeader";
 import FeaturesTabs from "@/components/FeaturesTabs"; 
 import FAQSection from "@/components/Faqs";
@@ -12,7 +12,7 @@ export default function AboutPage() {
             title=""
      subtitle=""
          />
-          <section className="relative bg-[#FAF9F5] overflow-hidden">
+          <section className="relative overflow-hidden">
 
         {/* ================= TOP CURVE ================= */}
 
@@ -41,7 +41,7 @@ export default function AboutPage() {
       </div>
      
       </section>
-   <VideoHeroAnimation/>
+   <AdmissionProcess/>
   
       <FAQSection/>
    </>
