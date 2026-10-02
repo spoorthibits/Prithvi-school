@@ -11,7 +11,7 @@ const sections = [
     label: "LEARNING AT PRITHVI",
     description:
       "A thoughtful curriculum where academics, curiosity, creativity and real-world experiences come together to make learning meaningful.",
-    image: "/curriculum4.png",
+    image: "/curriculum-1.png",
     accent: "#438E42", // Prithvi Green
   },
   {
@@ -19,7 +19,7 @@ const sections = [
     label: "EARLY YEARS",
     description:
       "A joyful beginning built around play, stories, movement, nature and exploration — nurturing confidence and a love for learning.",
-    image: "/curriculum2.png",
+    image: "/curriculum-2.png",
     accent: "#64B0E2", // Prithvi Blue
   },
   {
@@ -27,7 +27,7 @@ const sections = [
     label: "GRADE 1–5",
     description:
       "Strong academic foundations combined with exploration, collaboration and values that help children grow into confident learners.",
-    image: "/curriculum3.png",
+    image: "/curriculum3new.png",
     accent: "#F7941D", // Prithvi Orange
   },
 ];

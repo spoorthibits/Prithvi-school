@@ -134,10 +134,10 @@ export default function AboutZoom() {
   className="relative w-full"
   style={{
     height: isMobile
-      ? "45vh"
+      ? "35vh"      // was 45vh
       : isTablet
-      ? "130vh"
-      : "180vh",
+      ? "115vh"     // was 130vh
+      : "140vh",    // was 180vh
   }}
 >
     <div
