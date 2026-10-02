@@ -51,12 +51,12 @@ export default function AboutPage() {
       image = "/academicsnewimg.png"
        />
        <Internationalschool
-        title="At Westbrook International School"
+        title="At Prithvi Global School"
         image="/kids.png"
         
         titleClass="text-[22px] sm:text-[26px] md:text-[34px] font-semibold text-[var(--color-primary)] mb-4 leading-tight"
         paragraphs={[
-          "Westbrook International School is built on the belief that education must do more than deliver academic results. For families exploring the international school in madhapur, the school focuses on shaping thinking, character, and confidence in a way that supports children throughout their school years and beyond. As parents search for the Best international school in madhapur, they often look for an environment where academic clarity, balanced learning, and strong values come together to support each child’s development.",
+          "Prithvi Global School is built on the belief that education must do more than deliver academic results. For families exploring the international school in madhapur, the school focuses on shaping thinking, character, and confidence in a way that supports children throughout their school years and beyond. As parents search for the Best international school in madhapur, they often look for an environment where academic clarity, balanced learning, and strong values come together to support each child’s development.",
         ]}
       />
       <OurPhilosophySection />
