@@ -188,7 +188,7 @@ export default function FAQSection() {
             <div className="relative mt-6 flex justify-center sm:mt-8">
               <div className="relative h-[200px] w-full overflow-hidden rounded-3xl sm:h-[260px] lg:h-[300px]">
                 <Image
-                  src="/curriculum4.png"
+                  src="/faq.png"
                   alt="Students at Prithvi Global School"
                   fill
                   className="object-cover"

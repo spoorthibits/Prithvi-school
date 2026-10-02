@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 /* ================= ICON MAP ================= */
+
 const iconMap = {
   sprout: Sprout,
   sun: SunMedium,
@@ -22,64 +23,77 @@ const iconMap = {
 };
 
 /* ================= DEFAULT DATA ================= */
+
 export const defaultFeaturesData = [
   {
     icon: "sprout",
     iconBg: "bg-[#F4C77A]",
-    title: "Campus Amidst Open, Green Spaces",
+    title: "01 — CAMPUS",
+    lead: "Room to explore.",
     description:
-      "A welcoming campus environment that gives children space to explore, move, observe nature and learn beyond the classroom.",
-    image: "/curriculum2.png",
+      "Surrounded by open, green spaces, children have room to move, observe, play and discover beyond the classroom.",
+    image: "/campus.png",
     mobileImage: "/green-space-mbl.webp",
   },
+
   {
     icon: "sun",
     iconBg: "bg-[#64B0E2]",
-    title: "Safe & Supportive Learning Spaces",
+    title: "02 — LEARNING ENVIRONMENT",
+    lead: "A space to feel at ease.",
     description:
-      "Thoughtfully designed learning spaces where children feel secure, comfortable and confident to participate, ask questions and discover.",
-    image: "/curriculum3.png",
+      "Thoughtfully designed spaces where children feel comfortable to participate, ask questions, make mistakes and learn with confidence.",
+    image: "/curriculum3new.png",
     mobileImage: "/safe-learning-mbl.webp",
   },
+
   {
     icon: "users",
     iconBg: "bg-[#F7941D]",
-    title: "Strong Academic Foundations",
+    title: "03 — ACADEMICS",
+    lead: "Strong foundations. Curious minds.",
     description:
-      "A balanced academic approach that builds essential skills while encouraging curiosity, understanding and independent thinking.",
-    image: "/curriculum4.png",
+      "A balanced academic approach that builds essential skills while encouraging children to question, understand and think independently.",
+    image: "/a5305326-4c60-4fdc-8869-cf1c70342496.png",
     mobileImage: "/global-standards-mbl.webp",
   },
+
   {
     icon: "palette",
     iconBg: "bg-[#E99AC8]",
-    title: "Personalised Attention for Every Child",
+    title: "04 — INDIVIDUAL LEARNING",
+    lead: "",
     description:
-      "Every child learns differently. Our teachers provide thoughtful guidance and individual attention to help each learner progress with confidence.",
-    image: "/child-attention.webp",
+      "With thoughtful guidance and individual attention, children are supported to learn at their own pace and build on their strengths.",
+    image: "/indiv-img.png",
     mobileImage: "/personalised-attention-mbl.webp",
   },
+
   {
     icon: "users",
     iconBg: "bg-[#F4C77A]",
-    title: "Learning Guided by Values",
+    title: "05 — CORE VALUES",
+    lead: "",
     description:
-      "Along with academics, children develop kindness, responsibility, respect and confidence through everyday experiences and meaningful interactions.",
-    image: "/indian-values.webp",
+      "Alongside academics, children learn the importance of kindness, responsibility, respect and empathy. These values become part of how they learn, collaborate and connect with the world around them.",
+    image: "/corevalues.png",
     mobileImage: "/global-standards-mbl.webp",
   },
+
   {
     icon: "clock",
     iconBg: "bg-[#64B0E2]",
-    title: "Learning Beyond the Classroom",
+    title: "06 — BEYOND THE CLASSROOM",
+    lead: "More to discover.",
     description:
-      "Sports, creativity, activities and hands-on experiences give children opportunities to discover their interests and develop skills beyond academics.",
-    image: "/green-spaces.webp",
+      "Sport, creativity, activities and hands-on experiences give children the freedom to explore their interests, try something new and discover what they enjoy.",
+    image: "/ec5f8a5d-27eb-4df8-b641-0c094fb46ca1.png",
     mobileImage: "/activities-mbl.webp",
   },
 ];
 
 /* ================= COMPONENT ================= */
+
 export default function FeaturesTabs({
   features = defaultFeaturesData,
 }) {
@@ -102,21 +116,14 @@ export default function FeaturesTabs({
   const currentFeature = features[displayedTab];
 
   return (
-    <section className="mb-20  ">
+    <section className="mb-20">
       <div className="container-custom">
 
         {/* ================= SECTION HEADING ================= */}
 
         <div className="mb-10 text-center md:mb-14">
-          <p className="mb-3 !text-[28px] !font-bold  tracking-[0.28em] text-[#64B0E2] ">
-            What Makes Us Different?
-          </p>
-
-         
-          <p className="mx-auto mt-4 max-w-[650px] !text-[16px] leading-[1.8] text-[#686159] md:text-[16px]">
-            {/* Thoughtful learning, meaningful experiences and personal
-            attention come together to help every child learn and grow
-            with confidence. */}
+          <p className="mb-3 !text-[28px] !font-bold tracking-[0.08em] text-[#64B0E2]">
+            What does growing up at Prithvi feel like?
           </p>
         </div>
 
@@ -134,6 +141,7 @@ export default function FeaturesTabs({
                 key={feature.title}
                 className="overflow-hidden rounded-xl border border-[#E8E5DD] bg-white"
               >
+
                 {/* HEADER */}
 
                 <button
@@ -150,6 +158,7 @@ export default function FeaturesTabs({
                     }
                   `}
                 >
+
                   {/* ICON */}
 
                   <span
@@ -176,7 +185,6 @@ export default function FeaturesTabs({
                       flex h-8 w-8 items-center justify-center
                       rounded-full border
                       transition-transform duration-300
-
                       ${
                         isActive
                           ? "rotate-180 border-white/40"
@@ -196,7 +204,7 @@ export default function FeaturesTabs({
                     transition-all duration-500
                     ${
                       isActive
-                        ? "max-h-[550px]"
+                        ? "max-h-[600px]"
                         : "max-h-0"
                     }
                   `}
@@ -232,21 +240,26 @@ export default function FeaturesTabs({
 
                         </div>
 
+                        {/* LEAD TEXT */}
+
+                        {feature.lead && (
+                          <p className="mb-2 !text-[15px] font-semibold leading-[1.5] text-[#075A36]">
+                            {feature.lead}
+                          </p>
+                        )}
+
+                        {/* DESCRIPTION */}
+
                         <p className="!text-[13px] leading-[1.7] text-[#686159]">
                           {feature.description}
                         </p>
-
-                        {feature.description2 && (
-                          <p className="mt-2 !text-[13px] leading-[1.7] text-[#686159]">
-                            {feature.description2}
-                          </p>
-                        )}
 
                       </div>
                     </div>
 
                   </div>
                 </div>
+
               </div>
             );
           })}
@@ -278,7 +291,6 @@ export default function FeaturesTabs({
                     px-5 py-4
                     text-left
                     transition-all duration-300
-
                     ${
                       isActive
                         ? "translate-x-2 bg-[#075A36] text-white shadow-lg"
@@ -312,7 +324,11 @@ export default function FeaturesTabs({
                     className={`
                       h-5 w-5
                       transition-transform duration-300
-                      ${isActive ? "translate-x-1" : "group-hover:translate-x-1"}
+                      ${
+                        isActive
+                          ? "translate-x-1"
+                          : "group-hover:translate-x-1"
+                      }
                     `}
                   />
 
@@ -332,7 +348,6 @@ export default function FeaturesTabs({
                 overflow-hidden
                 rounded-[20px]
                 transition-all duration-300
-
                 ${
                   isTransitioning
                     ? "scale-[0.99] opacity-0"
@@ -382,17 +397,19 @@ export default function FeaturesTabs({
 
                   </div>
 
+                  {/* LEAD TEXT */}
+
+                  {currentFeature.lead && (
+                    <p className="mb-2 !text-[17px] font-semibold leading-[1.5] text-[#075A36]">
+                      {currentFeature.lead}
+                    </p>
+                  )}
+
                   {/* DESCRIPTION */}
 
                   <p className="!text-[14px] leading-[1.75] text-[#686159]">
                     {currentFeature.description}
                   </p>
-
-                  {currentFeature.description2 && (
-                    <p className="mt-2 !text-[14px] leading-[1.75] text-[#686159]">
-                      {currentFeature.description2}
-                    </p>
-                  )}
 
                 </div>
 
@@ -403,6 +420,7 @@ export default function FeaturesTabs({
           </div>
 
         </div>
+
       </div>
     </section>
   );

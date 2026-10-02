@@ -6,6 +6,7 @@ import Internationalschool from "@/components/Internationalschool";
 import OurPhilosophySection from "@/components/OurPhilosophy";
 import AboutZoom from "@/components/AboutZoom";
 import VisionSection from "@/components/OurVision";
+import OurMissionSection from "@/components/OurMission";
 
 
 const aboutSlides = [
@@ -47,22 +48,16 @@ const aboutSlides = [
 export default function AboutPage() {
   return (
     <>
-      <PageBanner 
-      image = "/academicsnewimg.png"
-       />
-       <Internationalschool
-        title="At Prithvi Global School"
-        image="/kids.png"
-        
-        titleClass="text-[22px] sm:text-[26px] md:text-[34px] font-semibold text-[var(--color-primary)] mb-4 leading-tight"
-        paragraphs={[
-          "Prithvi Global School is built on the belief that education must do more than deliver academic results. For families exploring the international school in madhapur, the school focuses on shaping thinking, character, and confidence in a way that supports children throughout their school years and beyond. As parents search for the Best international school in madhapur, they often look for an environment where academic clarity, balanced learning, and strong values come together to support each child’s development.",
-        ]}
-      />
+      <PageBanner
+              image="/academicsbanner.png"
+              
+            />
+      <Internationalschool/>
       <OurPhilosophySection />
       <AboutZoom />
-      <VisionSection />
+      {/* <VisionSection /> */}
       {/* <AboutPrithvi /> */}
+      <OurMissionSection/>
        
  
     </>

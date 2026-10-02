@@ -11,8 +11,8 @@ const sections = [
     title: "Co-Curriculars",
     description:
       "Our co-curricular program encourages character development through unique and rewarding experiences. Students learn to collaborate, take risks, and persevere. Our Eagles gain a deeper understanding and appreciation of themselves and others through a diverse range of pursuits outside of the classroom.",
-    heroImage: "/academics-main.png",
-    sideImage: "/academics-side.png",
+    heroImage: "/academics-mainimg1.png",
+    sideImage: "/academics-side2.png",
     moreLabel: "MORE ABOUT CO-CURRICULARS",
   },
   {
