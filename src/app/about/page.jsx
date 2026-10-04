@@ -48,12 +48,11 @@ const aboutSlides = [
 export default function AboutPage() {
   return (
     <>
-      <PageBanner
-              image="/aboutusbanner1.png"
-              title="About Us"
-              
-              imageClassName="object-top"
-            />
+   <PageBanner
+  image="/aboutusbanner1.png"
+  title="About Us"
+  imageClassName="object-center"
+/>
       <Internationalschool/>
       <OurPhilosophySection />
       <AboutZoom />

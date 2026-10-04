@@ -158,7 +158,7 @@ export default function AdmissionProcess() {
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pt-10 sm:pt-12 pb-8 no-scrollbar"
+            className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pt-10 sm:pt-12 pb-8 no-scrollbar "
             style={{ scrollbarWidth: "none" }}
           >
             {STEPS.map((step, i) => {
