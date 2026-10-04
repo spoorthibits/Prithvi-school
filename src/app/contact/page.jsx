@@ -2,6 +2,7 @@ import Hero from "@/components/HeroSection";
 import ContactSection from "@/components/ContactSection";
 import ContactSchool from "@/components/ContactSchool";
 import PageBanner from "@/components/PageBanner";
+import MapSection from "@/components/map";
 export default function ContactUs() {
   return (
     <>
@@ -12,7 +13,8 @@ export default function ContactUs() {
   subtitle="We’re here to help you take the next step."
 />
       <ContactSection/>
-      <ContactSchool/>
+      <MapSection/>
+      {/* <ContactSchool/> */}
     </>
   );
 }

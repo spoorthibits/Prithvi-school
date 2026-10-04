@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Internationalschool() {
   return (
-    <section className="w-full bg-white py-8 sm:py-10 md:py-12 lg:py-14">
+    <section className="w-full bg-white py-8 sm:py-10 md:py-12 lg:py-10">
       <div className="container-custom">
         <div
           className="
@@ -28,13 +28,11 @@ export default function Internationalschool() {
                 aspect-[1.45/1]
                 w-full
                 overflow-hidden
-                rounded-[18px]
-                sm:rounded-[20px]
-                md:rounded-[22px]
+               
               "
             >
               <Image
-                src="/curriculum-1.png"
+                src="/curriculum-3new.png"
                 alt="Prithvi Global School students"
                 fill
                 priority
@@ -67,7 +65,7 @@ export default function Internationalschool() {
     sm:tracking-[4px]
   "
 >
-  OUR STORY
+  
 </p>
 
 {/* TITLE */}
@@ -80,7 +78,7 @@ export default function Internationalschool() {
     font-semibold
     leading-[1.08]
     tracking-[-0.5px]
-    text-[#173B63]
+    !text-[#196191]
     sm:text-[30px]
     md:text-[34px]
     lg:text-[38px]
@@ -92,10 +90,6 @@ export default function Internationalschool() {
 
 {/* ACCENT LINE */}
 
-<div className="mb-5 flex items-center">
-  <span className="h-[2px] w-[55px] bg-[#64B0E2]" />
-  <span className="ml-2 h-[2px] w-[18px] bg-[#F7941D]" />
-</div>
 
 {/* CONTENT */}
 
@@ -111,7 +105,7 @@ export default function Internationalschool() {
       md:leading-[28px]
     "
   >
-    Prithvi Global School was founded with a simple yet powerful belief —
+    Prithvi Global School was founded with a simple yet powerful belief
     that every child deserves a strong foundation for a brighter future.
   </p>
 

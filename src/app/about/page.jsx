@@ -1,11 +1,9 @@
 import PageBanner from "@/components/PageBanner";
-import ScrollStory from "@/components/ScrollStory";
-import ImageSection from "@/components/SplitContent";
+import ContactSchool from "@/components/ContactSchool";
 import Internationalschool from "@/components/Internationalschool";
 import OurPhilosophySection from "@/components/OurPhilosophy";
-import AboutZoom from "@/components/AboutZoom";
-import VisionSection from "@/components/OurVision";
 import OurMissionSection from "@/components/OurMission";
+import MapSection from "@/components/map";
 
 
 const aboutSlides = [
@@ -50,15 +48,14 @@ export default function AboutPage() {
       <PageBanner
               image="/aboutusbanner1.png"
               title="About Us"
-              
+              subtitle="Growing grounded minds for a changing world."
               imageClassName="object-top"
             />
       <Internationalschool/>
       <OurPhilosophySection />
-      <AboutZoom />
-      {/* <VisionSection /> */}
-      {/* <AboutPrithvi /> */}
       <OurMissionSection/>
+      {/* <MapSection /> */}
+      <ContactSchool imageSrc="/aboutdwonbanner.png" imageSrcMobile="/mobileaboutdownbanner.png" heading="We’d love to hear from you!" subheading="Feel free to get in touch, or apply now" contactHref = "" applyHref = ""/>
        
  
     </>
