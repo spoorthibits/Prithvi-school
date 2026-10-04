@@ -1,7 +1,7 @@
 export default function ScrollButton({
   onClick,
   direction = "left",
-  bgColor = "#075a36",   // primary orange from the logo/accent bar
+  bgColor = "#196191",   // primary orange from the logo/accent bar
 hoverColor = "#B85F2C",
   className = "",
 }) {

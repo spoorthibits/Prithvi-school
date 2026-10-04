@@ -4,47 +4,21 @@ import CoreHeader from "@/components/CoreHeader";
 import FeaturesTabs from "@/components/FeaturesTabs"; 
 import Image from "next/image";
 import FAQSection from "@/components/Faqs";
-
+import ContactSchool from "@/components/ContactSchool";
 export default function AboutPage() {
   return (
    <>
    <PageBanner
-           image="/academicsbanner.png"
-            title=""
-     subtitle=""
-         />
-          <section className="relative overflow-hidden">
-
-        {/* ================= TOP CURVE ================= */}
-
-
-        {/* DON'T CHANGE YOUR CURVE */}
-        <div className="relative z-0">
-          <CoreHeader
-            title1=""
-            badge="Purpose"
-          />
-        </div>
-
-        {/* FEATURES — OVERLAPS THE CURVE */}
-        <div
-        className="
-          relative
-          z-20
-
-          mt-0
-
-          lg:-mt-[260px]
-          xl:-mt-[280px]
-        "
-      >
-        <FeaturesTabs />
-      </div>
+           image="/admissionsban.png"
+            title="Admissions"
+    //  subtitle="Learn about our admission process and how to apply."
      
-      </section>
+         />
+          
    <AdmissionProcess/>
   
       <FAQSection/>
+      <ContactSchool/>
    </>
   );
 }

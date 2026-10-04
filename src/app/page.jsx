@@ -75,7 +75,7 @@ export default function Home() {
             heading
             mb-6
             !text-[24px]
-            !text-[#075a36]
+             !text-[#196191]
             leading-tight
             md:!text-5xl
           "
@@ -149,7 +149,7 @@ export default function Home() {
         <div className="relative z-0">
           <CoreHeader
             title1=""
-            badge="Purpose"
+           
           />
         </div>
 

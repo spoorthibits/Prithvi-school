@@ -54,7 +54,7 @@ export default function BeyondClassroom() {
                 onClick={() => setActive(i)}
                 className="text-nav whitespace-nowrap font-bold tracking-wide transition-colors"
                 style={{
-                  color: active === i ? "var(--orange)" : "var(--dark-green)",
+                  color: active === i ? "var(--orange)" : "#196191",
                   opacity: active === i ? 1 : 0.9,
                 }}
               >
@@ -66,29 +66,29 @@ export default function BeyondClassroom() {
           {/* Desktop heading: absolutely positioned so it can shift down
               without adding extra height to the row / gap before the image */}
           <h2
-    className="absolute right-5 -top-32 z-20 hidden text-right uppercase md:block"
-    style={{
-      color: "var(--dark-green)",
-      fontFamily: '"Montserrat", sans-serif',
-      fontWeight: 800,
-      fontSize: "clamp(46px, 3.4vw, 40px)",
-      lineHeight: 1.05,
-      letterSpacing: "-0.5px",
-      transform: "translateY(140px)",
-    }}
-  >
-    Cultivating
-    <br />
-    Exceptional
-    <br />
-    Thinkers
-  </h2>
+            className="absolute right-5 -top-32 z-20 hidden text-right uppercase md:block"
+            style={{
+              color: "#196191",
+              fontFamily: '"Montserrat", sans-serif',
+              fontWeight: 800,
+              fontSize: "clamp(46px, 3.4vw, 40px)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.5px",
+              transform: "translateY(140px)",
+            }}
+          >
+            Cultivating
+            <br />
+            Exceptional
+            <br />
+            Thinkers
+          </h2>
 
           {/* Mobile heading: stays in normal flow below tabs */}
           <h2
             className="mt-4 text-right uppercase md:hidden"
             style={{
-              color: "var(--dark-green)",
+              color: "#196191",
               fontFamily: '"Montserrat", sans-serif',
               fontWeight: 800,
               fontSize: "clamp(26px, 3.4vw, 40px)",
@@ -157,13 +157,13 @@ export default function BeyondClassroom() {
             >
               <span
                 className="text-cta pr-4 uppercase"
-                style={{ color: "var(--dark-green)", fontSize: "13px" }}
+                style={{ color: "#196191", fontSize: "13px" }}
               >
                 {current.moreLabel}
               </span>
               <span
                 className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full"
-                style={{ background: "var(--green)", color: "var(--white)" }}
+                style={{ background: "#196191", color: "var(--white)" }}
               >
                 <ArrowRight size={14} />
               </span>

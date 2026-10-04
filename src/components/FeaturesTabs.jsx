@@ -28,7 +28,7 @@ export const defaultFeaturesData = [
   {
     icon: "sprout",
     iconBg: "bg-[#F4C77A]",
-    title: "01 — CAMPUS",
+    title: "CAMPUS",
     lead: "Room to explore.",
     description:
       "Surrounded by open, green spaces, children have room to move, observe, play and discover beyond the classroom.",
@@ -39,7 +39,7 @@ export const defaultFeaturesData = [
   {
     icon: "sun",
     iconBg: "bg-[#64B0E2]",
-    title: "02 — LEARNING ENVIRONMENT",
+    title: "LEARNING ENVIRONMENT",
     lead: "A space to feel at ease.",
     description:
       "Thoughtfully designed spaces where children feel comfortable to participate, ask questions, make mistakes and learn with confidence.",
@@ -50,7 +50,7 @@ export const defaultFeaturesData = [
   {
     icon: "users",
     iconBg: "bg-[#F7941D]",
-    title: "03 — ACADEMICS",
+    title: "ACADEMICS",
     lead: "Strong foundations. Curious minds.",
     description:
       "A balanced academic approach that builds essential skills while encouraging children to question, understand and think independently.",
@@ -61,7 +61,7 @@ export const defaultFeaturesData = [
   {
     icon: "palette",
     iconBg: "bg-[#E99AC8]",
-    title: "04 — INDIVIDUAL LEARNING",
+    title: "INDIVIDUAL LEARNING",
     lead: "",
     description:
       "With thoughtful guidance and individual attention, children are supported to learn at their own pace and build on their strengths.",
@@ -72,7 +72,7 @@ export const defaultFeaturesData = [
   {
     icon: "users",
     iconBg: "bg-[#F4C77A]",
-    title: "05 — CORE VALUES",
+    title: "CORE VALUES",
     lead: "",
     description:
       "Alongside academics, children learn the importance of kindness, responsibility, respect and empathy. These values become part of how they learn, collaborate and connect with the world around them.",
@@ -83,7 +83,7 @@ export const defaultFeaturesData = [
   {
     icon: "clock",
     iconBg: "bg-[#64B0E2]",
-    title: "06 — BEYOND THE CLASSROOM",
+    title: "BEYOND THE CLASSROOM",
     lead: "More to discover.",
     description:
       "Sport, creativity, activities and hands-on experiences give children the freedom to explore their interests, try something new and discover what they enjoy.",
@@ -122,9 +122,9 @@ export default function FeaturesTabs({
         {/* ================= SECTION HEADING ================= */}
 
         <div className="mb-10 text-center md:mb-14">
-          <p className="mb-3 !text-[28px] !font-bold tracking-[0.08em] text-[#64B0E2]">
-            What does growing up at Prithvi feel like?
-          </p>
+          <h2 className="mb-3 !text-[28px] lg:!text-[32px] !font-bold tracking-[0.08em] ">
+            What does growing up at <span className="!text-[#196191]"> Prithvi feel like?</span> 
+          </h2>
         </div>
 
         {/* ================================================= */}
@@ -153,7 +153,7 @@ export default function FeaturesTabs({
                     transition-all duration-300
                     ${
                       isActive
-                        ? "bg-[#075A36] text-white"
+                        ? "bg-[#7E9EC8] text-white"
                         : "bg-white text-[#333333]"
                     }
                   `}
@@ -230,7 +230,7 @@ export default function FeaturesTabs({
 
                         <div className="mb-3 flex items-center gap-3">
 
-                          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#075A36]">
+                          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#7E9EC8]">
                             <Icon className="h-4 w-4 text-white" />
                           </span>
 
@@ -243,7 +243,7 @@ export default function FeaturesTabs({
                         {/* LEAD TEXT */}
 
                         {feature.lead && (
-                          <p className="mb-2 !text-[15px] font-semibold leading-[1.5] text-[#075A36]">
+                          <p className="mb-2 !text-[15px] font-semibold leading-[1.5] text-[#3F6296]">
                             {feature.lead}
                           </p>
                         )}
@@ -293,7 +293,7 @@ export default function FeaturesTabs({
                     transition-all duration-300
                     ${
                       isActive
-                        ? "translate-x-2 bg-[#075A36] text-white shadow-lg"
+                        ? "translate-x-2 bg-[#7E9EC8] text-white shadow-lg"
                         : "border border-[#E8E5DD] bg-white text-[#333333] hover:translate-x-1 hover:border-[#64B0E2]"
                     }
                   `}
@@ -385,7 +385,7 @@ export default function FeaturesTabs({
                       const Icon = iconMap[currentFeature.icon];
 
                       return (
-                        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#075A36]">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#7E9EC8]">
                           <Icon className="h-5 w-5 text-white" />
                         </span>
                       );
@@ -400,7 +400,7 @@ export default function FeaturesTabs({
                   {/* LEAD TEXT */}
 
                   {currentFeature.lead && (
-                    <p className="mb-2 !text-[17px] font-semibold leading-[1.5] text-[#075A36]">
+                    <p className="mb-2 !text-[17px] font-semibold leading-[1.5] text-[#3F6296]">
                       {currentFeature.lead}
                     </p>
                   )}

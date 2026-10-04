@@ -92,7 +92,7 @@ export default function CurriculumSection() {
               "
             >
               Every stage opens a new{" "}
-              <span className="!text-[#438E42]">
+              <span className="!text-[#196191]">
                 world of learning.
               </span>
             </h2>

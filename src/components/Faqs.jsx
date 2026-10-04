@@ -168,7 +168,7 @@ export default function FAQSection() {
           font-extrabold
           leading-[1.15]
           tracking-tight
-          !text-[#075a36]
+          !text-[#196191]
           sm:mt-5
           sm:text-[34px]
           lg:text-[40px]

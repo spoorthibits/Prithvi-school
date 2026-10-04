@@ -1,18 +1,18 @@
 import Image from "next/image";
 
-export default function PageBanner({ image, alt = "Page Banner", title, subtitle }) {
+export default function PageBanner({ image, alt = "Page Banner", title, subtitle,imageClassName ="" }) {
   return (
-    <section className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] overflow-hidden">
-      <Image
-        src={image}
-        alt={alt}
-        fill
-        priority
-        fetchPriority="high"
-        className="object-cover"
-        sizes="100vw"
-        quality={85}
-      />
+    <section className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[450px] overflow-hidden">
+          <Image
+            src={image}
+            alt={alt}
+            fill
+            priority
+            fetchPriority="high"
+            className={`object-cover ${imageClassName}`}
+            sizes="100vw"
+            quality={85}
+          />
 
       {/* Dark gradient overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/15 to-transparent" />

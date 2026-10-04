@@ -49,8 +49,10 @@ export default function AboutPage() {
   return (
     <>
       <PageBanner
-              image="/academicsbanner.png"
+              image="/aboutusban.png"
+              title="About Us"
               
+              imageClassName="object-top"
             />
       <Internationalschool/>
       <OurPhilosophySection />
