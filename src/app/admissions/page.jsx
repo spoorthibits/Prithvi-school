@@ -9,6 +9,7 @@ export default function AboutPage() {
    <>
    <PageBanner
            image="/admissionsban.png"
+           mobileImage="/admissions-contact.png"
             title="Admissions"
             subtitle="Begin your child’s journey with Prithvi Global School"
     //  subtitle="Learn about our admission process and how to apply."
