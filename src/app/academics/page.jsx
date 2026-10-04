@@ -45,6 +45,7 @@ const aboutSlides = [
     <>
       <PageBanner
         image = "/academiba.png"
+        mobileImage="/academics-mobile.png"
          title="Academics"
          subtitle="Building essential skills while encouraging children to question, understand and think independently."
       />
