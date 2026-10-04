@@ -49,7 +49,7 @@ export default function AboutPage() {
   return (
     <>
       <PageBanner
-              image="/aboutusban.png"
+              image="/aboutusbanner1.png"
               title="About Us"
               
               imageClassName="object-top"
