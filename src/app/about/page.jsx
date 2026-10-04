@@ -51,7 +51,7 @@ export default function AboutPage() {
       <PageBanner
               image="/aboutusbanner1.png"
               title="About Us"
-              subtitle="Rooted in who we are, responsible towards the world we inhabit, and ready to shape the world we inherit."
+              
               imageClassName="object-top"
             />
       <Internationalschool/>
