@@ -21,7 +21,7 @@ export default function PageBanner({ image, alt = "Page Banner", title, subtitle
       <div className="absolute inset-0 flex items-center container-custom">
         <div className="max-w-2xl px-6 sm:px-10 md:px-16">
           {title && (
-            <h1 className="!text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="!text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight !font-sans">
               {title}
             </h1>
           )}

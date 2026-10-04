@@ -46,6 +46,7 @@ const aboutSlides = [
       <PageBanner
         image = "/academiba.png"
          title="Academics"
+         subtitle="Building essential skills while encouraging children to question, understand and think independently."
       />
        <ScrollSlider
  
@@ -151,19 +152,19 @@ const aboutSlides = [
   description="At our school, pedagogy goes beyond textbooks — it's about how children learn to think, question, and grow every day."
   items={[
     {
-      image: "/curriculum2.png",
+      image: "/Inquiry-Based-Learning.png",
       title: "Inquiry-Based Learning",
       description:
         "Children explore concepts through questions and hands-on discovery rather than rote instruction.",
     },
     {
-      image: "/curriculum3.png",
+      image: "/steam-tech.png",
       title: "STEAM Integration",
       description:
         "Science, technology, engineering, arts, and math come together in real, connected projects.",
     },
     {
-      image: "/curriculum4.png",
+      image: "/values.png",
       title: "Values & Mindfulness",
       description:
         "Daily practices build emotional strength, discipline, and character alongside academics.",

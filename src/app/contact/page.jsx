@@ -8,6 +8,7 @@ export default function ContactUs() {
       <PageBanner 
             image = "/Warm School Reception Conversation.png"
             title="Enquire Now"
+            subtitle="We’re here to help you take the next step."
       />
       <ContactSection/>
       <ContactSchool/>
