@@ -7,9 +7,9 @@ import ScrollButton from "./ScrollButton";
 export default function ScrollSlider({
   slides = [],
   sectionBgClass = "bg-[var(--cream)]",
-  cardBgClass = "bg-[#F4EFE4]", // warm cream — lets the uniform green + orange logo be the accent colors
+  cardBgClass = "bg-[#F4EFE4]", // warm cream — lets the brand accent color stand out
   cardTextClass = "text-[#173A4A]", // deep ink-teal, dark enough for contrast, ties back to the brand mark
-  arrowBgClass = "bg-[var(--green)]",
+  arrowBgClass = "bg-[#196191]",
   indicatorWidth = "25%",
   minHeight = 520,
 }) {
@@ -68,7 +68,7 @@ export default function ScrollSlider({
                     className={`px-5 py-5 ${cardBgClass} ${cardTextClass} relative overflow-hidden`}
                     style={{ minHeight: "240px" }}
                   >
-                    <div className="absolute top-0 left-0 h-1 w-full bg-[var(--green)]" />
+                    <div className="absolute top-0 left-0 h-1 w-full bg-[#196191]" />
 
                     {slide.smallTitle && (
                       <p className={`mb-2 text-xs font-semibold uppercase tracking-[0.15em] ${cardTextClass} opacity-70`}>
@@ -96,11 +96,11 @@ export default function ScrollSlider({
                   style={{ minHeight: `${minHeight}px` }}
                 >
                   {/* left accent bar */}
-                  <div className="absolute top-0 left-0 h-full w-1.5 bg-[var(--green)]" />
+                  <div className="absolute top-0 left-0 h-full w-1.5 bg-[#196191]" />
 
                   {slide.smallTitle && (
                     <div className="flex items-center gap-3 mb-5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--green)]" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#196191]" />
                       <p className={`${cardTextClass} font-semibold uppercase tracking-[0.2em] text-sm opacity-70`}>
                         {slide.smallTitle}
                       </p>
@@ -122,7 +122,7 @@ export default function ScrollSlider({
                   {/* INDICATOR */}
                   <div className="mt-10 w-[60%] h-[2px] bg-black/10 relative overflow-hidden rounded-full">
                     <div
-                      className="absolute top-0 left-0 h-[2px] bg-[var(--green)] transition-all duration-500 rounded-full"
+                      className="absolute top-0 left-0 h-[2px] bg-[#196191] transition-all duration-500 rounded-full"
                       style={{
                         width: `${100 / slides.length}%`,
                         left:

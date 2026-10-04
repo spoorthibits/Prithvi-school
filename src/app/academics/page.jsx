@@ -44,9 +44,8 @@ const aboutSlides = [
   return (
     <>
       <PageBanner
-        image="/academicsbanner.png"
-         title="International Learning, Rooted in Culture"
-  subtitle="CBSE Curriculum integrated with Cambridge learning frameworks"
+        image = "/academiba.png"
+         title="Academics"
       />
        <ScrollSlider
  
@@ -59,26 +58,26 @@ const aboutSlides = [
                 The academic framework at Prithvi Global School is designed to support concept clarity, application, and clear communication. Following a CBSE curriculum integrated with Cambridge learning frameworks, we help students build strong academic foundations while developing the confidence to express ideas and understand concepts deeply.
               </>
             ),
-            image: "/curriculum4.png",
+            image: "/curriculum-1.png",
           },
           {
             smallTitle: "Our Approach",
             title: "How learning progresses",
             description:
               "Subjects are structured to build understanding gradually across grades — from pre-primary through 5th class — allowing children to connect ideas and strengthen foundations year on year. This steady, age-appropriate progression supports every learner as they grow through the early stages of schooling.",
-            image: "/curriculum2.png",
+            image: "/curriculum-2.png",
           },
           {
             smallTitle: "Our Philosophy",
             title: "Why this matters",
             description:
               "This approach helps students move beyond memorization and develop confidence in applying what they learn. By focusing on understanding rather than rote learning, children at Prithvi Global School develop stronger thinking skills and a genuine curiosity for learning.",
-            image: "/curriculum3.png",
+            image: "/curriculum3new.png",
           },
         ]}
       />
       <VideoHero
-              videoSrc="/learnings.mp4"
+              videoSrc="/aca.mp4"
               title="LEARNING JOURNEY"
               slides={[
                 {
@@ -86,14 +85,14 @@ const aboutSlides = [
                   subTitle: "Empathy, Healthy,",
                   description:
                     "The early years are shaped around warmth, security, and gentle exploration. Children are encouraged to observe, ask questions, and engage with the world through play, stories, movement, and conversation. Learning experiences are thoughtfully guided to help children develop language, social awareness, and early thinking skills. With consistent routines and a caring environment, children begin to feel safe, confident, and ready to learn.",
-                  image: "/curriculum2.png",
+                  image: "/curriculum-2.png",
                 },
                 {
                   headingTop: "PRIMARY YEARS",
                   subTitle: "Simple. Personal. Child-first.",
                   description:
                     "The primary years focus on building strong academic foundations while developing independence and curiosity. Learning becomes more structured, helping children make connections, express ideas clearly, and develop confidence in their abilities.Teachers support students in understanding concepts deeply rather than memorizing outcomes. Equal importance is given to academic growth, emotional development, and responsible behaviour, allowing children to grow into thoughtful and capable learners.",
-                  image: "/curriculum3.png",
+                  image: "/curriculum3new.png",
                 },
               ]}
             />

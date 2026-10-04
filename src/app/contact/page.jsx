@@ -6,7 +6,8 @@ export default function ContactUs() {
   return (
     <>
       <PageBanner 
-            image = "/ba-contact.webp"
+            image = "/Warm School Reception Conversation.png"
+            title="Enquire Now"
       />
       <ContactSection/>
       <ContactSchool/>

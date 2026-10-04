@@ -101,7 +101,7 @@ export default function ContactSchool({
                 href={applyHref}
                 className="text-cta rounded-full px-4 py-2 text-center text-xs uppercase transition hover:opacity-90 sm:px-6 sm:py-3 sm:text-sm lg:px-8 lg:py-3.5 lg:text-base"
                 style={{
-                  background: "var(--dark-green)",
+                  background: "#196191",
                   color: "var(--white)",
                 }}
               >
@@ -165,7 +165,7 @@ export default function ContactSchool({
             <a
               href={applyHref}
               className="text-cta w-full rounded-full px-6 py-3 text-center text-xs uppercase transition hover:opacity-90"
-              style={{ background: "var(--dark-green)", color: "var(--white)" }}
+              style={{ background: "#196191", color: "var(--white)" }}
             >
               Apply Now
             </a>

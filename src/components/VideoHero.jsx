@@ -123,7 +123,7 @@ export default function VideoHero({
                 fontFamily: "Playfair Display, serif",
                 fontWeight: 700,
                 fontSize: "clamp(18px, 2.5vw, 24px)",
-                color: "#075a36",
+                color: "#196191",
               }}
             >
               {slide.subTitle}
