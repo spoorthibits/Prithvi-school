@@ -2,7 +2,6 @@ import PageBanner from "@/components/PageBanner";
 import AdmissionProcess from "@/components/VideoHeroAnimation";
 import CoreHeader from "@/components/CoreHeader";
 import FeaturesTabs from "@/components/FeaturesTabs"; 
-import Image from "next/image";
 import FAQSection from "@/components/Faqs";
 import ContactSchool from "@/components/ContactSchool";
 export default function AboutPage() {
