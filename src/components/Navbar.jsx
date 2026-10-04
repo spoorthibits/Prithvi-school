@@ -167,7 +167,7 @@ export default function Navbar() {
   aria-label="Prithvi Global School Home"
 >
   <Image
-    src="/logo4.png"
+    src="/logo1.png"
     alt="Prithvi Global School"
     width={340}
     height={122}
@@ -278,7 +278,7 @@ export default function Navbar() {
   className="shrink-0 -translate-x-[8px] sm:-translate-x-[10px] md:-translate-x-[12px]"
 >
   <Image
-    src="/logo1.png"
+    src="/logo.png"
     alt="Prithvi Global School"
     width={300}
     height={115}
