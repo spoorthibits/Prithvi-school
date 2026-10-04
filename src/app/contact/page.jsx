@@ -5,10 +5,12 @@ import PageBanner from "@/components/PageBanner";
 export default function ContactUs() {
   return (
     <>
-      <PageBanner 
-            image = "/Warm School Reception Conversation.png"
-            title="Enquire Now"
-      />
+      <PageBanner
+  image="/Warm School Reception Conversation.png"
+  mobileImage="/mobile-contact.png"
+  title="Enquire Now"
+  subtitle="We’re here to help you take the next step."
+/>
       <ContactSection/>
       <ContactSchool/>
     </>

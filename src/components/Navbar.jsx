@@ -18,13 +18,13 @@ const CTA_LINKS = [
   {
     name: "Admissions",
     href: "/admissions",
-    bg: "bg-[#d59238]",
+    bg: "bg-[#e88f1b]",
     hoverBg: "hover:bg-[#e88612]",
   },
   {
     name: "Enquire Now",
     href: "/contact",
-    bg: "bg-[#196191]",
+    bg: "bg-[#45a7e7]",
     hoverBg: "hover:bg-[#438e42]",
   },
 ];
@@ -167,7 +167,7 @@ export default function Navbar() {
   aria-label="Prithvi Global School Home"
 >
   <Image
-    src="/logo1.png"
+    src="/logonew1.png"
     alt="Prithvi Global School"
     width={340}
     height={122}
@@ -278,7 +278,7 @@ export default function Navbar() {
   className="shrink-0 -translate-x-[8px] sm:-translate-x-[10px] md:-translate-x-[12px]"
 >
   <Image
-    src="/logo.png"
+    src="/logonew1.png"
     alt="Prithvi Global School"
     width={300}
     height={115}

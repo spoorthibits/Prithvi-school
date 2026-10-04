@@ -156,7 +156,7 @@ export default function ScrollSlider({
         </div>
 
         {/* ARROWS */}
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-5">
           <div className="flex">
             <ScrollButton
               direction="left"

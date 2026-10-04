@@ -12,16 +12,16 @@ export default function CardGridSection({
       <div className="container-custom text-center">
         {/* Badge heading */}
         <div
-          className="inline-block px-8 py-9 mb-6"
-          style={{ backgroundColor: "#ffffff" }}
+          className="inline-block px-8 py-12 mb-1"
+          
         >
           <h2
             className="uppercase leading-[100%] tracking-wide"
             style={{
               fontFamily: "Montserrat, sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(16px, 2vw, 20px)",
-              color: "#075a36",
+              fontSize: "clamp(26px, 2vw, 20px)",
+              color: "#196191",
             }}
           >
             {badge}
@@ -59,7 +59,7 @@ export default function CardGridSection({
                       "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
                     fontWeight: 700,
                     fontSize: "22px",
-                    color: "#075a36",
+                    color: "#196191",
                   }}
                 >
                   {item.title}

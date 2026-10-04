@@ -46,6 +46,7 @@ const aboutSlides = [
       <PageBanner
         image = "/academiba.png"
          title="Academics"
+         subtitle="Building essential skills while encouraging children to question, understand and think independently."
       />
        <ScrollSlider
  
@@ -58,26 +59,26 @@ const aboutSlides = [
                 The academic framework at Prithvi Global School is designed to support concept clarity, application, and clear communication. Following a CBSE curriculum integrated with Cambridge learning frameworks, we help students build strong academic foundations while developing the confidence to express ideas and understand concepts deeply.
               </>
             ),
-            image: "/curriculum-1.png",
+            image: "/OurCurriculum.png",
           },
           {
             smallTitle: "Our Approach",
             title: "How learning progresses",
             description:
               "Subjects are structured to build understanding gradually across grades — from pre-primary through 5th class — allowing children to connect ideas and strengthen foundations year on year. This steady, age-appropriate progression supports every learner as they grow through the early stages of schooling.",
-            image: "/curriculum-2.png",
+            image: "/Our-Approach.png",
           },
           {
             smallTitle: "Our Philosophy",
             title: "Why this matters",
             description:
               "This approach helps students move beyond memorization and develop confidence in applying what they learn. By focusing on understanding rather than rote learning, children at Prithvi Global School develop stronger thinking skills and a genuine curiosity for learning.",
-            image: "/curriculum3new.png",
+            image: "/OurPhilosophy.png",
           },
         ]}
       />
       <VideoHero
-              videoSrc="/aca.mp4"
+              videoSrc="/acad.mp4"
               title="LEARNING JOURNEY"
               slides={[
                 {
@@ -85,14 +86,14 @@ const aboutSlides = [
                   subTitle: "Empathy, Healthy,",
                   description:
                     "The early years are shaped around warmth, security, and gentle exploration. Children are encouraged to observe, ask questions, and engage with the world through play, stories, movement, and conversation. Learning experiences are thoughtfully guided to help children develop language, social awareness, and early thinking skills. With consistent routines and a caring environment, children begin to feel safe, confident, and ready to learn.",
-                  image: "/curriculum-2.png",
+                  image: "/Eearly-years.png",
                 },
                 {
                   headingTop: "PRIMARY YEARS",
                   subTitle: "Simple. Personal. Child-first.",
                   description:
                     "The primary years focus on building strong academic foundations while developing independence and curiosity. Learning becomes more structured, helping children make connections, express ideas clearly, and develop confidence in their abilities.Teachers support students in understanding concepts deeply rather than memorizing outcomes. Equal importance is given to academic growth, emotional development, and responsible behaviour, allowing children to grow into thoughtful and capable learners.",
-                  image: "/curriculum3new.png",
+                  image: "/primary-years.png",
                 },
               ]}
             />
@@ -151,19 +152,19 @@ const aboutSlides = [
   description="At our school, pedagogy goes beyond textbooks — it's about how children learn to think, question, and grow every day."
   items={[
     {
-      image: "/curriculum2.png",
+      image: "/Inquiry-Based-Learning.png",
       title: "Inquiry-Based Learning",
       description:
         "Children explore concepts through questions and hands-on discovery rather than rote instruction.",
     },
     {
-      image: "/curriculum3.png",
+      image: "/steam-tech.png",
       title: "STEAM Integration",
       description:
         "Science, technology, engineering, arts, and math come together in real, connected projects.",
     },
     {
-      image: "/curriculum4.png",
+      image: "/values.png",
       title: "Values & Mindfulness",
       description:
         "Daily practices build emotional strength, discipline, and character alongside academics.",
