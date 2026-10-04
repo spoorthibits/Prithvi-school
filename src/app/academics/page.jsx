@@ -77,7 +77,7 @@ const aboutSlides = [
         ]}
       />
       <VideoHero
-              videoSrc="/aca.mp4"
+              videoSrc="/acad.mp4"
               title="LEARNING JOURNEY"
               slides={[
                 {
