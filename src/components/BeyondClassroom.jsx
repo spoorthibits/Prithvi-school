@@ -3,7 +3,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 const sections = [
   {
@@ -37,7 +41,22 @@ const sections = [
 
 export default function BeyondClassroom() {
   const [active, setActive] = useState(0);
+
   const current = sections[active];
+
+  // Previous section
+  const goPrevious = () => {
+    setActive((prev) =>
+      prev === 0 ? sections.length - 1 : prev - 1
+    );
+  };
+
+  // Next section
+  const goNext = () => {
+    setActive((prev) =>
+      prev === sections.length - 1 ? 0 : prev + 1
+    );
+  };
 
   return (
     <section
@@ -45,8 +64,12 @@ export default function BeyondClassroom() {
       style={{ background: "#f1ebe3" }}
     >
       <div className="container-custom">
-        {/* Top row: tabs (left) + big heading (right) */}
+
+        {/* =========================
+            TOP TABS
+        ========================== */}
         <div className="relative mb-3">
+
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {sections.map((item, i) => (
               <button
@@ -54,7 +77,10 @@ export default function BeyondClassroom() {
                 onClick={() => setActive(i)}
                 className="text-nav whitespace-nowrap font-bold tracking-wide transition-colors"
                 style={{
-                  color: active === i ? "var(--orange)" : "var(--dark-green)",
+                  color:
+                    active === i
+                      ? "var(--orange)"
+                      : "var(--dark-green)",
                   opacity: active === i ? 1 : 0.9,
                 }}
               >
@@ -63,37 +89,20 @@ export default function BeyondClassroom() {
             ))}
           </div>
 
-          {/* Desktop heading: absolutely positioned so it can shift down
-              without adding extra height to the row / gap before the image */}
+          {/* =========================
+              LAPTOP + DESKTOP HEADING
+              Visible from lg and above
+          ========================== */}
           <h2
-    className="absolute right-5 -top-32 z-20 hidden text-right uppercase md:block"
-    style={{
-      color: "var(--dark-green)",
-      fontFamily: '"Montserrat", sans-serif',
-      fontWeight: 800,
-      fontSize: "clamp(46px, 3.4vw, 40px)",
-      lineHeight: 1.05,
-      letterSpacing: "-0.5px",
-      transform: "translateY(140px)",
-    }}
-  >
-    Cultivating
-    <br />
-    Exceptional
-    <br />
-    Thinkers
-  </h2>
-
-          {/* Mobile heading: stays in normal flow below tabs */}
-          <h2
-            className="mt-4 text-right uppercase md:hidden"
+            className="absolute right-5 -top-32 z-20 hidden text-right uppercase lg:block"
             style={{
               color: "var(--dark-green)",
               fontFamily: '"Montserrat", sans-serif',
               fontWeight: 800,
-              fontSize: "clamp(26px, 3.4vw, 40px)",
+              fontSize: "clamp(46px, 3.4vw, 40px)",
               lineHeight: 1.05,
               letterSpacing: "-0.5px",
+              transform: "translateY(165px)",
             }}
           >
             Cultivating
@@ -102,19 +111,37 @@ export default function BeyondClassroom() {
             <br />
             Thinkers
           </h2>
+
+          {/* =========================
+              MOBILE + TABLET HEADING
+              Hidden
+          ========================== */}
+          <h2 className="hidden">
+            Cultivating
+            <br />
+            Exceptional
+            <br />
+            Thinkers
+          </h2>
         </div>
 
-        {/* Image block with overlapping side card */}
+        {/* =========================
+            HERO IMAGE
+        ========================== */}
         <div className="relative">
-          {/* Main hero image */}
+
           <div className="relative h-[380px] w-full overflow-hidden md:h-[420px] lg:w-[68%]">
+
             <Image
               src={current.heroImage}
               alt={current.title}
               fill
               className="object-cover"
             />
+
+            {/* Dark gradient + content */}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-7 pt-24">
+
               <h3
                 className="mb-2 uppercase"
                 style={{
@@ -127,6 +154,7 @@ export default function BeyondClassroom() {
               >
                 {current.title}
               </h3>
+
               <p
                 className="max-w-md leading-relaxed"
                 style={{
@@ -138,38 +166,115 @@ export default function BeyondClassroom() {
               >
                 {current.description}
               </p>
+
             </div>
           </div>
 
-          {/* Overlapping side image + "more about" bar */}
-          <div className="absolute bottom-[-16px] -right-10 w-[38%] min-w-[240px] max-w-[360px] md:right-18 lg:right-15">
+          {/* =========================
+              OVERLAPPING SIDE CARD
+              
+              Hidden below lg
+              Visible on desktop
+          ========================== */}
+          <div className="absolute bottom-[-16px] -right-10 hidden w-[38%] min-w-[240px] max-w-[360px] lg:block lg:right-15">
+
             <div className="relative h-40 w-full overflow-hidden shadow-2xl md:h-58">
+
               <Image
                 src={current.sideImage}
                 alt=""
                 fill
                 className="object-cover"
               />
+
             </div>
+
             <button
               className="flex w-full items-center justify-between px-5 py-3 text-left shadow-2xl"
-              style={{ background: "var(--white)" }}
+              style={{
+                background: "var(--white)",
+              }}
             >
+
               <span
                 className="text-cta pr-4 uppercase"
-                style={{ color: "var(--dark-green)", fontSize: "13px" }}
+                style={{
+                  color: "var(--dark-green)",
+                  fontSize: "13px",
+                }}
               >
                 {current.moreLabel}
               </span>
+
               <span
                 className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full"
-                style={{ background: "var(--green)", color: "var(--white)" }}
+                style={{
+                  background: "var(--green)",
+                  color: "var(--white)",
+                }}
               >
                 <ArrowRight size={14} />
               </span>
+
             </button>
           </div>
         </div>
+
+        {/* =========================
+            MOBILE + TABLET NAVIGATION
+            Hidden on laptop + desktop
+        ========================== */}
+        <div className="mt-6 flex items-center justify-center gap-4 lg:hidden">
+
+          {/* Previous Button */}
+          <button
+            onClick={goPrevious}
+            aria-label="Previous section"
+            className="flex h-10 w-10 items-center justify-center rounded-full border transition-all"
+            style={{
+              borderColor: "rgba(0,0,0,0.2)",
+              color: "var(--dark-green)",
+              background: "transparent",
+            }}
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          {/* Dots */}
+          <div className="flex items-center gap-2">
+            {sections.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                aria-label={`Go to section ${i + 1}`}
+                className="h-2 rounded-full transition-all duration-300"
+                style={{
+                  width: active === i ? "28px" : "8px",
+                  background:
+                    active === i
+                      ? "var(--green)"
+                      : "rgba(0,0,0,0.18)",
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={goNext}
+            aria-label="Next section"
+            className="flex h-10 w-10 items-center justify-center rounded-full border transition-all"
+            style={{
+              borderColor: "rgba(0,0,0,0.2)",
+              color: "var(--dark-green)",
+              background: "transparent",
+            }}
+          >
+            <ChevronRight size={20} />
+          </button>
+
+        </div>
+
       </div>
     </section>
   );

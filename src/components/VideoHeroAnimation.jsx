@@ -167,11 +167,11 @@ export default function AdmissionProcess() {
                 <div
                   key={step.number}
                   ref={(el) => (cardRefs.current[i] = el)}
-                  className="relative snap-start shrink-0 w-[82vw] xs:w-[70vw] sm:w-[280px] max-w-[300px] rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[340px] transition-all duration-300 ease-out"
+                 className="relative snap-start shrink-0 w-[calc(100vw-2rem)] sm:w-[280px] max-w-none sm:max-w-[300px] rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[340px] transition-all duration-300 ease-out"
                   style={{
                     background: step.gradient,
                     transform: isActive
-                      ? "translateY(-14px) scale(1.05)"
+                      ? "translateY(-14px) scale(1)"
                       : "translateY(0) scale(1)",
                     boxShadow: isActive
                       ? "0 20px 40px -12px rgba(0,0,0,0.35)"
