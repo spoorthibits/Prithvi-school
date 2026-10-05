@@ -101,6 +101,12 @@ export default function FeaturesTabs({
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [displayedTab, setDisplayedTab] = useState(0);
 
+  // Mobile/tablet accordion: nothing open by default, tap again to close
+  const [mobileOpen, setMobileOpen] = useState(null);
+
+  // If a mobile image file is missing/404, fall back to the desktop image
+  const [failedMobile, setFailedMobile] = useState({});
+
   const handleTabChange = (index) => {
     if (index === activeTab) return;
 
@@ -119,11 +125,29 @@ export default function FeaturesTabs({
     <section className="mb-20">
       <div className="container-custom">
 
-        {/* ================= SECTION HEADING ================= */}
+        {/* ================= SECTION HEADING =================
+            Tablet + desktop (>=768px): same as the original desktop styling.
+            Mobile (<768px) only: the parent wrapper is pulled up over the arch and
+            min-h below reserves the rest of the arch height so tabs start under it. */}
 
-        <div className="mb-10 text-center md:mb-14">
-          <h2 className="mb-3 !text-[28px] lg:!text-[32px] !font-bold tracking-[0.08em] ">
-            What does growing up at <span className="!text-[#196191]"> Prithvi feel like?</span> 
+        <div
+          className="
+            mb-0 text-center md:mb-14
+
+            max-[767px]:min-h-[calc(clamp(240px,82vw,340px)_*_0.6776_-_110px)]
+          "
+        >
+          <h2
+            className="
+              mx-auto mb-3 text-balance !font-bold
+              !text-[clamp(20px,6vw,26px)] md:!text-[28px] lg:!text-[32px]
+              md:tracking-[0.08em]
+
+              max-[767px]:max-w-[calc(clamp(240px,82vw,340px)_*_0.755)]
+              md:max-w-none
+            "
+          >
+            What does growing up at <span className="!text-[#196191]"> Prithvi feel like?</span>
           </h2>
         </div>
 
@@ -134,7 +158,7 @@ export default function FeaturesTabs({
         <div className="space-y-3 lg:hidden">
           {features.map((feature, index) => {
             const Icon = iconMap[feature.icon];
-            const isActive = activeTab === index;
+            const isActive = mobileOpen === index;
 
             return (
               <div
@@ -146,7 +170,7 @@ export default function FeaturesTabs({
 
                 <button
                   type="button"
-                  onClick={() => handleTabChange(index)}
+                  onClick={() => setMobileOpen(isActive ? null : index)}
                   className={`
                     flex w-full items-center gap-4
                     p-4 text-left
@@ -212,11 +236,18 @@ export default function FeaturesTabs({
                   <div className="relative h-[400px]">
 
                     <Image
-                      src={feature.mobileImage || feature.image}
+                      src={
+                        failedMobile[index]
+                          ? feature.image
+                          : feature.mobileImage || feature.image
+                      }
                       alt={feature.title}
                       fill
                       className="object-cover"
                       sizes="100vw"
+                      onError={() =>
+                        setFailedMobile((prev) => ({ ...prev, [index]: true }))
+                      }
                     />
 
                     {/* IMAGE GRADIENT */}

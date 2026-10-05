@@ -7,7 +7,9 @@ const CoreHeader = ({
   return (
     <div className="relative w-full">
 
-      {/* CURVE */}
+      {/* CURVE
+          Desktop (>=1025px): fixed 450 x 350 (unchanged)
+          Tablet / Mobile: width scales with the screen, height follows via aspect-ratio */}
       <div
         className="
           relative
@@ -22,12 +24,14 @@ const CoreHeader = ({
           border-[#D9B98C]/50
 
           /* MOBILE */
-          max-[767px]:h-[300px]
-          max-[767px]:w-[310px]
+          max-[767px]:h-auto
+          max-[767px]:w-[clamp(240px,82vw,340px)]
+          max-[767px]:aspect-[31/30]
 
           /* TABLET */
-          min-[768px]:max-[1024px]:h-[245px]
-          min-[768px]:max-[1024px]:w-[320px]
+          min-[768px]:max-[1024px]:h-auto
+          min-[768px]:max-[1024px]:w-[clamp(320px,42vw,420px)]
+          min-[768px]:max-[1024px]:aspect-[64/49]
         "
       >
 
@@ -44,13 +48,9 @@ const CoreHeader = ({
             rounded-b-[50%]
             bg-[#EFE0D0]
 
-            /* MOBILE */
-            max-[767px]:h-[265px]
-            max-[767px]:w-[285px]
-
-            /* TABLET */
-            min-[768px]:max-[1024px]:h-[220px]
-            min-[768px]:max-[1024px]:w-[295px]
+            /* MOBILE + TABLET */
+            max-[1024px]:h-[88%]
+            max-[1024px]:w-[82%]
           "
         >
 
@@ -63,6 +63,7 @@ const CoreHeader = ({
                 top-1/2
                 -translate-x-1/2
                 -translate-y-1/2
+                whitespace-nowrap
                 rounded-full
                 border
                 border-[#D9A56C]
@@ -99,6 +100,7 @@ const CoreHeader = ({
 
           /* MOBILE */
           max-[767px]:mt-5
+          max-[767px]:px-4
 
           /* TABLET */
           min-[768px]:max-[1024px]:mt-6
@@ -112,16 +114,18 @@ const CoreHeader = ({
             heading
             !m-0
             max-w-[900px]
+            text-balance
+            break-words
             text-center
             !text-[27px]
             leading-[1.1]
             text-[#292929]
 
-            /* MOBILE */
-            max-[767px]:!text-[25px]
+            /* MOBILE: ~25px at 390px wide, scales 20px - 28px */
+            max-[767px]:!text-[clamp(20px,6.4vw,28px)]
 
-            /* TABLET */
-            min-[768px]:max-[1024px]:!text-[24px]
+            /* TABLET: scales 24px - 32px */
+            min-[768px]:max-[1024px]:!text-[clamp(24px,3.2vw,32px)]
 
             /* LAPTOP + DESKTOP */
             min-[1025px]:!text-[34px]

@@ -147,26 +147,25 @@ export default function Home() {
 
         {/* DON'T CHANGE YOUR CURVE */}
         <div className="relative z-0">
-          <CoreHeader
-            title1=""
-           
-          />
-        </div>
+  <CoreHeader title1="" />
+</div>
 
-        {/* FEATURES — OVERLAPS THE CURVE */}
-        <div
-        className="
-          relative
-          z-20
+{/* FEATURES — OVERLAPS THE CURVE */}
+<div
+  className="
+    relative
+    z-20
 
-          mt-0
+    /* MOBILE ONLY: pull up by ~70% of the arch height (+ the title block's mt-5) */
+    max-[767px]:mt-[calc(clamp(240px,82vw,340px)_*_-0.6776_-_20px)]
 
-          lg:-mt-[260px]
-          xl:-mt-[280px]
-        "
-      >
-        <FeaturesTabs />
-      </div>
+    /* TABLET + DESKTOP: same overlap */
+    md:-mt-[260px]
+    xl:-mt-[280px]
+  "
+>
+  <FeaturesTabs />
+</div>
       <div
     className="
       pointer-events-none

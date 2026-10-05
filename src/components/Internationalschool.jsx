@@ -73,19 +73,22 @@ export default function Internationalschool() {
 <h2
   className="
     mb-4
+    whitespace-nowrap
     font-serif
-    text-[28px]
+    text-[length:clamp(14px,4.2vw,26px)]
     font-semibold
     leading-[1.08]
     tracking-[-0.5px]
     !text-[#196191]
+    sm:whitespace-normal
     sm:text-[30px]
     md:text-[34px]
     lg:text-[38px]
     !text-[#173B63]
+    !sm:text-center
   "
 >
-  A Vision for Brighter Tomorrows
+  The Vision Behind Prithvi
 </h2>
 
 {/* ACCENT LINE */}
@@ -103,6 +106,7 @@ export default function Internationalschool() {
       sm:leading-[26px]
       md:text-[16px]
       md:leading-[28px]
+      
     "
   >
     Prithvi Global School was founded with a simple yet powerful belief
@@ -119,6 +123,7 @@ export default function Internationalschool() {
       sm:leading-[26px]
       md:text-[16px]
       md:leading-[28px]
+     
     "
   >
     We envisioned a school where academic excellence goes hand in hand with
