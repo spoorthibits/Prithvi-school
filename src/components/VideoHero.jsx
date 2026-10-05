@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-// import ScrollButton from "./ScrollButton";
+import ScrollButton from "./ScrollButton";
 import Image from "next/image";
 
 export default function VideoHero({
@@ -9,7 +9,6 @@ export default function VideoHero({
   title,
   slides = [],
 }) {
-
   const scrollRef = useRef(null);
   const [progress, setProgress] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -18,17 +17,21 @@ export default function VideoHero({
   const totalSlides = slides.length + 1;
 
   /* ---------------- SCREEN DETECTION ---------------- */
+
   useEffect(() => {
     const checkScreen = () => {
       setIsDesktop(window.innerWidth >= 1024);
     };
 
     checkScreen();
+
     window.addEventListener("resize", checkScreen);
+
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
   /* ---------------- DESKTOP SCROLL LOGIC (FIXED) ---------------- */
+
   useEffect(() => {
     if (!isDesktop) return;
 
@@ -39,20 +42,31 @@ export default function VideoHero({
       const start = el.offsetTop;
       const scrollY = window.scrollY;
 
-      const slideScrollDistance = (totalSlides - 1) * window.innerHeight;
-      const releaseBuffer = window.innerHeight * 0.45; // one full scroll after last slide
-      const totalDistance = slideScrollDistance + releaseBuffer;
+      const slideScrollDistance =
+        (totalSlides - 1) * window.innerHeight;
 
-      const progressRaw = (scrollY - start) / slideScrollDistance;
+      const releaseBuffer =
+        window.innerHeight * 0.45;
+
+      const totalDistance =
+        slideScrollDistance + releaseBuffer;
+
+      const progressRaw =
+        (scrollY - start) / slideScrollDistance;
 
       /* Clamp horizontal movement only for slides */
-      const clamped = Math.max(0, Math.min(progressRaw, 1));
+      const clamped = Math.max(
+        0,
+        Math.min(progressRaw, 1)
+      );
 
       setProgress(clamped);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () =>
+      window.removeEventListener("scroll", handleScroll);
   }, [isDesktop, totalSlides]);
 
   const translateX = isDesktop
@@ -70,16 +84,20 @@ export default function VideoHero({
     );
 
   /* ---------------- HEADING ---------------- */
+
   const Heading = ({ top, bottom }) => (
     <div className="mb-4">
+
+      {/* MAIN HEADING */}
       {top && (
-        <div className="!bg-[#d3e9f8] inline-block px-4 py-2 mb-2">
+        <div className="inline-block mb-2">
           <h2
             className="leading-[100%]"
             style={{
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,
               fontSize: "clamp(32px, 6vw, 48px)",
+              color: "#196191",
             }}
           >
             {top}
@@ -87,6 +105,7 @@ export default function VideoHero({
         </div>
       )}
 
+      {/* SECOND HEADING */}
       {bottom && (
         <div className="bg-lightblue inline-block px-4 py-2">
           <h2
@@ -95,7 +114,6 @@ export default function VideoHero({
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,
               fontSize: "clamp(32px, 6vw, 48px)",
-              
             }}
           >
             {bottom}
@@ -106,8 +124,10 @@ export default function VideoHero({
   );
 
   /* ---------------- SLIDE LAYOUT ---------------- */
+
   const SlideLayout = ({ slide }) => (
     <div className="w-screen h-auto lg:h-screen flex flex-col lg:flex-row">
+
       <div className="w-full lg:w-1/2 flex items-center justify-center px-6 sm:px-10 lg:px-20 py-12 lg:py-0">
         <div className="w-full max-w-xl paragraph">
 
@@ -116,6 +136,7 @@ export default function VideoHero({
             bottom={slide.headingBottom}
           />
 
+          {/* DESKTOP SUBTITLE */}
           {slide.subTitle && (
             <p
               className="paragraph mb-4 leading-[100%]"
@@ -155,17 +176,21 @@ export default function VideoHero({
           className="object-cover"
         />
       </div>
+
     </div>
   );
 
   return (
     <>
       {/* ================= DESKTOP ================= */}
+
       {isDesktop && (
         <section
           ref={scrollRef}
           className="relative w-full"
-          style={{ height: `${(totalSlides + 1) * 100}vh` }}
+          style={{
+            height: `${(totalSlides + 1) * 100}vh`,
+          }}
         >
           <div className="sticky top-[72px] h-[calc(100vh-72px)] overflow-hidden">
 
@@ -180,6 +205,7 @@ export default function VideoHero({
             >
 
               {/* VIDEO HERO */}
+
               <div className="w-screen h-screen relative">
 
                 <video
@@ -189,7 +215,10 @@ export default function VideoHero({
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src={videoSrc} type="video/mp4" />
+                  <source
+                    src={videoSrc}
+                    type="video/mp4"
+                  />
                 </video>
 
                 <div
@@ -201,6 +230,7 @@ export default function VideoHero({
                 />
 
                 <div className="relative z-10 flex items-center justify-center h-full text-center px-6">
+
                   <h2
                     className="!text-white uppercase leading-[100%]"
                     style={{
@@ -212,12 +242,16 @@ export default function VideoHero({
                   >
                     {title}
                   </h2>
+
                 </div>
 
               </div>
 
               {slides.map((slide, index) => (
-                <SlideLayout key={index} slide={slide} />
+                <SlideLayout
+                  key={index}
+                  slide={slide}
+                />
               ))}
 
             </div>
@@ -226,9 +260,11 @@ export default function VideoHero({
       )}
 
       {/* ================= MOBILE + TABLET ================= */}
+
       {!isDesktop && (
         <>
           <section className="relative w-full">
+
             <div className="w-full h-[70vh] relative">
 
               <video
@@ -238,12 +274,16 @@ export default function VideoHero({
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               >
-                <source src={videoSrc} type="video/mp4" />
+                <source
+                  src={videoSrc}
+                  type="video/mp4"
+                />
               </video>
 
               <div className="absolute inset-0 bg-black/40" />
 
               <div className="relative z-10 flex items-center justify-center h-full text-center">
+
                 <h2
                   className="text-white uppercase leading-[100%]"
                   style={{
@@ -255,12 +295,16 @@ export default function VideoHero({
                 >
                   {title}
                 </h2>
+
               </div>
 
             </div>
+
           </section>
 
           <section className="overflow-hidden relative">
+
+            {/* ================= SLIDES ================= */}
 
             <div
               className="flex transition-transform duration-500"
@@ -270,37 +314,38 @@ export default function VideoHero({
             >
 
               {slides.map((slide, index) => (
-                <div key={index} className="min-w-full">
+
+                <div
+                  key={index}
+                  className="min-w-full"
+                >
 
                   <div className="container-custom py-10">
 
+                    {/* IMAGE */}
+
                     <div className="relative w-full h-[280px] md:h-[340px] mb-6">
+
                       <Image
                         src={slide.image}
                         alt=""
                         fill
                         className="object-cover object-top"
                       />
+
                     </div>
+
+                    {/* MAIN HEADING */}
 
                     <Heading
                       top={slide.headingTop}
                       bottom={slide.headingBottom}
                     />
 
-                    {slide.subTitle && (
-                      <p
-                        className="mb-4"
-                        style={{
-                          fontFamily: "Playfair Display, serif",
-                          fontWeight: 700,
-                          fontSize: "clamp(20px, 4.5vw, 24px)",
-                          color: "#9B1B2F",
-                        }}
-                      >
-                        {slide.subTitle}
-                      </p>
-                    )}
+                    {/* SUBTITLE
+                        HIDDEN ON MOBILE + TABLET */}
+
+                    {/* DESCRIPTION */}
 
                     {slide.description && (
                       <p
@@ -318,25 +363,40 @@ export default function VideoHero({
                   </div>
 
                 </div>
+
               ))}
 
             </div>
 
-            {/* <div className="container-custom mt-4 mb-8 flex justify-center"> */}
-              {/* <div className="flex"> */}
-                {/* <ScrollButton
-                  direction="left"
-                  onClick={prevMobile}
-                  bgColor="#9B1B2F"
-                  className="border-r border-white/30"
-                />
-                <ScrollButton
-                  direction="right"
-                  onClick={nextMobile}
-                  bgColor="#9B1B2F"
-                />
-              </div> */}
-            {/* </div> */}
+            {/* =================================================
+                CONSTANT SCROLL BUTTONS
+                OUTSIDE slides.map()
+            ================================================= */}
+
+            {slides.length > 1 && (
+              <div className="mt-8 mb-8 flex justify-center">
+
+                <div className="flex overflow-hidden">
+
+                  <ScrollButton
+                    direction="left"
+                    onClick={prevMobile}
+                    bgColor="#196191"
+                    hoverColor="#B85F2C"
+                    className="border-r border-white/30"
+                  />
+
+                  <ScrollButton
+                    direction="right"
+                    onClick={nextMobile}
+                    bgColor="#196191"
+                    hoverColor="#B85F2C"
+                  />
+
+                </div>
+
+              </div>
+            )}
 
           </section>
         </>
