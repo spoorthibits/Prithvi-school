@@ -9,17 +9,11 @@ import Image from "next/image";
  *
  * RESPONSIVE APPROACH:
  * Below `sm` (640px), a dedicated mobile image (imageSrcMobile) is used
- * instead of the desktop banner, since the desktop image's aspect ratio
- * renders too short on phone widths to look intentional. The
- * heading/subheading/CTAs are overlaid directly ON TOP of that mobile
- * image (centered, stacked buttons), with a dark gradient behind the
- * text for legibility — matching the desktop treatment rather than
- * sitting in a separate band underneath.
+ * instead of the desktop banner. The heading/subheading/CTAs are overlaid
+ * directly ON TOP of that mobile image (centered, stacked buttons).
  *
- * From `sm` up, the original desktop image (imageSrc) is shown full and
- * uncropped, with heading/subheading/CTAs overlaid on top of it, and
- * type sizing that keeps scaling through `lg`/`xl` so it doesn't look
- * undersized on large desktop screens.
+ * From `sm` up, the desktop image (imageSrc) is shown full and uncropped,
+ * with heading/subheading/CTAs overlaid on top of it.
  *
  * Usage:
  *   <ContactSchool imageSrc="/schoolbuilding.png" imageSrcMobile="/contactmobile.png" />
@@ -57,17 +51,19 @@ export default function ContactSchool({
           priority
         />
 
-        {/* Overlay gradient — tablet/desktop only. */}
+        {/* Light gradient — tablet/desktop only. */}
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.08) 70%, rgba(0,0,0,0.15) 100%)",
-          }}
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.06) 40%, rgba(0,0,0,0.03) 75%, rgba(0,0,0,0) 100%)",
+        }}
         />
 
-        {/* Overlay content — sm and up, where the image is tall enough
-            to carry text comfortably. */}
+        {/* Black overlay */}
+        <div className="!absolute !inset-0 !bg-black/15" />
+
+        {/* Overlay content */}
         <div className="container-custom absolute inset-0 z-10 flex items-center">
           <div className="ml-auto w-full text-right sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
             <h2
@@ -113,8 +109,6 @@ export default function ContactSchool({
       </div>
 
       {/* ---------------- Mobile (below sm) ---------------- */}
-      {/* Text + buttons overlaid directly on the mobile image, centered,
-          with a dark gradient behind the content for legibility. */}
       <div className="relative block h-[55vh] max-h-[420px] min-h-[320px] w-full sm:hidden">
         <Image
           src={imageSrcMobile}
@@ -125,14 +119,17 @@ export default function ContactSchool({
           priority
         />
 
-        {/* Dark gradient so white text stays legible over the photo */}
+        {/* Light bottom gradient so white text stays legible */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.1) 35%, rgba(0,0,0,0.55) 68%, rgba(0,0,0,0.7) 100%)",
+              "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.2) 75%, rgba(0,0,0,0.35) 100%)",
           }}
         />
+
+        {/* Black overlay */}
+        <div className="!absolute !inset-0 !bg-black/25" />
 
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-end px-6 pb-8 text-center">
           <h2
