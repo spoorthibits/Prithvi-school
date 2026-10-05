@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 
 // ─── Brand palette (from logo / :root) ────────────────────────────────────
 // --green:      #438e42
@@ -126,24 +126,54 @@ export default function AdmissionProcess() {
     [scrollToIndex]
   );
 
+  // MOBILE ONLY: keep the active card / dots in sync when the user swipes.
+  // Desktop behaviour is untouched (handler exits early at sm and above).
+  const handleScroll = useCallback(() => {
+    if (typeof window === "undefined" || window.innerWidth >= 640) return;
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const atEnd =
+      container.scrollLeft + container.clientWidth >=
+      container.scrollWidth - 2;
+
+    let nearest = 0;
+    if (atEnd) {
+      nearest = STEPS.length - 1;
+    } else {
+      let minDist = Infinity;
+      cardRefs.current.forEach((card, i) => {
+        if (!card) return;
+        const dist = Math.abs(card.offsetLeft - container.scrollLeft);
+        if (dist < minDist) {
+          minDist = dist;
+          nearest = i;
+        }
+      });
+    }
+    setActiveIndex((prev) => (prev === nearest ? prev : nearest));
+  }, []);
+
   return (
-    <section className="relative py-12 sm:py-16 md:py-12 bg-[#FAF9F5] overflow-hidden">
+    <section className="relative py-8 sm:py-16 md:py-12 bg-[#FAF9F5] overflow-hidden">
       {/* Decorative corner accent, echoing the reference's top-left circle */}
       <div
         className="hidden md:block absolute -top-10 -left-10 w-28 h-28 rounded-full"
         aria-hidden="true"
       />
 
-      <div className="container-custom relative px-4 sm:px-6">
+      {/* container-custom sets the width on every screen size.
+          Extra horizontal padding only from sm up (same as before on desktop). */}
+      <div className="container-custom relative sm:px-6">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-2">
+        <div className="text-center mb-3 sm:mb-2">
           <h2
             className="mb-3 sm:mb-4"
             style={{
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,
               fontSize: "clamp(28px, 5vw, 44px)",
-              color: "#075a36",
+              color: "#196191",
             }}
           >
             Admission Process
@@ -156,9 +186,12 @@ export default function AdmissionProcess() {
 
         {/* Carousel */}
         <div className="relative">
+          {/* On mobile the track bleeds to the right screen edge so the next
+              card peeks in (margin/padding reset from sm up). */}
           <div
             ref={scrollRef}
-            className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pt-10 sm:pt-12 pb-8 no-scrollbar "
+            onScroll={handleScroll}
+            className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pt-5 sm:pt-12 pb-6 sm:pb-8 no-scrollbar -mr-[calc((100vw_-_100%)/2)] pr-[calc((100vw_-_100%)/2)] sm:mr-0 sm:pr-0"
             style={{ scrollbarWidth: "none" }}
           >
             {STEPS.map((step, i) => {
@@ -167,7 +200,7 @@ export default function AdmissionProcess() {
                 <div
                   key={step.number}
                   ref={(el) => (cardRefs.current[i] = el)}
-                 className="relative snap-start shrink-0 w-[calc(100vw-2rem)] sm:w-[280px] max-w-none sm:max-w-[300px] rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[340px] transition-all duration-300 ease-out"
+                  className="relative snap-start shrink-0 w-[calc(100vw-5.5rem)] sm:w-[280px] max-w-none sm:max-w-[300px] rounded-[28px] sm:rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[250px] sm:min-h-[340px] transition-all duration-300 ease-out"
                   style={{
                     background: step.gradient,
                     transform: isActive
@@ -235,14 +268,16 @@ export default function AdmissionProcess() {
           </div>
         </div>
 
-        {/* Controls: arrows + dots */}
-        <div className="flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
+        {/* Controls: arrows + dots
+            mobile: plain tan chevrons, tan dots, navy active pill (as in reference)
+            sm and up: unchanged from the original */}
+        <div className="flex items-center justify-center gap-9 sm:gap-4 mt-1 sm:mt-8">
           <button
             type="button"
             onClick={() => scrollByCard(-1)}
             disabled={activeIndex === 0}
             aria-label="Previous step"
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border border-[#ccc] text-[#333] disabled:opacity-30 transition-colors"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border-0 sm:border border-[#ccc] text-[#C9A27B] sm:text-[#333] disabled:opacity-30 transition-colors"
           >
             <ChevronIcon direction="left" />
           </button>
@@ -254,11 +289,14 @@ export default function AdmissionProcess() {
                 key={step.number}
                 onClick={() => scrollToIndex(i)}
                 aria-label={`Go to step ${i + 1}`}
-                className="rounded-full transition-all duration-300"
+                className={`rounded-full transition-all duration-300 ${
+                  i === activeIndex
+                    ? "bg-[#201A5E] sm:bg-[#075a36]"
+                    : "bg-[#D4B79A] sm:bg-[#D9D9D9]"
+                }`}
                 style={{
                   width: i === activeIndex ? "28px" : "8px",
                   height: "8px",
-                  backgroundColor: i === activeIndex ? "#075a36" : "#D9D9D9",
                 }}
               />
             ))}
@@ -269,7 +307,7 @@ export default function AdmissionProcess() {
             onClick={() => scrollByCard(1)}
             disabled={activeIndex === STEPS.length - 1}
             aria-label="Next step"
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border border-[#ccc] text-[#333] disabled:opacity-30 transition-colors"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border-0 sm:border border-[#ccc] text-[#C9A27B] sm:text-[#333] disabled:opacity-30 transition-colors"
           >
             <ChevronIcon direction="right" />
           </button>

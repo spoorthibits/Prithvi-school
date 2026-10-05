@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { Montserrat, Playfair_Display } from "next/font/google";
 import Footer from "@/components/Footer";
+import FloatingCTAs from "@/components/FloatingCTA";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         className={`${montserrat.variable} ${playfair.variable}`}
       >
         <Navbar/>
+        {/* <FloatingCTAs/> */}
         {children}
         <Footer/>
       </body>

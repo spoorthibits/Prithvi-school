@@ -7,11 +7,11 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 
 const NAV_LINKS = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Academics", href: "/academics" },
-  { name: "Admissions", href: "/admissions" },
-  { name: "Contact", href: "/contact" },
+  { name: "HOME", href: "/" },
+  { name: "ABOUT US", href: "/about" },
+  { name: "ACADEMICS", href: "/academics" },
+  { name: "ADMISSIONS", href: "/admissions" },
+  { name: "CONTACT", href: "/contact" },
 ];
 
 const CTA_LINKS = [
@@ -40,7 +40,7 @@ function DesktopNavLink({ href, label, active }) {
     <Link
       href={href}
       className={cn(
-        "relative flex h-full items-center text-[14px] font-medium tracking-[-0.01em] transition-colors duration-300 text-[#666666] hover:text-[#438e42] after:absolute after:bottom-[25px] after:left-0 after:h-[3px] after:bg-[#438e42] after:transition-all after:duration-300",
+        "relative flex h-full items-center text-[14px] font-medium tracking-[-0.01em] transition-colors duration-300 text-[#666666] hover:text-[#438e42] after:absolute after:bottom-[25px] after:left-0 after:h-[3px] after:bg-[#196191] after:transition-all after:duration-300",
         active
           ? "text-[#438e42] after:w-full"
           : "after:w-0 hover:after:w-full"
@@ -159,29 +159,27 @@ export default function Navbar() {
 
           {/* LOGO */}
 
-          {/* LOGO */}
-
-<Link
-  href="/"
-  className="relative z-10 shrink-0 -translate-x-[8px] sm:-translate-x-[10px] md:-translate-x-[12px] lg:translate-x-0"
-  aria-label="Prithvi Global School Home"
->
-  <Image
-    src="/logonew1.png"
-    alt="Prithvi Global School"
-    width={340}
-    height={122}
-    priority
-    className="
-      h-auto
-      w-[210px]
-      sm:w-[230px]
-      md:w-[250px]
-      lg:w-[240px]
-      xl:w-[260px]
-    "
-  />
-</Link>
+          <Link
+            href="/"
+            className="relative z-10 shrink-0 -translate-x-[8px] sm:-translate-x-[10px] md:-translate-x-[12px] lg:translate-x-0"
+            aria-label="Prithvi Global School Home"
+          >
+            <Image
+              src="/logonew1.png"
+              alt="Prithvi Global School"
+              width={340}
+              height={122}
+              priority
+              className="
+                h-auto
+                w-[210px]
+                sm:w-[230px]
+                md:w-[250px]
+                lg:w-[240px]
+                xl:w-[260px]
+              "
+            />
+          </Link>
 
           {/* DESKTOP NAV (desktop only from lg) */}
 
@@ -272,24 +270,24 @@ export default function Navbar() {
 
           {/* LARGE MOBILE / TABLET DRAWER LOGO */}
 
-         <Link
-  href="/"
-  onClick={() => setMenuOpen(false)}
-  className="shrink-0 -translate-x-[8px] sm:-translate-x-[10px] md:-translate-x-[12px]"
->
-  <Image
-    src="/logonew1.png"
-    alt="Prithvi Global School"
-    width={300}
-    height={115}
-    className="
-      h-auto
-      w-[220px]
-      sm:w-[245px]
-      md:w-[260px]
-    "
-  />
-</Link>
+          <Link
+            href="/"
+            onClick={() => setMenuOpen(false)}
+            className="shrink-0 -translate-x-[8px] sm:-translate-x-[10px] md:-translate-x-[12px]"
+          >
+            <Image
+              src="/logonew1.png"
+              alt="Prithvi Global School"
+              width={300}
+              height={115}
+              className="
+                h-auto
+                w-[220px]
+                sm:w-[245px]
+                md:w-[260px]
+              "
+            />
+          </Link>
 
           <button
             type="button"

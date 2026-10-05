@@ -69,7 +69,7 @@ export default function ContactSection({
           {/* RIGHT: form panel */}
           <div
             className="w-full p-6 sm:p-8 md:p-9 lg:w-1/2 lg:p-10"
-            style={{ background: "#13538a" }}
+            style={{ background: "#196191" }}
           >
             <h2 style={{ color: "var(--white)" }}>Contact us</h2>
             <p className="mt-2 text-sm sm:text-base" style={{ color: "rgba(255,255,255,0.75)" }}>
