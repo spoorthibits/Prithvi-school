@@ -18,13 +18,17 @@ const playfair = Playfair_Display({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.variable} ${playfair.variable}`}
-      >
-        <Navbar/>
-        {/* <FloatingCTAs/> */}
+      <body className={`${montserrat.variable} ${playfair.variable}`}>
+        <Navbar />
+
+        {/* Visible only on mobile */}
+        <div className="block sm:hidden">
+          <FloatingCTAs />
+        </div>
+
         {children}
-        <Footer/>
+
+        <Footer />
       </body>
     </html>
   );

@@ -193,17 +193,7 @@ export default function Navbar() {
               />
             ))}
 
-            {/* <button 
-              type="button" 
-              className="group flex h-full items-center gap-1.5 text-[14px] font-medium tracking-[-0.01em] text-[#666666] transition-colors duration-300 hover:text-[#438e42]" 
-            > 
-              Learning 
-              <ChevronDown 
-                size={15} 
-                strokeWidth={1.8} 
-                className="transition-transform duration-300 group-hover:translate-y-[2px]" 
-              /> 
-            </button> */}
+            
 
             {NAV_LINKS.slice(3).map((link) => (
               <DesktopNavLink

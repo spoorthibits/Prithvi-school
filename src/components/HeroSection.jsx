@@ -8,18 +8,17 @@ export default function Hero() {
     <section
       className="
         relative
-        h-[520px]
         w-full
         overflow-hidden
-
+        aspect-[10/7]
+        
+        sm:aspect-auto
         sm:h-[580px]
         md:h-[650px]
         lg:h-[750px]
       "
     >
-      {/* =========================
-          BACKGROUND VIDEO
-      ========================== */}
+      {/* BACKGROUND VIDEO */}
       <video
         className="
           absolute
@@ -37,22 +36,13 @@ export default function Hero() {
         <source src="/video.mp4" type="video/mp4" />
       </video>
 
-      {/* =========================
-          GRADIENT OVERLAY
-      ========================== */}
+      {/* GRADIENT OVERLAY */}
       <div
         className="pointer-events-none absolute inset-0 z-[1]"
         style={GRADIENT_STYLE}
       />
 
-      {/* =========================
-          HERO TEXT
-      ========================== */}
-      
-
-      {/* =========================
-          VERY THIN BOTTOM LINE
-      ========================== */}
+      {/* BOTTOM LINE */}
       <div
         className="
           absolute
