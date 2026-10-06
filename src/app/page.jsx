@@ -21,7 +21,7 @@ export default function Home() {
           bg-[#F7F6F2]
           pt-12
           pb-[95px]
-          md:pt-18
+          md:pt-15
           md:pb-[135px]
         "
       >

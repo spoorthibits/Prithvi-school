@@ -40,9 +40,9 @@ function DesktopNavLink({ href, label, active }) {
     <Link
       href={href}
       className={cn(
-        "relative flex h-full items-center text-[14px] font-medium tracking-[-0.01em] transition-colors duration-300 text-[#666666] hover:text-[#438e42] after:absolute after:bottom-[25px] after:left-0 after:h-[3px] after:bg-[#196191] after:transition-all after:duration-300",
+        "relative flex h-full items-center text-[14px] font-medium tracking-[-0.01em] transition-colors duration-300 text-[#3f3e3e] hover:text-[#262525] after:absolute after:bottom-[25px] after:left-0 after:h-[3px] after:bg-[#196191] after:transition-all after:duration-300",
         active
-          ? "text-[#438e42] after:w-full"
+          ? "!text-[#196191] after:w-full"
           : "after:w-0 hover:after:w-full"
       )}
     >

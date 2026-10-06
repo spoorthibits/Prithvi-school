@@ -1,7 +1,7 @@
 // BeyondClassroom.jsx
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -41,22 +41,44 @@ const sections = [
 
 export default function BeyondClassroom() {
   const [active, setActive] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+  const [isClamped, setIsClamped] = useState(false);
+  const descRef = useRef(null);
 
   const current = sections[active];
 
+  // Switch section and always collapse the description
+  const selectSection = (index) => {
+    setActive(index);
+    setExpanded(false);
+  };
+
   // Previous section
   const goPrevious = () => {
-    setActive((prev) =>
-      prev === 0 ? sections.length - 1 : prev - 1
-    );
+    selectSection(active === 0 ? sections.length - 1 : active - 1);
   };
 
   // Next section
   const goNext = () => {
-    setActive((prev) =>
-      prev === sections.length - 1 ? 0 : prev + 1
-    );
+    selectSection(active === sections.length - 1 ? 0 : active + 1);
   };
+
+  // Detect whether the text is actually cut off (mobile only, since the
+  // clamp is removed from sm and up, so nothing is cut off there).
+  useEffect(() => {
+    const el = descRef.current;
+    if (!el) return;
+
+    const check = () => {
+      if (!expanded) {
+        setIsClamped(el.scrollHeight > el.clientHeight + 1);
+      }
+    };
+
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [active, expanded]);
 
   return (
     <section
@@ -74,7 +96,7 @@ export default function BeyondClassroom() {
             {sections.map((item, i) => (
               <button
                 key={item.tab}
-                onClick={() => setActive(i)}
+                onClick={() => selectSection(i)}
                 className="text-nav whitespace-nowrap font-bold tracking-wide transition-colors"
                 style={{
                   color:
@@ -155,8 +177,13 @@ export default function BeyondClassroom() {
                 {current.title}
               </h3>
 
+              {/* Mobile: clamped to 3 lines until expanded.
+                  sm and up: full text, no clamp. */}
               <p
-                className="max-w-md leading-relaxed"
+                ref={descRef}
+                className={`max-w-md leading-relaxed sm:line-clamp-none ${
+                  expanded ? "" : "line-clamp-3"
+                }`}
                 style={{
                   color: "var(--white)",
                   opacity: 0.95,
@@ -166,6 +193,22 @@ export default function BeyondClassroom() {
               >
                 {current.description}
               </p>
+
+              {/* ...more / less toggle (mobile only) */}
+              {(isClamped || expanded) && (
+                <button
+                  type="button"
+                  onClick={() => setExpanded((prev) => !prev)}
+                  aria-expanded={expanded}
+                  className="mt-1 font-bold underline underline-offset-2 sm:hidden"
+                  style={{
+                    color: "var(--white)",
+                    fontSize: "14px",
+                  }}
+                >
+                  {expanded ? "less" : "...more"}
+                </button>
+              )}
 
             </div>
           </div>
@@ -245,7 +288,7 @@ export default function BeyondClassroom() {
             {sections.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setActive(i)}
+                onClick={() => selectSection(i)}
                 aria-label={`Go to section ${i + 1}`}
                 className="h-2 rounded-full transition-all duration-300"
                 style={{

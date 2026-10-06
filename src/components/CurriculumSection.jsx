@@ -41,7 +41,7 @@ export default function CurriculumSection() {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="relative overflow-hidden bg-white pt-14 pb-[110px] md:pt-10 md:pb-[100px]">
+    <section className="relative overflow-hidden bg-white pt-14 pb-[30px] md:pt-1 md:pb-[50px]">
       <div className="container-custom">
 
         {/* =========================================

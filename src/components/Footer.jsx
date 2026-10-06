@@ -40,159 +40,161 @@ function InstagramIcon(props) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#003d60] !text-white">
+    <footer className="bg-[#196191] !text-white">
       {/* ================= DESKTOP / TABLET (sm and up) ================= */}
       <div className="hidden sm:block">
-        {/* ================= MAIN FOOTER ================= */}
-        <div className="mx-auto max-w-7xl px-6 py-8 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-1 items-start gap-8 sm:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-10 lg:py-10">
+          <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
 
             {/* ================= LOGO ================= */}
-            <div>
+            <div className="shrink-0">
               <img
                 src="/logo1.png"
                 alt="Prithvi Global School"
-                className="mb-2 h-44 w-auto object-contain"
+                className="h-44 w-auto object-contain"
               />
-
-              <p className="max-w-[280px] font-manrope text-[14px] font-normal leading-6 !text-[#B9C9BE]">
-                Nurturing young minds through meaningful learning, creativity,
-                values, and experiences that inspire a brighter future.
-              </p>
             </div>
 
-            {/* ================= QUICK LINKS ================= */}
-            <div>
-              <h3 className="mb-4 font-montserrat text-[17px] font-semibold leading-[20px] !text-white">
-                Quick Links
+            {/* ================= CONTACT INFO ================= */}
+            <div className="max-w-[560px] text-center lg:text-left">
+              <h3 className="font-montserrat text-[18px] font-bold uppercase tracking-wider !text-white">
+                Contact
               </h3>
+              <span className="mx-auto mt-3 block h-[3px] w-12 rounded bg-[#E8962E] lg:mx-0" />
 
-              <ul className="space-y-2.5 font-manrope text-[14px] font-normal !text-[#B9C9BE]">
-                <li>
-                  <Link href="/" className="font-manrope transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
-                    Home
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/about" className="font-manrope transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
-                    About Us
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/academics" className="font-manrope transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
-                    Academics
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/gallery" className="font-manrope transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
-                    Gallery
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/contact" className="font-manrope transition-colors !text-[#B9C9BE] hover:!text-[#E8962E]">
-                    Contact Us
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* ================= CONTACT ================= */}
-            <div>
-              <h3 className="mb-4 font-montserrat text-[17px] font-semibold leading-[20px] !text-white">
-                Contact Us
-              </h3>
-
-              <div className="space-y-3 font-manrope text-[14px] font-normal leading-6 !text-[#B9C9BE]">
+              <div className="mt-6 space-y-5 font-manrope text-[17px] font-normal leading-8 !text-[#B9C9BE]">
                 <p className="font-manrope !text-[#B9C9BE]">
-                  Your School Address,
-                  <br />
-                  Hyderabad, Telangana
+                  <span className="font-manrope font-bold !text-white">LOCATION :</span>{" "}
+                  Plot no 64, Mallikarjuna Swamy Temple Rd, Cheeriyal, Secunderabad, Telangana 501303
                 </p>
 
                 <p className="font-manrope !text-[#B9C9BE]">
-                  <span className="font-manrope font-bold !text-white">Phone:</span>
-                  <br />
-                  +91 98765 43210
+                  <span className="font-manrope font-bold !text-white">MAIL US :</span>{" "}
+                  <a
+                    href="mailto:info@yourschool.com"
+                    className="!text-[#B9C9BE] transition-colors hover:!text-[#E8962E]"
+                  >
+                    info@yourschool.com
+                  </a>
                 </p>
 
                 <p className="font-manrope !text-[#B9C9BE]">
-                  <span className="font-manrope font-bold !text-white">Email:</span>
-                  <br />
-                  info@yourschool.com
+                  <span className="font-manrope font-bold !text-white">CALL US :</span>{" "}
+                  <a
+                    href="tel:+919553566056"
+                    className="!text-[#B9C9BE] transition-colors hover:!text-[#E8962E]"
+                  >
+                    +91 95535 66056
+                  </a>
                 </p>
               </div>
             </div>
 
-            {/* ================= ADMISSIONS ================= */}
-            <div>
-              <h3 className="mb-4 font-montserrat text-[17px] font-semibold leading-[20px] !text-white">
-                Admissions
-              </h3>
+            {/* ================= LINKS + SOCIAL ================= */}
+            <div className="flex shrink-0 items-start gap-10">
+              <div>
+                <h3 className="font-montserrat text-[18px] font-bold uppercase tracking-wider !text-white">
+                  Quick Links
+                </h3>
+                <span className="mt-3 block h-[3px] w-12 rounded bg-[#E8962E]" />
 
-              <p className="mb-4 max-w-[290px] font-manrope text-[14px] font-normal leading-6 !text-[#B9C9BE]">
-                Give your child the opportunity to learn, explore, and grow in a
-                nurturing environment.
-              </p>
+                <ul className="mt-6 space-y-[18px] font-manrope text-[14px] font-medium uppercase !text-white">
+                  <li>
+                    <Link href="/about" className="font-manrope transition-colors !text-white hover:!text-[#E8962E]">
+                      About Us
+                    </Link>
+                  </li>
 
-              <Link
-                href="/admissions"
-                className="inline-flex items-center justify-center rounded-full bg-[#d59238] px-6 py-2.5 font-montserrat text-[13px] font-semibold !text-[#0F3D2E] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
-              >
-                Enquire Now
-              </Link>
-            </div>
-          </div>
-        </div>
+                  <li>
+                    <Link href="/admissions" className="font-manrope transition-colors !text-white hover:!text-[#E8962E]">
+                      Admissions
+                    </Link>
+                  </li>
 
-        {/* ================= BOTTOM ================= */}
-        <div className="border-t border-white/10">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-4 text-center font-montserrat text-[12px] font-normal !text-[#8FA396] sm:px-8 sm:flex-row sm:text-left">
-            <p className="font-montserrat !text-[#8FA396]">
-              © {new Date().getFullYear()} Prithvi Global School. All Rights
-              Reserved.
-            </p>
+                  <li>
+                    <Link href="/academics" className="font-manrope transition-colors !text-white hover:!text-[#E8962E]">
+                      Academics
+                    </Link>
+                  </li>
 
-            <div className="flex items-center gap-5 font-montserrat">
-              <Link href="/privacy" className="font-montserrat transition-colors !text-[#8FA396] hover:!text-[#E8962E]">
-                Privacy Policy
-              </Link>
+                  <li>
+                    <Link href="/gallery" className="font-manrope transition-colors !text-white hover:!text-[#E8962E]">
+                      Explore
+                    </Link>
+                  </li>
 
-              <Link href="/terms" className="font-montserrat transition-colors !text-[#8FA396] hover:!text-[#E8962E]">
-                Terms & Conditions
-              </Link>
+                  <li>
+                    <Link href="/contact" className="font-manrope transition-colors !text-white hover:!text-[#E8962E]">
+                      Contact Us
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* pt-16 pushes the icons down so they line up with the links, not the heading */}
+              <div className="flex flex-col gap-4 pt-16">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-white/60 transition-colors hover:border-[#E8962E] hover:text-[#E8962E]"
+                >
+                  <FacebookIcon width={22} height={22} />
+                </a>
+
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-white/60 transition-colors hover:border-[#E8962E] hover:text-[#E8962E]"
+                >
+                  <InstagramIcon width={22} height={22} />
+                </a>
+
+                <a
+                  href="mailto:info@yourschool.com"
+                  aria-label="Email"
+                  className="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-white/60 transition-colors hover:border-[#E8962E] hover:text-[#E8962E]"
+                >
+                  <Mail size={22} strokeWidth={1.75} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* ================= MOBILE (below sm) ================= */}
-      <div className="block px-6 py-1 text-center sm:hidden">
+      <div className="block px-6 py-3 text-center sm:hidden">
         {/* Logo */}
         <img
           src="/logo1.png"
           alt="Prithvi Global School"
-          className="mx-auto mb-1 h-40 w-auto object-contain"
+          className="mx-auto mb-5 h-40 w-auto object-contain"
         />
 
         {/* Contact info */}
-        <div className="!space-y-3 font-manrope !text-[15px] !font-normal !leading-6 !text-[#B9C9BE]">
+        <div className="!space-y-4 font-manrope !text-[15px] !font-normal !leading-6 !text-[#B9C9BE]">
           <p className="font-manrope !text-[15px] !font-normal !leading-6 !text-[#B9C9BE]">
-            <span className="font-manrope !text-[15px] !font-bold !text-white">LOCATION:</span>{" "}
-            Your School Address, Hyderabad, Telangana
+            <span className="font-manrope !text-[15px] !font-bold !text-white">LOCATION :</span>{" "}
+            Plot no 64, Mallikarjuna Swamy Temple Rd, Cheeriyal, Secunderabad, Telangana 501303
           </p>
 
           <p className="font-manrope !text-[15px] !font-normal !leading-6 !text-[#B9C9BE]">
-            <span className="font-manrope !text-[15px] !font-bold !text-white">MAIL US:</span>{" "}
-            info@yourschool.com
+            <span className="font-manrope !text-[15px] !font-bold !text-white">MAIL US :</span>
+            <br />
+            <a href="mailto:info@yourschool.com" className="!text-[#B9C9BE]">
+              info@yourschool.com
+            </a>
           </p>
 
           <p className="font-manrope !text-[15px] !font-normal !leading-6 !text-[#B9C9BE]">
-            <span className="font-manrope !text-[15px] !font-bold !text-white">CALL US:</span>{" "}
-            +91 98765 43210
+            <span className="font-manrope !text-[15px] !font-bold !text-white">CALL US :</span>{" "}
+            <a href="tel:+919553566056" className="!text-[#B9C9BE]">
+              +91 95535 66056
+            </a>
           </p>
         </div>
 
@@ -261,9 +263,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ================= MOBILE BOTTOM BAR ================= */}
-      <div className="block bg-[#d59238] px-6 py-4 text-center sm:hidden">
-        <p className="font-montserrat !text-[12px] !font-normal !leading-5 !text-[#0F3D2E]">
+      {/* ================= COPYRIGHT BAR (all screen sizes) ================= */}
+      <div className="bg-[#d59238] px-6 py-2 text-center">
+        <p className="font-montserrat text-[12px] font-normal leading-5 sm:text-[14px] !text-[#0F3D2E]">
           © Copyright {new Date().getFullYear()}, All Rights Reserved -
           Prithvi Global School
         </p>

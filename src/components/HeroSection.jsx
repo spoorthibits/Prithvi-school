@@ -15,7 +15,7 @@ export default function Hero() {
         sm:aspect-auto
         sm:h-[580px]
         md:h-[650px]
-        lg:h-[750px]
+        lg:h-[670px]
       "
     >
       {/* BACKGROUND VIDEO */}
@@ -26,6 +26,7 @@ export default function Hero() {
           h-full
           w-full
           object-cover
+          object-top
         "
         autoPlay
         muted
