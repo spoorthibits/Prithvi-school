@@ -160,10 +160,10 @@ export default function Navbar() {
           {/* LOGO */}
 
           <Link
-            href="/"
-            className="relative z-10 shrink-0 -translate-x-[8px] sm:-translate-x-[10px] md:-translate-x-[12px] lg:translate-x-0"
-            aria-label="Prithvi Global School Home"
-          >
+  href="/"
+  className="relative z-10 shrink-0 -translate-x-[38px] sm:-translate-x-[30px] md:-translate-x-[12px] lg:translate-x-0"
+  aria-label="Prithvi Global School Home"
+>
             <Image
               src="/logonew1.png"
               alt="Prithvi Global School"
@@ -300,51 +300,11 @@ export default function Navbar() {
             />
           ))}
 
-          <button
-            type="button"
-            className="group flex items-center justify-between border-b border-black/[0.07] py-[16px] text-left text-[15px] font-medium text-[#666666] transition-colors duration-300 hover:text-[#438e42]"
-          >
-            Learning
-
-            <ChevronDown
-              size={17}
-              className="text-[#aaaaaa]"
-            />
-          </button>
+          
         </nav>
 
-        <div className="px-6 pt-7">
-          {CTA_LINKS.map((cta, index) => (
-            <div
-              key={cta.href}
-              className={index > 0 ? "mt-3" : ""}
-            >
-              <CtaButton
-                {...cta}
-                href={cta.href}
-                label={cta.name}
-                size="mobile"
-                onClick={() => setMenuOpen(false)}
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-auto px-6 pb-7 pt-10">
-          <div className="border-t border-black/[0.07] pt-5">
-
-            <div className="mb-4 flex gap-2">
-              <span className="h-[5px] w-10 rounded-full bg-[#438e42]" />
-              <span className="h-[5px] w-6 rounded-full bg-[#f7941d]" />
-              <span className="h-[5px] w-6 rounded-full bg-[#64b0e2]" />
-            </div>
-
-            <p className="max-w-[280px] text-[11px] leading-[1.7] text-[#999999]">
-              Shaping confident, knowledgeable and responsible learners prepared for a global future.
-            </p>
-
-          </div>
-        </div>
+        
+       
       </aside>
     </>
   );

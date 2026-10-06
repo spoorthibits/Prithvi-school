@@ -5,11 +5,13 @@ import FeaturesTabs from "@/components/FeaturesTabs";
 import Image from "next/image";
 import BeyondClassroom from "@/components/BeyondClassroom";
 import FAQSection from "@/components/Faqs";
+import VideoTextMask from "@/components/VideoTextMask";
 
 
 export default function Home() {
   return (
     <>
+      {/* <VideoTextMask /> */}
       <Hero />
       <section
         className="
