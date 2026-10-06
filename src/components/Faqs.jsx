@@ -136,47 +136,29 @@ export default function FAQSection() {
   return (
     <section className="bg-[#ffffff] py-10 sm:py-14 lg:py-16">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
 
           {/* ================= LEFT — STICKY INTRO ================= */}
           <div className="lg:sticky lg:top-24 lg:self-start items-center justify-center align-center">
-            {/* <span
-              className="
-                inline-flex
-                items-center
-                gap-2
-                rounded-full
-                bg-[#0F3D2E]/[0.06]
-                px-4
-                py-1.5
-                text-[11px]
-                font-semibold
-                uppercase
-                tracking-[0.18em]
-                text-[#075A36]
-                sm:text-[12px]
-              "
-            >
-              FAQ
-            </span> */}
+            
 
-            <h2
-        className="
-          mt-4
-          text-center
-          text-[26px]
-          font-extrabold
-          leading-[1.15]
-          tracking-tight
-          !text-[#196191]
-          sm:mt-5
-          sm:text-[34px]
-          lg:text-[40px]
-          lg:ml-10
-        "
-      >
-        FAQ'S
-      </h2>
+           <h2
+  className="
+    mt-2
+    text-center
+    text-[34px]
+    font-extrabold
+    leading-[1.1]
+    tracking-tight
+    !text-[#196191]
+    sm:mt-5
+    sm:text-[34px]
+    lg:text-[40px]
+    lg:ml-10
+  "
+>
+  FAQ'S
+</h2>
 
             {/* <p className="mt-5 max-w-sm text-[15px] font-normal leading-relaxed text-[#5B625D]">
               Everything you need to know about admissions, academics, and
@@ -185,19 +167,18 @@ export default function FAQSection() {
             </p> */}
 
             {/* Photo card with floating CTA */}
-            <div className="relative mt-6 flex justify-center sm:mt-8">
-              <div className="relative h-[200px] w-full overflow-hidden rounded-3xl sm:h-[260px] lg:h-[300px]">
-                <Image
-                  src="/faq.png"
-                  alt="Students at Prithvi Global School"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F3D2E]/70 via-[#0F3D2E]/0 to-transparent" />
-              </div>
+         <div className="relative mt-6 hidden justify-center sm:mt-8 sm:flex">
+  <div className="relative h-[200px] w-full overflow-hidden rounded-3xl sm:h-[260px] lg:h-[300px]">
+    <Image
+      src="/faq.png"
+      alt="Students at Prithvi Global School"
+      fill
+      className="object-cover"
+    />
 
-              
-            </div>
+    <div className="absolute inset-0 bg-gradient-to-t from-[#0F3D2E]/70 via-[#0F3D2E]/0 to-transparent" />
+  </div>
+</div>
           </div>
 
           {/* ================= RIGHT — ACCORDION ================= */}

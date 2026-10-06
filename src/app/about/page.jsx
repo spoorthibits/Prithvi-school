@@ -49,7 +49,7 @@ export default function AboutPage() {
               image="/aboutusbanner1.png"
               title="About Us"
               subtitle="Rooted in who we are. Responsible towards the world we inhabit. Ready to shape the world we inherit."
-
+              imageClassName="!object-top"
        />      
       <Internationalschool/>
       <OurPhilosophySection />

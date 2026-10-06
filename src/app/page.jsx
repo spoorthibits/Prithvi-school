@@ -80,6 +80,7 @@ export default function Home() {
              !text-[#196191]
             leading-tight
             md:!text-5xl
+            
           "
         >
           Welcome to <br />
@@ -95,6 +96,7 @@ export default function Home() {
             leading-relaxed
             text-dark
             md:text-lg
+            
           "
         >
           At Prithvi Global School, we believe education should inspire
