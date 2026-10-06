@@ -40,6 +40,13 @@ const PANEL_TRANSITION = {
 export default function CurriculumSection() {
   const [active, setActive] = useState(null);
 
+  // Mobile: index of the card whose content is open (null = all closed)
+  const [mobileOpen, setMobileOpen] = useState(null);
+
+  const toggleMobile = (index) => {
+    setMobileOpen((prev) => (prev === index ? null : index));
+  };
+
   return (
     <section className="relative overflow-hidden bg-white pt-14 pb-[30px] md:pt-1 md:pb-[50px]">
       <div className="container-custom">
@@ -376,114 +383,104 @@ export default function CurriculumSection() {
         </div>
 
         {/* =========================================
-            MOBILE
+            MOBILE (tap a card to show its content)
         ========================================= */}
 
-        <div className="flex flex-col gap-3 lg:hidden">
-          {sections.map((item, index) => (
-            <div
-              key={item.title}
-              className="
-                relative
-                h-[390px]
-                overflow-hidden
-                rounded-[3px]
-              "
-            >
+        <div className="flex flex-col lg:hidden">
+          {sections.map((item, index) => {
+            const isOpen = mobileOpen === index;
 
-              {/* IMAGE */}
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                priority={index === 0}
-                sizes="100vw"
-                className="object-cover"
-              />
-
-              {/* GRADIENT */}
+            return (
               <div
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-0
-                  bg-gradient-to-t
-                  from-black/80
-                  via-black/10
-                  to-transparent
-                "
-              />
-
-              {/* TOP BRAND LINE */}
-              <div
-                className="absolute left-0 top-0 h-[4px] w-full"
-                style={{
-                  backgroundColor: item.accent,
+                key={item.title}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isOpen}
+                onClick={() => toggleMobile(index)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    toggleMobile(index);
+                  }
                 }}
-              />
+                className="relative h-[290px] cursor-pointer overflow-hidden"
+              >
+                {/* IMAGE */}
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="object-cover"
+                />
 
-              {/* CONTENT */}
-              <div className="absolute bottom-0 left-0 right-0 z-20 p-6">
+                {/* DARK GRADIENT (gets stronger when open so text is readable) */}
+                <div
+                  className={`pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent transition-all duration-300 ${
+                    isOpen
+                      ? "from-black/90 via-black/55"
+                      : "from-black/80 via-black/25"
+                  }`}
+                />
 
-                {/* LABEL */}
-                <div className="mb-3 flex items-center gap-3">
-
-                  <span
-                    className="h-[2px] w-[24px]"
-                    style={{
-                      backgroundColor: item.accent,
-                    }}
-                  />
-
-                  <p
-                    className="
-                      !m-0
-                      !text-[9px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.23em]
-                      !text-white/85
-                    "
-                  >
+                {/* LABEL TAG (top right) */}
+                <div
+                  className="absolute right-4 top-3 z-20 px-4 py-2"
+                  style={{ backgroundColor: item.accent }}
+                >
+                  <p className="!m-0 whitespace-nowrap !text-[11px] font-bold uppercase tracking-[0.12em] !text-white">
                     {item.label}
                   </p>
-
                 </div>
 
-                {/* TITLE */}
-                <h3
-                  className="
-                    mb-3
-                    !text-[27px]
-                    font-medium
-                    !text-white
-                  "
-                >
-                  {item.title}
-                </h3>
+                {/* CONTENT (bottom) */}
+                <div className="absolute bottom-0 left-0 right-0 z-20 p-5">
 
-                {/* DESCRIPTION */}
-                <p
-                  className="
-                    max-w-[500px]
-                    !text-[13px]
-                    leading-[1.7]
-                    !text-white/85
-                  "
-                >
-                  {item.description}
-                </p>
+                  {/* TITLE + ARROW */}
+                  <div className="flex items-center justify-between gap-4">
+                    <h3 className="!m-0 !text-[24px] font-semibold uppercase leading-tight !text-white">
+                      {item.title}
+                    </h3>
 
+                    <motion.span
+                      initial={false}
+                      animate={{ rotate: isOpen ? 90 : 0 }}
+                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border text-white"
+                      style={{
+                        borderColor: item.accent,
+                        backgroundColor: `${item.accent}40`,
+                      }}
+                    >
+                      <ArrowUpRight size={16} />
+                    </motion.span>
+                  </div>
+
+                  {/* DESCRIPTION (opens on tap) */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="mobile-description"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="mt-3 max-w-[500px] !text-[13px] leading-[1.7] !text-white/90">
+                          {item.description}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
-          {/* =========================================
-          BOTTOM CURVE
-      ========================================= */}
-     
     </section>
   );
 }
