@@ -83,21 +83,33 @@ const prevMobile = () =>
     prev === 0 ? slides.length - 1 : prev - 1
   );
 
-  /* ---------------- HEADING ---------------- */
+  /* ---------------- HEADING ----------------
+     `fontSize` is optional: mobile keeps the default size,
+     the desktop slides pass a smaller one. */
 
-  const Heading = ({ top, bottom }) => (
+  const Heading = ({
+    top,
+    bottom,
+    fontSize, // only passed by the desktop slides
+  }) => (
     <div className="mb-4">
 
       {/* MAIN HEADING */}
       {top && (
-        <div className="inline-block mb-2 !text-[29px]
+        <div className="inline-block mb-2 sm:!text-[29px]
             md:!text-[39px]">
+          {/* Mobile (below sm): 26px. From sm up: original clamp size.
+              When `fontSize` is passed (desktop slides) it is used as-is. */}
           <h2
-            className="leading-[100%] uppercase"
+            className={`leading-[100%] uppercase ${
+              fontSize
+                ? ""
+                : "!text-[26px] sm:!text-[length:clamp(32px,6vw,48px)]"
+            }`}
             style={{
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,
-              fontSize: "clamp(32px, 6vw, 48px)",
+              ...(fontSize ? { fontSize } : {}),
               color: "#196191",
             }}
           >
@@ -108,13 +120,14 @@ const prevMobile = () =>
 
       {/* SECOND HEADING */}
       {bottom && (
-        <div className="bg-lightblue inline-block px-4 py-2">
+        <div className="inline-block py-2">
           <h2
             className="leading-[100%] uppercase"
             style={{
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,
-              fontSize: "clamp(32px, 6vw, 48px)",
+              fontSize: fontSize || "clamp(32px, 6vw, 48px)",
+              color: "#e88f1b",
             }}
           >
             {bottom}
@@ -124,7 +137,7 @@ const prevMobile = () =>
     </div>
   );
 
-  /* ---------------- SLIDE LAYOUT ---------------- */
+  /* ---------------- SLIDE LAYOUT (desktop) ---------------- */
 
   const SlideLayout = ({ slide }) => (
     <div className="w-screen h-auto lg:h-screen flex flex-col lg:flex-row">
@@ -132,33 +145,36 @@ const prevMobile = () =>
       <div className="w-full lg:w-1/2 flex items-center justify-center px-6 sm:px-10 lg:px-20 py-12 lg:py-0">
         <div className="w-full max-w-xl paragraph">
 
+          {/* Heading: was clamp(32px, 6vw, 48px) */}
           <Heading
             top={slide.headingTop}
             bottom={slide.headingBottom}
+            fontSize="clamp(24px, 2.6vw, 36px)"
           />
 
-          {/* DESKTOP SUBTITLE */}
+          {/* DESKTOP SUBTITLE — was clamp(48px, 2.5vw, 524px) i.e. 48px */}
           {slide.subTitle && (
             <p
-              className="paragraph mb-4 leading-[100%]"
+              className="mb-4 leading-[100%] !text-[#e88f1b]"
               style={{
                 fontFamily: "Playfair Display, serif",
                 fontWeight: 700,
-                fontSize: "clamp(18px, 2.5vw, 24px)",
-                color: "#196191",
+                fontSize: "clamp(22px, 2vw, 30px)",
+                color: "#e88f1b",
               }}
             >
               {slide.subTitle}
             </p>
           )}
 
+          {/* Description — was clamp(17px, 2vw, 18px) */}
           {slide.description && (
             <p
               style={{
                 fontFamily: "Montserrat, sans-serif",
                 fontWeight: 400,
-                fontSize: "clamp(17px, 2vw, 18px)",
-                lineHeight: "clamp(22px, 2.5vw, 26px)",
+                fontSize: "clamp(14px, 1.2vw, 16px)",
+                lineHeight: "clamp(21px, 1.8vw, 24px)",
                 color: "#4B5563",
               }}
             >
@@ -231,21 +247,18 @@ const prevMobile = () =>
                 />
 
                 <div className="relative z-10 flex items-center justify-center h-full text-center px-6">
-
-                  <h2
-                    className="!text-white uppercase leading-[100%] !text-[29px]
-            md:!text-[39px]"
-                    style={{
-                      fontFamily: "Playfair Display, serif",
-                      fontWeight: 730,
-                      fontVariant: "small-caps",
-                      fontSize: "clamp(36px, 8vw, 160px)",
-                    }}
-                  >
-                    {title}
-                  </h2>
-
-                </div>
+                <h2
+                  className="!text-white uppercase leading-[100%]"
+                  style={{
+                    fontFamily: "Montserrat, sans-serif",
+                    fontWeight: 730,
+                    fontVariant: "small-caps",
+                    fontSize: "clamp(36px, 8vw, 160px)",
+                  }}
+                >
+                  {title}
+                </h2>
+              </div>
 
               </div>
 
@@ -287,8 +300,7 @@ const prevMobile = () =>
               <div className="relative z-10 flex items-center justify-center h-full text-center">
 
                 <h2
-                  className="!text-white uppercase leading-[100%] !text-[29px]
-            md:!text-[39px]"
+                  className="!text-white uppercase leading-[100%] "
                   style={{
                     fontFamily: "Playfair Display, serif",
                     fontWeight: 700,

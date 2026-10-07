@@ -87,21 +87,21 @@ const aboutSlides = [
   videoSrc="/acad.mp4"
   title="LEARNING JOURNEY"
   slides={[
-    {
-      headingTop: "EARLY YEARS",
-      subTitle: "Curiosity begins here.",
-      description:
-        "The early years are a time for children to explore, discover and build their first connections with learning. Through play, stories, movement, creativity and meaningful experiences, children are encouraged to ask questions, express themselves and develop confidence. A caring environment helps them build strong foundations while discovering the joy of learning.",
-      image: "/Eearly-years.png",
-    },
-    {
-      headingTop: "PRIMARY YEARS",
-      subTitle: "Strong foundations. Curious minds.",
-      description:
-        "The primary years build on these early foundations through a growing focus on concepts, exploration and independent thinking. Children are encouraged to question, understand and connect what they learn with the world around them. Alongside academic growth, they develop confidence, responsibility and the skills to become thoughtful, curious learners.",
-      image: "/primary-years.png",
-    },
-  ]}
+  {
+    headingTop: "EARLY YEARS",
+    subTitle: "Curiosity begins here.",
+    description:
+      "The early years are a time of wonder, discovery and growing confidence. At Prithvi, children are given the space to explore their surroundings, ask questions and develop their first connections with learning. Through play, stories, movement, creativity and meaningful experiences, they begin to express themselves, build relationships and understand the world around them. With gentle guidance and a caring environment, children develop early language, social and thinking skills while discovering the joy of learning.",
+    image: "/Eearly-years.png",
+  },
+  {
+    headingTop: "PRIMARY YEARS",
+    subTitle: "Strong foundations. Curious minds.",
+    description:
+      "The primary years build on the curiosity and confidence developed in the early years. As learning becomes more structured, children are encouraged to understand concepts, ask questions, explore ideas and make connections across what they learn. Alongside strong academic foundations, they develop the confidence to express their thoughts, work with others and approach challenges with an open mind. Through meaningful learning experiences, children gradually develop independence, responsibility and the ability to think for themselves.",
+    image: "/primary-years.png",
+  },
+]}
 />
             
 
