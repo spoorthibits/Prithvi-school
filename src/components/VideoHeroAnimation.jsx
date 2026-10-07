@@ -166,7 +166,8 @@ function Heading({ top, bottom }) {
             style={{
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,
-              fontSize: "clamp(29px, 6vw, 48px)",
+              fontSize: "clamp(29px, 6vw, 39px)",
+              
               color: "#196191", // top line: blue
             }}
           >

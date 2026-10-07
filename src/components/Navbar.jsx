@@ -7,11 +7,11 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 
 const NAV_LINKS = [
-  { name: "HOME", href: "/" },
-  { name: "ABOUT US", href: "/about" },
-  { name: "ACADEMICS", href: "/academics" },
-  { name: "ADMISSIONS", href: "/admissions" },
-  { name: "CONTACT", href: "/contact" },
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Academics", href: "/academics" },
+  { name: "Admissions", href: "/admissions" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const CTA_LINKS = [

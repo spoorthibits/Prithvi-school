@@ -10,28 +10,27 @@ const sections = [
     title: "Our Curriculum",
     label: "LEARNING AT PRITHVI",
     description:
-      "A thoughtful curriculum where academics, curiosity, creativity and real-world experiences come together to make learning meaningful.",
+      "Our CBSE-based approach, supported by the NEXT Education curriculum, brings together academic learning, curiosity, creativity and meaningful experiences.",
     image: "/curriculum-1.png",
-    accent: "#438E42", // Prithvi Green
+    accent: "#438E42",
   },
   {
     title: "Pre-Primary",
     label: "EARLY YEARS",
     description:
-      "A joyful beginning built around play, stories, movement, nature and exploration — nurturing confidence and a love for learning.",
+      "A joyful beginning where children learn through play, stories, movement, exploration and meaningful experiences that build confidence and curiosity.",
     image: "/curriculum-2.png",
-    accent: "#64B0E2", // Prithvi Blue
+    accent: "#64B0E2",
   },
   {
     title: "Primary School",
     label: "GRADE 1–5",
     description:
-      "Strong academic foundations combined with exploration, collaboration and values that help children grow into confident learners.",
+      "Children build strong academic foundations while learning to question, explore, collaborate and think independently in a supportive environment.",
     image: "/curriculum3new.png",
-    accent: "#F7941D", // Prithvi Orange
+    accent: "#F7941D",
   },
 ];
-
 const PANEL_TRANSITION = {
   duration: 0.65,
   ease: [0.22, 1, 0.36, 1],
@@ -98,10 +97,10 @@ export default function CurriculumSection() {
                 
               "
             >
-              Every stage opens a new{" "}
-              <span className="!text-[#196191]">
-                world of learning.
-              </span>
+              Learning that grows{" "}
+            <span className="!text-[#196191]">
+              with every child.
+            </span>
             </h2>
 
             {/* RIGHT DESCRIPTION */}
@@ -114,9 +113,9 @@ export default function CurriculumSection() {
                   md:!text-[14px]
                 "
               >
-                From joyful early experiences to strong academic foundations,
-                every stage at Prithvi is designed around how children learn
-                best.
+                From the early years to primary school, learning at Prithvi is designed to
+                build strong foundations, encourage curiosity and help every child grow with
+                confidence.
               </p>
 
               {/* SMALL BRAND DETAIL */}

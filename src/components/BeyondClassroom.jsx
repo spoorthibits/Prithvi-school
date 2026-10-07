@@ -14,28 +14,30 @@ const sections = [
     tab: "CO-CURRICULARS",
     title: "Co-Curriculars",
     description:
-      "Our co-curricular program encourages character development through unique and rewarding experiences. Students learn to collaborate, take risks, and persevere. Our Eagles gain a deeper understanding and appreciation of themselves and others through a diverse range of pursuits outside of the classroom.",
+      "There’s more to learning than a classroom. From sport and the arts to hands-on activities and collaborative experiences, children have the space to explore new interests, build friendships and discover what they love.",
     heroImage: "/academics-mainimg1.png",
     sideImage: "/academics-side2.png",
     moreLabel: "MORE ABOUT CO-CURRICULARS",
   },
+
   {
     tab: "EXPERIENTIAL LEARNING",
-    title: "Experiential Learning",
+    title: "Learning by Doing",
     description:
-      "Students learn best by doing. Our experiential learning program puts students in real-world situations that build confidence and practical skills.",
+      "Children learn through meaningful experiences that encourage them to explore, create and understand the world around them. Learning by doing helps build curiosity, confidence and practical skills.",
     heroImage: "/experiential-main.jpg",
     sideImage: "/experiential-side.jpg",
     moreLabel: "MORE ABOUT EXPERIENTIAL LEARNING",
   },
+
   {
-    tab: "SERVICE LEARNING",
-    title: "Service Learning",
+    tab: "SPORTS & CREATIVITY",
+    title: "Explore. Create. Grow.",
     description:
-      "Through service learning, students connect classroom knowledge to community impact, developing empathy and a sense of civic responsibility.",
+      "Sport, creativity and hands-on activities give children opportunities to try something new, express themselves and develop confidence beyond the classroom.",
     heroImage: "/service-main.jpg",
     sideImage: "/service-side.jpg",
-    moreLabel: "MORE ABOUT SERVICE LEARNING",
+    moreLabel: "EXPLORE LIFE AT PRITHVI",
   },
 ];
 

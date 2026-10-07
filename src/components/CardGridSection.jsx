@@ -12,11 +12,12 @@ export default function CardGridSection({
       <div className="container-custom text-center">
         {/* Badge heading */}
         <div
-          className="inline-block px-8 py-12 mb-1"
+          className="inline-block px-8 py-8 mb-1"
           
         >
           <h2
-            className="uppercase leading-[100%] tracking-wide"
+            className="uppercase leading-[100%] tracking-wide !text-[29px]
+            md:!text-[39px]"
             style={{
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,

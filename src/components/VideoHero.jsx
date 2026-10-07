@@ -90,7 +90,8 @@ const prevMobile = () =>
 
       {/* MAIN HEADING */}
       {top && (
-        <div className="inline-block mb-2">
+        <div className="inline-block mb-2 !text-[29px]
+            md:!text-[39px]">
           <h2
             className="leading-[100%] uppercase"
             style={{
@@ -232,7 +233,8 @@ const prevMobile = () =>
                 <div className="relative z-10 flex items-center justify-center h-full text-center px-6">
 
                   <h2
-                    className="!text-white uppercase leading-[100%]"
+                    className="!text-white uppercase leading-[100%] !text-[29px]
+            md:!text-[39px]"
                     style={{
                       fontFamily: "Playfair Display, serif",
                       fontWeight: 730,
@@ -285,7 +287,8 @@ const prevMobile = () =>
               <div className="relative z-10 flex items-center justify-center h-full text-center">
 
                 <h2
-                  className="text-white uppercase leading-[100%]"
+                  className="!text-white uppercase leading-[100%] !text-[29px]
+            md:!text-[39px]"
                   style={{
                     fontFamily: "Playfair Display, serif",
                     fontWeight: 700,

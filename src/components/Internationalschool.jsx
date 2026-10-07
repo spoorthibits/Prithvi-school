@@ -60,20 +60,21 @@ export default function Internationalschool() {
 
             {/* CONTENT */}
 
-            <div className="max-w-[640px] space-y-3">
-              <p className="text-[14px] leading-[24px] text-[#365579] sm:text-[15px] sm:leading-[25px]">
-  Prithvi, meaning Earth, is at the heart of our philosophy. We believe
-  education begins with strong roots — values, culture, community and
-  belonging. From these roots grows the confidence to explore, question
-  and connect with the wider world.
-</p>
+           <div className="max-w-[640px] space-y-3">
+  <p className="text-[14px] leading-[24px] text-[#365579] sm:text-[15px] sm:leading-[25px]">
+    Prithvi, meaning Earth, is at the heart of our philosophy. We believe
+    education begins with strong roots — values, culture, community and a
+    sense of belonging. From these roots grows the confidence to question,
+    explore and connect with the wider world.
+  </p>
 
-<p className="text-[14px] leading-[24px] text-[#365579] sm:text-[15px] sm:leading-[25px]">
-  At Prithvi, we nurture confident, compassionate and curious learners
-  who develop a strong sense of self, understand their place in the world
-  and grow with a truly global outlook.
-</p>
-            </div>
+  <p className="text-[14px] leading-[24px] text-[#365579] sm:text-[15px] sm:leading-[25px]">
+    At Prithvi, we nurture curious, compassionate and responsible learners
+    who understand their place in the world. Our aim is to help children
+    grow into confident individuals with strong values, an open mind and a
+    truly global outlook.
+  </p>
+</div>
           </div>
         </div>
       </div>

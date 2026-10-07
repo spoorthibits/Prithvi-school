@@ -37,7 +37,7 @@ export default function MapSection() {
       {/* Info card
           Mobile/tablet: separate card below the map, on a light background.
           Desktop (lg+): translucent card floating over the map. */}
-      <div className="container-custom !relative !py-6 sm:!py-8 lg:!py-0 lg:!absolute lg:!inset-0 lg:!pointer-events-none">
+      <div className="container-custom !relative !py-6 sm:!py-9 lg:!py-0 lg:!absolute lg:!inset-0 lg:!pointer-events-none hidden sm:block">
         <div className="!flex !h-full !items-center !justify-center lg:!justify-end">
           <div className="!w-full sm:!max-w-[360px] lg:!max-w-[320px] !bg-white lg:!bg-white/85 !border !border-[#E3E8EE] lg:!border-0 !rounded-md lg:!rounded-lg !shadow-sm lg:!shadow-none !text-center !px-5 !py-8 lg:!py-5 lg:!pointer-events-auto !relative !z-10">
             <Landmark

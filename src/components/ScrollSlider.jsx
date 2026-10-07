@@ -32,7 +32,8 @@ export default function ScrollSlider({
         {/* MOBILE TITLE */}
         <div className="md:hidden mb-5 text-center">
           <div className=" inline-block px-6 py-2">
-            <h2 className="!text-[#196191] !text-3xl"
+            <h2 className="!text-[#196191] !text-[29px]
+            md:!text-[39px]"
             style={{
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,

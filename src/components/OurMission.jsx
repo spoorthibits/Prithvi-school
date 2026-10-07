@@ -8,20 +8,20 @@ const SECTIONS = [
     id: "vision",
     title: "Vision",
     description:
-      "Our vision is to nurture confident, compassionate and curious individuals who are grounded in strong values while developing a global outlook. We aspire to create an environment where every child can discover their strengths, think independently and grow into a responsible citizen ready to contribute meaningfully to the world.",
-    image: "/curriculum-3new.png", // <- put your image in /public
+      "To nurture mindful, confident and compassionate young minds who are grounded in strong values, connected to the world around them and ready to grow into responsible global citizens.",
+    image: "/curriculum-3new.png",
     alt: "Our Vision",
-    bg: "linear-gradient(160deg, #EAF3FB 0%, #DCEBF7 100%)", // light blue
+    bg: "linear-gradient(160deg, #EAF3FB 0%, #DCEBF7 100%)",
     ring: "#64B0E2",
   },
   {
     id: "mission",
     title: "Mission",
     description:
-      "Our mission is to provide a balanced and engaging learning environment that combines academic excellence with values, creativity, innovation and meaningful experiences. We aim to empower every child with the knowledge, skills and character needed to navigate the future with confidence, empathy and responsibility.",
-    image: "/curriculum-2new.png", // <- put your image in /public
+      "To create a meaningful learning environment that brings together nature, values, innovation, creativity and academic excellence, empowering children to question, explore, think independently and shape the world they inherit.",
+    image: "/curriculum-2new.png",
     alt: "Our Mission",
-    bg: "linear-gradient(160deg, #FEF4E4 0%, #FCE8C9 100%)", // light warm cream
+    bg: "linear-gradient(160deg, #FEF4E4 0%, #FCE8C9 100%)",
     ring: "#F7941D",
   },
 ];

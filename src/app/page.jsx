@@ -100,13 +100,12 @@ export default function Home() {
             
           "
         >
-          At Prithvi Global School, we believe education should inspire
-          children to think, explore and grow with confidence. Our learning
-          environment brings together strong academic foundations,
-          creativity, values and meaningful experiences that extend beyond
-          the classroom. From Pre-Primary to Grade 5, every child is
-          encouraged to ask questions, discover their interests and develop
-          the skills to become a curious, responsible and confident learner.
+          At Prithvi Global School, we believe every child deserves the space to
+          question, explore and grow. Rooted in strong values and connected to the
+          world around them, children are encouraged to learn with curiosity,
+          confidence and purpose. Through meaningful learning experiences, we nurture
+          thoughtful, responsible and compassionate young minds ready to shape the
+          world they inherit.
         </p>
 
       </div>

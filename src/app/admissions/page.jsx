@@ -16,92 +16,111 @@ export default function AboutPage() {
     //  subtitle="Learn about our admission process and how to apply."
      
          />
-         <section className="bg-[#F7F6F2] py-14 sm:py-16 md:py-20 lg:py-15">
-        <div className="container-custom text-center">
-          <h1 className="font-playfair font-bold !text-[35px] sm:text-[34px] md:text-[42px] lg:text-[48px] leading-[110%] !text-[#196191]">
-            The Prithvi Way
-          </h1>
+        <section className="bg-[#F7F6F2] py-14 sm:py-16 md:py-20 lg:py-15">
+  <div className="container-custom text-center">
+    <h1
+      className="
+        font-playfair
+        font-bold
+        !text-[29px]
+        md:!text-[39px]
+        lg:text-[48px]
+        leading-[110%]
+        !text-[#196191]
+      "
+    >
+      The Prithvi Way
+    </h1>
 
-          <div className="paragraph mt-6 sm:mt-8 md:mt-10 max-w-4xl mx-auto space-y-4">
-            <p>
-              Prithvi doesn’t treat admissions as a selection process, but as the beginning of a partnership. We believe every child deserves the opportunity to learn in an environment that understands their pace, personality, and needs.
-</p>
-            <p>
-              Our focus is on welcoming families, understanding the child, and ensuring alignment between home and school. The process is designed to feel calm, transparent, and supportive, just like the learning environment we aim to create. This approach is especially helpful for parents navigating School Admissions in Madhapur and exploring options for International school admissions for their children.
-            </p>
-          </div>
-        </div>
-      </section>
+    <div className="paragraph mt-6 sm:mt-8 md:mt-10 max-w-4xl mx-auto space-y-4">
+      <p>
+        At Prithvi, we see admissions as the beginning of a meaningful
+        partnership between the child, family and school. We believe every
+        child is unique, with their own pace, personality, interests and
+        strengths.
+      </p>
+
+      <p>
+        Our approach is designed to make the admissions journey welcoming,
+        transparent and supportive. We take the time to understand each
+        child and family, creating a strong foundation for a positive
+        learning journey at Prithvi.
+      </p>
+    </div>
+  </div>
+</section>
           
     <VideoHeroAnimation
-        imageSrc="/admissionprocess.png"
-        title="ADMISSIONS"
-        
-        slides={[
-          {
-            headingTop: "OUR ADMISSION",
-            headingBottom: "PROCESS",
-            subTitle: "Simple. Personal. Child-first.",
-            description:
-              `There are no entrance exams or qualification tests at Prithvi. Each admission is approached with care and individual attention, supporting families who are exploring School Admissions in Madhapur and beginning their journey with International school admissions.`,
-            image: "/curriculum1.png",
-            button: {
-              text: "KNOW MORE",
-              action: "popup",
-            },
-          },
-          {
-            headingTop: "START",
-            headingBottom: "A CONVERSATION",
-            subTitle: "Step One",
-            description:
-              "Reach out to us through the enquiry form or contact our admissions team. This helps us understand your interest and answer your initial questions.",
-            image: "/curriculum-2new.png",
-            button: {
-              text: "KNOW MORE",
-              action: "popup",
-            },
-          },
-          {
-            headingTop: "SCHOOL",
-            headingBottom: "INTERACTION",
-            subTitle: "Step Two",
-            description:
-              "Parents are invited for a conversation with our team to understand the school’s approach, daily routines, and academic framework.",
-            image: "/curriculum-3new.png  ",
-            button: {
-              text: "KNOW MORE",
-              action: "popup",
-            },
-          },
-          {
-            headingTop: "CHILD",
-            headingBottom: "INTERACTION",
-            subTitle: "Step Three",
-            description:
-              "A relaxed interaction with the child helps us understand comfort levels and readiness, without pressure or assessment.",
-            image: "/curriculum-1.png",
-            button: {
-              text: "KNOW MORE",
-              action: "popup",
-            },
-          },
-          {
-            headingTop: "ADMISSION",
-            headingBottom: "CONFIRMATION",
-            subTitle:
-              "Every admission matters to us, and each family is guided through the process with clarity and care.",
-            description:
-              "Every admission matters to us, and each family is guided through the process with clarity and care, especially for parents exploring School Admissions in Madhapur and seeking guidance through International school admissions.",
-            image: "/curriculum-2new.png",
-            button: {
-              text: "APPLY NOW",
-              link: "/contact",
-              variant: "filledLarge",
-            },
-          },
-        ]}
-      />
+  imageSrc="/admissionprocess.png"
+  title="ADMISSIONS"
+  slides={[
+    {
+      headingTop: "OUR ADMISSION",
+      headingBottom: "PROCESS",
+      subTitle: "Simple. Personal. Child-first.",
+      description:
+        "At Prithvi, admissions mark the beginning of a meaningful partnership between the child, family and school. Our process is designed to be welcoming, transparent and supportive, with care and individual attention at every step.",
+      image: "/curriculum1.png",
+      button: {
+        text: "KNOW MORE",
+        action: "popup",
+      },
+    },
+
+    {
+      headingTop: "START",
+      headingBottom: "A CONVERSATION",
+      subTitle: "Step One",
+      description:
+        "Reach out to us through the enquiry form or contact our admissions team. We will understand your interest, answer your initial questions and help you take the next step.",
+      image: "/curriculum-2new.png",
+      button: {
+        text: "KNOW MORE",
+        action: "popup",
+      },
+    },
+
+    {
+      headingTop: "SCHOOL",
+      headingBottom: "INTERACTION",
+      subTitle: "Step Two",
+      description:
+        "Parents are invited to connect with our team and learn more about the school's approach, learning environment, daily routines and academic framework.",
+      image: "/curriculum-3new.png",
+      button: {
+        text: "KNOW MORE",
+        action: "popup",
+      },
+    },
+
+    {
+      headingTop: "CHILD",
+      headingBottom: "INTERACTION",
+      subTitle: "Step Three",
+      description:
+        "A warm and relaxed interaction helps us get to know the child, understand their interests and learn more about their individual personality and needs.",
+      image: "/curriculum-1.png",
+      button: {
+        text: "KNOW MORE",
+        action: "popup",
+      },
+    },
+
+    {
+      headingTop: "ADMISSION",
+      headingBottom: "CONFIRMATION",
+      subTitle: "A clear and supportive next step.",
+      description:
+        "Once the process is complete, families are guided through the next steps with clarity and care, helping them begin their child's journey at Prithvi with confidence.",
+      image: "/curriculum-2new.png",
+      button: {
+        text: "APPLY NOW",
+        link: "/contact",
+        variant: "filledLarge",
+      },
+    },
+  ]}
+/>
   
       <FAQSection/>
       <ContactSchool/>
