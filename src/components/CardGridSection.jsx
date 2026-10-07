@@ -18,7 +18,7 @@ export default function CardGridSection({
           <h2
             className="uppercase leading-[100%] tracking-wide"
             style={{
-              fontFamily: "Montserrat, sans-serif",
+              fontFamily: "Playfair Display, serif",
               fontWeight: 700,
               fontSize: "clamp(26px, 2vw, 20px)",
               color: "#196191",
