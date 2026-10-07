@@ -22,26 +22,14 @@ export default function Internationalschool() {
           {/* ================= LEFT IMAGE ================= */}
 
           <div className="w-full">
-            <div
-              className="
-                relative
-                aspect-[1.45/1]
-                w-full
-                overflow-hidden
-               
-              "
-            >
+            <div className="relative aspect-[1.45/1] w-full overflow-hidden">
               <Image
                 src="/curriculum-3new.png"
                 alt="Prithvi Global School students"
                 fill
                 priority
                 className="object-cover object-center"
-                sizes="
-                  (max-width: 640px) 100vw,
-                  (max-width: 1024px) 45vw,
-                  43vw
-                "
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 43vw"
               />
             </div>
           </div>
@@ -49,87 +37,42 @@ export default function Internationalschool() {
           {/* ================= RIGHT CONTENT ================= */}
 
           <div className="w-full">
-            {/* OUR STORY */}
+            {/* ABOUT US LABEL */}
 
-            {/* OUR STORY */}
+            
 
-<p
-  className="
-    mb-2
-    text-[10px]
-    font-medium
-    uppercase
-    tracking-[3px]
-    text-[#64B0E2]
-    sm:text-[11px]
-    sm:tracking-[4px]
-  "
->
-  
-</p>
+            {/* TITLE */}
 
-{/* TITLE */}
+           <h2
+            className="mb-4 font-bold leading-[1.12] tracking-[-0.5px]"
+            style={{
+              fontFamily: "Playfair Display, serif",
+              fontSize: "clamp(22px, 3vw, 32px)",
+            }}
+          >
+            <span className="block text-[#196191] !text-[29px] md:!text-[35px]">
+              Who We Are.
+            </span>
+            {/* <span className="block text-[#196191]">
+              Connected to the <em className="italic">World.</em>
+            </span> */}
+          </h2>
 
-<h2
-  className="
-    mb-4
-    whitespace-nowrap
-    font-serif
-    text-[length:clamp(14px,4.2vw,26px)]
-    font-semibold
-    leading-[1.08]
-    tracking-[-0.5px]
-    !text-[#196191]
-    sm:whitespace-normal
-    sm:text-[30px]
-    md:text-[34px]
-    lg:text-[38px]
-    !text-[#173B63]
-    !sm:text-center
-  "
->
-  The Vision Behind Prithvi
-</h2>
+            {/* CONTENT */}
 
-{/* ACCENT LINE */}
-
-
-{/* CONTENT */}
-
-<div className="max-w-[680px]">
-  <p
-    className="
-      text-[14px]
-      leading-[24px]
-      text-[#365579]
-      sm:text-[15px]
-      sm:leading-[26px]
-      md:text-[16px]
-      md:leading-[28px]
-      
-    "
-  >
-    Prithvi Global School was founded with a simple yet powerful belief
-    that every child deserves a strong foundation for a brighter future.
+           <div className="max-w-[640px] space-y-3">
+  <p className="text-[14px] leading-[24px] text-[#365579] sm:text-[15px] sm:leading-[25px]">
+    Prithvi, meaning Earth, is at the heart of our philosophy. We believe
+    education begins with strong roots — values, culture, community and a
+    sense of belonging. From these roots grows the confidence to question,
+    explore and connect with the wider world.
   </p>
 
-  <p
-    className="
-      mt-4
-      text-[14px]
-      leading-[24px]
-      text-[#365579]
-      sm:text-[15px]
-      sm:leading-[26px]
-      md:text-[16px]
-      md:leading-[28px]
-     
-    "
-  >
-    We envisioned a school where academic excellence goes hand in hand with
-    values, creativity, and real-world skills. A place where children feel
-    safe, inspired, and empowered to become confident, compassionate and
-    responsible global citizens.
+  <p className="text-[14px] leading-[24px] text-[#365579] sm:text-[15px] sm:leading-[25px]">
+    At Prithvi, we nurture curious, compassionate and responsible learners
+    who understand their place in the world. Our aim is to help children
+    grow into confident individuals with strong values, an open mind and a
+    truly global outlook.
   </p>
 </div>
           </div>

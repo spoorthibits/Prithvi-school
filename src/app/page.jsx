@@ -76,7 +76,8 @@ export default function Home() {
           className="
             heading
             mb-6
-            !text-[24px]
+            !text-[29px]
+            md:!text-[39px]
              !text-[#196191]
             leading-tight
             md:!text-5xl
@@ -99,13 +100,12 @@ export default function Home() {
             
           "
         >
-          At Prithvi Global School, we believe education should inspire
-          children to think, explore and grow with confidence. Our learning
-          environment brings together strong academic foundations,
-          creativity, values and meaningful experiences that extend beyond
-          the classroom. From Pre-Primary to Grade 5, every child is
-          encouraged to ask questions, discover their interests and develop
-          the skills to become a curious, responsible and confident learner.
+          At Prithvi Global School, we believe every child deserves the space to
+          question, explore and grow. Rooted in strong values and connected to the
+          world around them, children are encouraged to learn with curiosity,
+          confidence and purpose. Through meaningful learning experiences, we nurture
+          thoughtful, responsible and compassionate young minds ready to shape the
+          world they inherit.
         </p>
 
       </div>
@@ -151,49 +151,49 @@ export default function Home() {
 
         {/* DON'T CHANGE YOUR CURVE */}
         <div className="relative z-0">
-  <CoreHeader title1="" />
-</div>
+          <CoreHeader title1="" />
+        </div>
 
 {/* FEATURES — OVERLAPS THE CURVE */}
-<div
-  className="
-    relative
-    z-20
+        <div
+          className="
+            relative
+            z-20
 
-    /* MOBILE ONLY: pull up by ~70% of the arch height (+ the title block's mt-5) */
-    max-[767px]:mt-[calc(clamp(240px,82vw,340px)_*_-0.6776_-_20px)]
+            /* MOBILE ONLY: pull up by ~70% of the arch height (+ the title block's mt-5) */
+            max-[767px]:mt-[calc(clamp(240px,82vw,340px)_*_-0.6776_-_20px)]
 
-    /* TABLET + DESKTOP: same overlap */
-    md:-mt-[260px]
-    xl:-mt-[280px]
-  "
->
-  <FeaturesTabs />
-</div>
-      <div
-    className="
-      pointer-events-none
-      absolute
-      bottom-0
-      left-0
-      z-20
-      h-[75px]
-      w-full
-      overflow-hidden
-      
-      sm:h-[90px]
-      md:h-[115px]
-    "
-  >
-    <Image
-      src="/calloutcurve.webp"
-      alt=""
-      fill
-      className="object-fill"
-      sizes="100vw"
-      priority={false}
-    />
-  </div>
+            /* TABLET + DESKTOP: same overlap */
+            md:-mt-[260px]
+            xl:-mt-[280px]
+          "
+        >
+          <FeaturesTabs />
+        </div>
+            <div
+          className="
+            pointer-events-none
+            absolute
+            bottom-0
+            left-0
+            z-20
+            h-[75px]
+            w-full
+            overflow-hidden
+            
+            sm:h-[90px]
+            md:h-[115px]
+          "
+        >
+          <Image
+            src="/calloutcurve.webp"
+            alt=""
+            fill
+            className="object-fill"
+            sizes="100vw"
+            priority={false}
+          />
+        </div>
       </section>
       
       <FAQSection/>

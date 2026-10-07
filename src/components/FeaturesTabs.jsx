@@ -140,7 +140,8 @@ export default function FeaturesTabs({
           <h2
             className="
               mx-auto mb-3 text-balance !font-bold
-              !text-[clamp(20px,6vw,26px)] md:!text-[28px] lg:!text-[32px]
+              !text-[clamp(20px,6vw,26px)] !text-[29px]
+            md:!text-[39px] lg:!text-[32px]
               md:tracking-[0.08em]
 
               max-[767px]:max-w-[calc(clamp(240px,82vw,340px)_*_0.755)]

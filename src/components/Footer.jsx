@@ -57,18 +57,18 @@ export default function Footer() {
 
             {/* ================= CONTACT INFO ================= */}
             <div className="max-w-[560px] text-center lg:text-left">
-              <h3 className="font-montserrat text-[18px] font-bold uppercase tracking-wider !text-white">
+              <h3 className="font-montserrat !text-[20px] font-bold uppercase tracking-wider !text-white">
                 Contact
               </h3>
               <span className="mx-auto mt-3 block h-[3px] w-12 rounded bg-[#E8962E] lg:mx-0" />
 
               <div className="mt-6 space-y-5 font-manrope text-[17px] font-normal leading-8 !text-[#B9C9BE]">
-                <p className="font-manrope !text-[#B9C9BE]">
+                <p className="font-manrope !text-[#B9C9BE] !text-[17px]">
                   <span className="font-manrope font-bold !text-white">LOCATION :</span>{" "}
                   Plot no 64, Mallikarjuna Swamy Temple Rd, Cheeriyal, Secunderabad, Telangana 501303
                 </p>
 
-                <p className="font-manrope !text-[#B9C9BE]">
+                <p className="font-manrope !text-[#B9C9BE] !text-[17px]">
                   <span className="font-manrope font-bold !text-white">MAIL US :</span>{" "}
                   <a
                     href="mailto:info@yourschool.com"
@@ -78,7 +78,7 @@ export default function Footer() {
                   </a>
                 </p>
 
-                <p className="font-manrope !text-[#B9C9BE]">
+                <p className="font-manrope !text-[#B9C9BE] !text-[17px]">
                   <span className="font-manrope font-bold !text-white">CALL US :</span>{" "}
                   <a
                     href="tel:+919553566056"
@@ -93,7 +93,7 @@ export default function Footer() {
             {/* ================= LINKS + SOCIAL ================= */}
             <div className="flex shrink-0 items-start gap-10">
               <div>
-                <h3 className="font-montserrat text-[18px] font-bold uppercase tracking-wider !text-white">
+                <h3 className="font-montserrat !text-[18px] font-bold uppercase tracking-wider !text-white">
                   Quick Links
                 </h3>
                 <span className="mt-3 block h-[3px] w-12 rounded bg-[#E8962E]" />
@@ -265,7 +265,7 @@ export default function Footer() {
 
       {/* ================= COPYRIGHT BAR (all screen sizes) ================= */}
       <div className="bg-[#d59238] px-6 py-2 text-center">
-        <p className="font-montserrat text-[12px] font-normal leading-5 sm:text-[14px] !text-[#0F3D2E]">
+        <p className="font-montserrat text-[10px] font-normal leading-5 sm:text-[14px] !text-[#0F3D2E]">
           © Copyright {new Date().getFullYear()}, All Rights Reserved -
           Prithvi Global School
         </p>

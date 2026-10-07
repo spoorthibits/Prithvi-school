@@ -152,7 +152,8 @@ export default function FAQSection() {
     tracking-tight
     !text-[#196191]
     sm:mt-5
-    sm:text-[34px]
+    !text-[29px]
+    md:!text-[39px]
     lg:text-[40px]
     lg:ml-10
   "

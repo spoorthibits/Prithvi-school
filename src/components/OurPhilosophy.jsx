@@ -59,12 +59,10 @@ export default function OurPhilosophySection() {
                 md:!leading-[30px]
               "
             >
-              At Prithvi Global School, we believe education is about developing
-              the whole child. Our approach brings together academic excellence,
-              strong values, creativity and meaningful experiences, creating an
-              environment where children are encouraged to think independently,
-              remain curious and develop a deeper understanding of the world
-              around them.
+              At Prithvi, we believe children grow best when they are grounded in who
+              they are and connected to the world around them. Our philosophy brings
+              together values, nature, curiosity, creativity and meaningful learning
+              experiences.
             </p>
 
             <p
@@ -78,11 +76,10 @@ export default function OurPhilosophySection() {
                 md:!leading-[30px]
               "
             >
-              We aim to nurture individuals who are grounded in their identity
-              and values, while being open to diverse perspectives and ideas.
-              Through a balance of knowledge, character and responsibility, we
-              prepare children to grow into confident, compassionate and
-              thoughtful global citizens.
+              We nurture children to become mindful, compassionate and responsible
+              individuals — confident enough to lead, yet humble enough to listen and
+              learn. Our aim is to help them grow into thoughtful global citizens,
+              ready to shape the world they inherit.
             </p>
           </div>
         </div>
