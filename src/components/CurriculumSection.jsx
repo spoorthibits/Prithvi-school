@@ -89,13 +89,13 @@ export default function CurriculumSection() {
             <h2
               className="
                 max-w-[650px]
-                !text-[34px]
+                !text-[29px]
+                md:!text-[39px]
                 font-medium
                 leading-[1.12]
                 !text-[#333333]
 
-                sm:!text-[40px]
-                md:!text-[48px]
+                
               "
             >
               Every stage opens a new{" "}

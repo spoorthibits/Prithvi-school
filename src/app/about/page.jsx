@@ -1,63 +1,48 @@
+"use client"; // must be the very first line
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 import PageBanner from "@/components/PageBanner";
-import ContactSchool from "@/components/ContactSchool";
 import Internationalschool from "@/components/Internationalschool";
 import OurPhilosophySection from "@/components/OurPhilosophy";
 import OurMissionSection from "@/components/OurMission";
-import MapSection from "@/components/map";
-
-
-const aboutSlides = [
-  {
-    image: "/curriculum2.png",
-    imageAlt: "Holistic Learning",
-    imageTitle: "Holistic Learning",
-    imageDescription: "",
-    paragraphs: [
-      "At Prithvi Global School, our curriculum is thoughtfully designed to nurture curiosity, creativity, and confidence in every child. We believe that meaningful learning goes beyond textbooks and inspires children to think independently.",
-      "By combining academic excellence with experiential learning, we help students develop strong conceptual understanding while encouraging exploration, collaboration, and innovation.",
-      "Our classrooms foster a positive environment where every learner feels supported, valued, and motivated to achieve their full potential.",
-    ],
-  },
-  {
-    image: "/curriculum3.png",
-    imageAlt: "Concept-Based Education",
-    imageTitle: "Concept-Based Education",
-    imageDescription: "",
-    paragraphs: [
-      "We focus on concept-based learning that enables students to understand the 'why' behind every lesson rather than simply memorizing facts. This approach builds critical thinking and problem-solving abilities from an early age.",
-      "Interactive classroom discussions, hands-on activities, projects, and technology-integrated learning ensure that education remains engaging, relevant, and enjoyable.",
-      "Every learning experience is designed to encourage curiosity and prepare students for lifelong learning.",
-    ],
-  },
-  {
-    image: "/curriculum4.png",
-    imageAlt: "Future Ready Learners",
-    imageTitle: "Future Ready Learners",
-    imageDescription: "",
-    paragraphs: [
-      "Our goal is to develop confident, responsible, and compassionate individuals who are prepared for the opportunities and challenges of tomorrow.",
-      "Along with academic excellence, we place equal emphasis on communication skills, leadership, teamwork, values, and character development.",
-      "By nurturing every child's unique strengths, we empower them to become lifelong learners and responsible global citizens.",
-    ],
-  },
-];
+import ImageContentSection from "@/components/ImageContentSection";
+import AgeGroupsSection from "@/components/AgeGroupsSection";
 
 export default function AboutPage() {
+  const router = useRouter();                 // defines router
+  const [formType, setFormType] = useState(null); // defines setFormType
+
   return (
     <>
       <PageBanner
-              image="/aboutusbanner1.png"
-              title="About Us"
-              subtitle="Rooted in who we are. Responsible towards the world we inhabit. Ready to shape the world we inherit."
-              imageClassName="!object-top"
-       />      
-      <Internationalschool/>
+        image="/aboutusbanner1.png"
+        title="About Us"
+        subtitle="Building strong foundations today for the leaders of tomorrow."
+        imageClassName="!object-top"
+      />
+      <Internationalschool />
       <OurPhilosophySection />
-      <OurMissionSection/>
-      {/* <MapSection /> */}
-      <ContactSchool imageSrc="/aboutdwonbanner.png" imageSrcMobile="/mobileaboutdownbanner.png" heading="We’d love to hear from you!" subheading="Feel free to get in touch, or apply now" contactHref = "" applyHref = ""/>
-       
- 
+      <OurMissionSection />
+      <AgeGroupsSection />
+
+     <ImageContentSection
+  imageSrc="/aboutbannerdown.png"
+  imageAlt="About banner"
+  title="We’d love to hear from you!"
+  description="Feel free to get in touch, or apply now"
+  primaryBtnText="CONTACT US"
+  secondaryBtnText="APPLY NOW"
+  onPrimaryClick={() => router.push("/contact")}
+  onSecondaryClick={() => setFormType("simple")}
+  imageClassName="lg:scale-110 lg:translate-y-9 origin-bottom"
+/>
+
+      {/* Show your form when APPLY NOW is clicked */}
+      {formType === "simple" && (
+        <div>{/* <ApplyForm onClose={() => setFormType(null)} /> */}</div>
+      )}
     </>
   );
 }

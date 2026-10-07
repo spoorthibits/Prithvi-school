@@ -151,17 +151,17 @@ export default function ContactSchool({
             {subheading}
           </p>
 
-          <div className="mt-5 flex w-full flex-col gap-3">
+          <div className="mt-5 flex w-full flex-row gap-3">
             <a
               href={contactHref}
-              className="text-cta w-full rounded-full px-6 py-3 text-center text-xs uppercase transition hover:opacity-90"
+              className="text-cta flex-1 whitespace-nowrap rounded-full px-4 py-3 text-center text-xs uppercase transition hover:opacity-90"
               style={{ background: "var(--orange)", color: "var(--white)" }}
             >
               Contact Us
             </a>
             <a
               href={applyHref}
-              className="text-cta w-full rounded-full px-6 py-3 text-center text-xs uppercase transition hover:opacity-90"
+              className="text-cta flex-1 whitespace-nowrap rounded-full px-4 py-3 text-center text-xs uppercase transition hover:opacity-90"
               style={{ background: "#196191", color: "var(--white)" }}
             >
               Apply Now

@@ -265,7 +265,7 @@ export default function Footer() {
 
       {/* ================= COPYRIGHT BAR (all screen sizes) ================= */}
       <div className="bg-[#d59238] px-6 py-2 text-center">
-        <p className="font-montserrat text-[12px] font-normal leading-5 sm:text-[14px] !text-[#0F3D2E]">
+        <p className="font-montserrat text-[10px] font-normal leading-5 sm:text-[14px] !text-[#0F3D2E]">
           © Copyright {new Date().getFullYear()}, All Rights Reserved -
           Prithvi Global School
         </p>

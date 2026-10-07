@@ -77,6 +77,7 @@ const aboutSlides = [
           },
         ]}
       />
+      
       <VideoHero
               videoSrc="/acad.mp4"
               title="LEARNING JOURNEY"
@@ -99,54 +100,7 @@ const aboutSlides = [
             />
             
 
-            {/* Assessment Section */}
-            {/* <ImageContentSection
-                imageSrc="/curriculum2.png"
-                imageAlt="Our amazing product"
-                imageOnRight={false}
-
-                mobileImageFirst={true}
-                className="    "
-            >
-
-                <div className="sm:space-y-3    space-y-0   lg:pr-32 pr-0 md:pr-0   sm:py-8 ">
-
-
-                    <p className="para  sm:mb-4  mb-3 text-[#4C4C4C] ">
-                        Our teachers encourage children to think independently, communicate with confidence, and collaborate with openness. Inquiry-based learning, STEAM integration, design thinking and project work help students connect ideas across subjects and see the world as an interconnected whole.
-
-
-                    </p>
-                    <p className="para  text-[#4C4C4C] ">At the same time, values, mindfulness, and everyday discipline shape their character and emotional strength. With teachers as mentors and co-learners, our classrooms become vibrant spaces where knowledge grows, individuality is honoured and every child finds their unique path to excellence.</p>
-
-                </div>
-
-            </ImageContentSection>
-             <ImageContentSection
-                imageSrc="/curriculum4.png"
-                imageAlt="Our amazing product"
-                imageOnRight={true}
-
-                mobileImageFirst={true}
-                className="    "
-            >
-
-                <div className="sm:space-y-3 lg:pl-32 pl-0 md:pl-0    space-y-0  py-4  sm:py-8 ">
-
-                    <div className="border w-fit border-[#D2AD8B] text-[#164950]  font-semibold  px-6 py-2  rounded-full  ">Pedagogy</div>
-
-                    <h2 className="heading !py-1   ">
-                        Our Pedagogy
-                    </h2>
-
-                    <p className="para  text-[#4C4C4C] ">
-                        We believe that teaching is a benevolent act, rooted in curiosity, culture, and compassion. Our pedagogy blends global best practices with India’s timeless learning traditions, creating a balanced approach where children learn by exploring, questioning, experimenting, and reflecting.
-                    </p>
-                    
-
-                </div>
-
-            </ImageContentSection> */}
+           
      <CardGridSection
   badge="Our Pedagogy"
   description="At our school, pedagogy goes beyond textbooks — it's about how children learn to think, question, and grow every day."

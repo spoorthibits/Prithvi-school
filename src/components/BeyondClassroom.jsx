@@ -118,7 +118,7 @@ export default function BeyondClassroom() {
           <h2
             className="absolute right-5 -top-32 z-20 hidden text-right uppercase lg:block"
             style={{
-              color: "var(--dark-green)",
+              color: "#196191",
               fontFamily: '"Montserrat", sans-serif',
               fontWeight: 800,
               fontSize: "clamp(46px, 3.4vw, 40px)",

@@ -6,18 +6,18 @@ const GRADIENT_STYLE = {
 export default function Hero() {
   return (
     <section
-      className="
-        relative
-        w-full
-        overflow-hidden
-        aspect-[10/7]
-        
-        sm:aspect-auto
-        sm:h-[580px]
-        md:h-[650px]
-        lg:h-[670px]
-      "
-    >
+  className="
+    relative
+    w-full
+    overflow-hidden
+    aspect-[10/7]
+
+    sm:aspect-auto
+    sm:h-[580px]
+    md:h-[650px]
+    
+  "
+>
       {/* BACKGROUND VIDEO */}
       <video
         className="
@@ -26,7 +26,6 @@ export default function Hero() {
           h-full
           w-full
           object-cover
-          object-top
         "
         autoPlay
         muted
