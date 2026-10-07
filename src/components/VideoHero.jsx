@@ -73,15 +73,15 @@ export default function VideoHero({
     ? progress * (totalSlides - 1) * -100
     : 0;
 
-  const nextMobile = () =>
-    setMobileIndex((prev) =>
-      prev === slides.length - 1 ? 0 : prev + 1
-    );
+ const nextMobile = () =>
+  setMobileIndex((prev) =>
+    prev === slides.length - 1 ? 0 : prev + 1
+  );
 
-  const prevMobile = () =>
-    setMobileIndex((prev) =>
-      prev === 0 ? slides.length - 1 : prev - 1
-    );
+const prevMobile = () =>
+  setMobileIndex((prev) =>
+    prev === 0 ? slides.length - 1 : prev - 1
+  );
 
   /* ---------------- HEADING ---------------- */
 
@@ -92,7 +92,7 @@ export default function VideoHero({
       {top && (
         <div className="inline-block mb-2">
           <h2
-            className="leading-[100%]"
+            className="leading-[100%] uppercase"
             style={{
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,
@@ -109,7 +109,7 @@ export default function VideoHero({
       {bottom && (
         <div className="bg-lightblue inline-block px-4 py-2">
           <h2
-            className="leading-[100%]"
+            className="leading-[100%] uppercase"
             style={{
               fontFamily: "Playfair Display, serif",
               fontWeight: 700,
@@ -234,7 +234,7 @@ export default function VideoHero({
                   <h2
                     className="!text-white uppercase leading-[100%]"
                     style={{
-                      fontFamily: "Montserrat, sans-serif",
+                      fontFamily: "Playfair Display, serif",
                       fontWeight: 730,
                       fontVariant: "small-caps",
                       fontSize: "clamp(36px, 8vw, 160px)",
@@ -265,7 +265,7 @@ export default function VideoHero({
         <>
           <section className="relative w-full">
 
-            <div className="w-full h-[70vh] relative">
+            <div className="w-full aspect-[10/7] relative">
 
               <video
                 autoPlay
@@ -287,10 +287,10 @@ export default function VideoHero({
                 <h2
                   className="text-white uppercase leading-[100%]"
                   style={{
-                    fontFamily: "Montserrat, sans-serif",
-                    fontWeight: 630,
+                    fontFamily: "Playfair Display, serif",
+                    fontWeight: 700,
                     fontVariant: "small-caps",
-                    fontSize: "36px",
+                    fontSize: "clamp(32px, 6vw, 48px)",
                   }}
                 >
                   {title}
@@ -302,70 +302,72 @@ export default function VideoHero({
 
           </section>
 
-          <section className="overflow-hidden relative">
+          <section className=" relative">
 
             {/* ================= SLIDES ================= */}
-
-            <div
-              className="flex transition-transform duration-500"
-              style={{
-                transform: `translateX(-${mobileIndex * 100}%)`,
-              }}
-            >
-
-              {slides.map((slide, index) => (
-
+            <div className="overflow-hidden">
                 <div
-                  key={index}
-                  className="min-w-full"
+                  className="flex transition-transform duration-500"
+                  style={{
+                   transform: `translateX(-${mobileIndex * 100}%)`,
+                  }}
                 >
 
-                  <div className="container-custom py-10">
+                  {slides.map((slide, index) => (
 
-                    {/* IMAGE */}
+                    <div
+                      key={index}
+                      className="min-w-full"
+                    >
 
-                    <div className="relative w-full h-[280px] md:h-[340px] mb-6">
+                      <div className="container-custom py-10 pb-1 ">
 
-                      <Image
-                        src={slide.image}
-                        alt=""
-                        fill
-                        className="object-cover object-top"
-                      />
+                        {/* IMAGE */}
+
+                        <div className="relative w-full h-[280px] md:h-[340px] mb-6">
+
+                          <Image
+                            src={slide.image}
+                            alt=""
+                            fill
+                            className="object-cover object-top"
+                          />
+
+                        </div>
+
+                        {/* MAIN HEADING */}
+
+                        <Heading
+                          top={slide.headingTop}
+                          bottom={slide.headingBottom}
+                        />
+
+                        {/* SUBTITLE
+                            HIDDEN ON MOBILE + TABLET */}
+
+                        {/* DESCRIPTION */}
+
+                        {slide.description && (
+                          <p
+                          className="mb-0"
+                            style={{
+                              fontFamily: "Montserrat, sans-serif",
+                              fontWeight: 400,
+                              fontSize: "clamp(16px, 3vw, 18px)",
+                              color: "#4B5563",
+                            }}
+                          >
+                            {slide.description}
+                          </p>
+                        )}
+
+                      </div>
 
                     </div>
 
-                    {/* MAIN HEADING */}
-
-                    <Heading
-                      top={slide.headingTop}
-                      bottom={slide.headingBottom}
-                    />
-
-                    {/* SUBTITLE
-                        HIDDEN ON MOBILE + TABLET */}
-
-                    {/* DESCRIPTION */}
-
-                    {slide.description && (
-                      <p
-                        style={{
-                          fontFamily: "Montserrat, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "clamp(16px, 3vw, 18px)",
-                          color: "#4B5563",
-                        }}
-                      >
-                        {slide.description}
-                      </p>
-                    )}
-
-                  </div>
+                  ))}
 
                 </div>
-
-              ))}
-
             </div>
 
             {/* =================================================
@@ -374,14 +376,14 @@ export default function VideoHero({
             ================================================= */}
 
             {slides.length > 1 && (
-              <div className="mt-8 mb-8 flex justify-center">
+              <div className="flex justify-center  mb-4">
 
-                <div className="flex overflow-hidden">
+                <div className="flex ">
 
                   <ScrollButton
                     direction="left"
                     onClick={prevMobile}
-                    bgColor="#196191"
+                    bgColorClass="bg-[#196191]"
                     hoverColor="#B85F2C"
                     className="border-r border-white/30"
                   />
@@ -389,7 +391,7 @@ export default function VideoHero({
                   <ScrollButton
                     direction="right"
                     onClick={nextMobile}
-                    bgColor="#196191"
+                    bgColorClass="bg-[#196191]"
                     hoverColor="#B85F2C"
                   />
 

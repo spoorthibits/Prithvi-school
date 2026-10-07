@@ -11,7 +11,7 @@ export default function ScrollSlider({
   cardTextClass = "text-[#173A4A]", // deep ink-teal, dark enough for contrast, ties back to the brand mark
   arrowBgClass = "bg-[#196191]",
   indicatorWidth = "25%",
-  minHeight = 520,
+  minHeight = 300,
 }) {
   const [current, setCurrent] = useState(0);
 
@@ -31,8 +31,15 @@ export default function ScrollSlider({
 
         {/* MOBILE TITLE */}
         <div className="md:hidden mb-5 text-center">
-          <div className="bg-[#A2D5EB] inline-block px-6 py-2">
-            <h2 className="text-[#2B292A] !text-3xl">
+          <div className=" inline-block px-6 py-2">
+            <h2 className="!text-[#196191] !text-3xl"
+            style={{
+              fontFamily: "Playfair Display, serif",
+              fontWeight: 700,
+              fontSize: "clamp(32px, 6vw, 48px)",
+              color: "#196191",
+            }}
+            >
               OUR APPROACH
             </h2>
           </div>
@@ -162,12 +169,14 @@ export default function ScrollSlider({
               direction="left"
               onClick={prevSlide}
               bgColorClass={arrowBgClass}
+              hoverColor="#B85F2C"
               className="border-r border-white/30"
             />
             <ScrollButton
               direction="right"
               onClick={nextSlide}
               bgColorClass={arrowBgClass}
+              hoverColor="#B85F2C"
             />
           </div>
         </div>

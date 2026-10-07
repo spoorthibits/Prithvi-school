@@ -10,7 +10,7 @@ export default function PageBanner({
   mobileImageClassName = "",
 }) {
   return (
-    <section className="!relative !w-full !h-[220px] sm:!h-[350px] md:!h-[450px] !overflow-hidden">
+    <section className="!relative !w-full !h-[180px] sm:!h-[300px] md:!h-[350px] lg:!h-[450px] !overflow-hidden">
       {/* MOBILE IMAGE (below md) */}
       <Image
         src={mobileImage || image}
@@ -22,15 +22,26 @@ export default function PageBanner({
         sizes="100vw"
         quality={85}
       />
-
-      {/* DESKTOP / TABLET IMAGE (md and up) */}
+      {/*tablet image*/}
       <Image
         src={image}
         alt={alt}
         fill
         priority
         fetchPriority="high"
-        className={`!object-cover !hidden md:!block ${imageClassName}`}
+        className={`!object-cover !hidden md:!block !object-[center_30%] lg:!hidden !object-center ${imageClassName}`}
+        sizes="100vw"
+        quality={85}
+      />
+
+      {/* DESKTOP IMAGE */}
+      <Image
+        src={image}
+        alt={alt}
+        fill
+        priority
+        fetchPriority="high"
+        className={`!object-cover !hidden lg:!block ${imageClassName}`}
         sizes="100vw"
         quality={85}
       />
