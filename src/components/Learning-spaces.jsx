@@ -76,14 +76,14 @@ export default function LearningSpacesSection({
                 transition={{ duration: 0.7 }}
                 className="px-3 w-1/2 lg:w-1/3 flex-shrink-0"
               >
-               <div
-  onClick={() => item.slug && router.push(`/blogs/${item.slug}`)}
-  className={`h-full transition-all duration-700 ${
-    hoverEffect
-      ? "bg-[#F7F6F2] group hover:bg-primary cursor-pointer transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl"
-      : "bg-[#F7F6F2]"
-  }`}
->
+                <div
+                  onClick={() => item.slug && router.push(`/blogs/${item.slug}`)}
+                  className={`h-full transition-all duration-700 ${
+                    hoverEffect
+                      ? "bg-[#F7F6F2] group hover:bg-primary cursor-pointer transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl"
+                      : "bg-[#F7F6F2]"
+                  }`}
+                >
                   <div className="relative w-full h-[280px]">
                     <Image
                       src={item.image}
@@ -94,13 +94,27 @@ export default function LearningSpacesSection({
                   </div>
 
                   <div className="p-5 space-y-2.5">
-                    <h3
-                    className={`${titleClass} ${
-                      hoverEffect ? "transition-colors duration-300 group-hover:text-white" : ""
-                    }`}
-                  >
-                    {item.title}
-                  </h3>
+                    {/* Title + Age pill */}
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h3
+                        className={`${titleClass} ${
+                          hoverEffect
+                            ? "transition-colors duration-300 group-hover:text-white"
+                            : ""
+                        }`}
+                      >
+                        {item.title}
+                      </h3>
+
+                      {item.age && (
+                        <span
+                          className="whitespace-nowrap rounded-full px-3 py-1 text-[12px] font-semibold leading-none text-white font-montserrat"
+                          style={{ backgroundColor: item.color || "#196191" }}
+                        >
+                          {item.age}
+                        </span>
+                      )}
+                    </div>
 
                     {item.description && (
                       <p
@@ -144,11 +158,10 @@ export default function LearningSpacesSection({
           >
             {data.map((item, i) => (
               <div
-  key={i}
-  onClick={() => item.slug && router.push(`/blogs/${item.slug}`)}
-  className="min-w-full cursor-pointer"
->
-
+                key={i}
+                onClick={() => item.slug && router.push(`/blogs/${item.slug}`)}
+                className="min-w-full cursor-pointer"
+              >
                 <div className="relative w-full h-[240px]">
                   <Image
                     src={item.image}
@@ -159,21 +172,34 @@ export default function LearningSpacesSection({
                 </div>
 
                 <div className="bg-[#F7F6F2] p-4 space-y-2">
-                  <h3
-                    className={`${titleClass} ${
-                      hoverEffect ? "transition-colors duration-300 group-hover:text-white" : ""
-                    }`}
-                  >
-                    {item.title}
-                  </h3>
+                  {/* Title + Age pill */}
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3
+                      className={`${titleClass} ${
+                        hoverEffect
+                          ? "transition-colors duration-300 group-hover:text-white"
+                          : ""
+                      }`}
+                    >
+                      {item.title}
+                    </h3>
+
+                    {item.age && (
+                      <span
+                        className="whitespace-nowrap rounded-full px-3 py-1 text-[11px] font-semibold leading-none text-white font-montserrat"
+                        style={{ backgroundColor: item.color || "#196191" }}
+                      >
+                        {item.age}
+                      </span>
+                    )}
+                  </div>
 
                   {item.description && (
-                  <p className="paragraph font-montserrat !text-[15px] !leading-[22px] text-dark">
-                    {item.description}
-                  </p>
-                )}
+                    <p className="paragraph font-montserrat !text-[15px] !leading-[22px] text-dark">
+                      {item.description}
+                    </p>
+                  )}
                 </div>
-
               </div>
             ))}
           </div>

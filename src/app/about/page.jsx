@@ -18,36 +18,41 @@ const spaces = [
   {
     title: "Playgroup",
     age: "1.5 – 2.5 Years",
+    color: "#438E42",
     description:
-      "A joyful beginning where children explore through play, movement, stories and meaningful experiences, building their first connections with learning.",
+      "A gentle beginning through play, movement, stories and meaningful experiences.",
     image: "/playgroup.png",
   },
   {
     title: "Nursery",
     age: "2.5 – 3.5 Years",
+    color: "#64B0E2",
     description:
-      "Children build early language, confidence and curiosity through play, exploration and everyday discovery in a warm and supportive environment.",
+      "Building early language, confidence and curiosity through play and exploration.",
     image: "/whoweare1.png",
   },
   {
     title: "PP1",
     age: "3.5 – 4.5 Years",
+    color: "#F7941D",
     description:
-      "Hands-on experiences, creativity and exploration encourage children to develop essential skills while becoming increasingly confident and independent learners.",
+      "Developing early skills through hands-on learning, creativity and exploration.",
     image: "/pp1.png",
   },
   {
     title: "PP2",
     age: "4.5 – 5.5 Years",
+    color: "#196191",
     description:
-      "Children strengthen essential skills, deepen their understanding and develop curiosity, confidence and a growing love for learning.",
+      "Strengthening foundations while building confidence, curiosity and independence.",
     image: "/pp2.png",
   },
   {
     title: "Grade 1–5",
     age: "5.5 – 10.5 Years",
+    color: "#438E42",
     description:
-      "Children build strong academic foundations while being encouraged to question, explore, collaborate, think independently and connect their learning with the world around them.",
+      "Building strong academic foundations through curiosity, collaboration and independent thinking.",
     image: "/class1-5.png",
   },
 ];
