@@ -1,3 +1,38 @@
+export const metadata = {
+  title: "Admissions | Prithvi Global School",
+  description:
+    "Explore admissions at Prithvi Global School. Discover our simple, personal and child-first admission process for Playgroup through Grade 5.",
+  keywords: [
+    "Prithvi Global School Admissions",
+    "school admissions",
+    "CBSE-based school admissions",
+    "Playgroup admissions",
+    "Nursery admissions",
+    "PP1 admissions",
+    "PP2 admissions",
+    "Grade 1 to 5 admissions",
+  ],
+  openGraph: {
+    title: "Admissions | Prithvi Global School",
+    description:
+      "Begin your child's learning journey at Prithvi Global School with a simple, personal and child-first admission process.",
+    type: "website",
+    siteName: "Prithvi Global School",
+    images: [
+      {
+        url: "/admissionprocess.png",
+        width: 1200,
+        height: 630,
+        alt: "Prithvi Global School Admissions",
+      },
+    ],
+  },
+  icons: {
+    icon: "/logoglobe.png",
+    shortcut: "/logoglobe.png",
+    apple: "/logoglobe.png",
+  },
+};
 import PageBanner from "@/components/PageBanner";
 import VideoHeroAnimation from "@/components/VideoHeroAnimation";
 import CoreHeader from "@/components/CoreHeader";

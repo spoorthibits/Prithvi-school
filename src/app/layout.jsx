@@ -14,6 +14,16 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
 });
+export const metadata = {
+  title: "Prithvi Global School | Growing Curious Minds",
+  description:
+    "Prithvi Global School is a CBSE-based school nurturing curious, confident and responsible learners through meaningful experiences, strong values and academic excellence.",
+  icons: {
+    icon: "/globe1.png",
+    shortcut: "/globe1.png",
+    apple: "/globe1.png",
+  },
+};
 
 export default function RootLayout({ children }) {
   return (

@@ -1,3 +1,58 @@
+export const metadata = {
+  title: "Prithvi Global School | Growing Curious Minds",
+  description:
+    "Prithvi Global School is a CBSE-based school nurturing curious, confident and responsible learners through meaningful experiences, strong values and academic excellence.",
+  keywords: [
+    "Prithvi Global School",
+    "CBSE school",
+    "CBSE-based school",
+    "primary school",
+    "pre-primary school",
+    "Playgroup",
+    "Nursery",
+    "PP1",
+    "PP2",
+    "Grade 1 to 5",
+  ],
+  authors: [{ name: "Prithvi Global School" }],
+  creator: "Prithvi Global School",
+
+  openGraph: {
+    title: "Prithvi Global School | Growing Curious Minds",
+    description:
+      "A CBSE-based school nurturing curious, confident and responsible learners through strong values, meaningful learning and academic excellence.",
+    type: "website",
+    siteName: "Prithvi Global School",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Prithvi Global School",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Prithvi Global School | Growing Curious Minds",
+    description:
+      "A CBSE-based school nurturing curious, confident and responsible learners.",
+    images: ["/og-image.png"],
+  },
+
+  icons: {
+    icon: "/logoglobe.png",
+    shortcut: "/logoglobe.png",
+    apple: "/logoglobe.png",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 import CurriculumSection from "@/components/CurriculumSection";
 import Hero from "@/components/HeroSection";
 import CoreHeader from "@/components/CoreHeader";

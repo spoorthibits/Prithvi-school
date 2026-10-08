@@ -1,95 +1,41 @@
-"use client"; // must be the very first line
+import AboutPageClient from "./AboutPageClient";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-
-import PageBanner from "@/components/PageBanner";
-import Internationalschool from "@/components/Internationalschool";
-import OurPhilosophySection from "@/components/OurPhilosophy";
-import OurMissionSection from "@/components/OurMission";
-import ImageContentSection from "@/components/ImageContentSection";
-import AgeGroupsSection from "@/components/AgeGroupsSection";
-import LearningSpacesSection from "@/components/Learning-spaces";
+export const metadata = {
+  title: "About Us | Prithvi Global School",
+  description:
+    "Discover Prithvi Global School's philosophy, programs and learning approach, rooted in strong values, curiosity, creativity and academic excellence.",
+  keywords: [
+    "Prithvi Global School",
+    "About Prithvi Global School",
+    "CBSE-based school",
+    "Playgroup",
+    "Nursery",
+    "PP1",
+    "PP2",
+    "Grade 1 to 5",
+  ],
+  openGraph: {
+    title: "About Us | Prithvi Global School",
+    description:
+      "Discover the philosophy, programs and learning approach at Prithvi Global School.",
+    type: "website",
+    siteName: "Prithvi Global School",
+    images: [
+      {
+        url: "/aboutusbanner1.png",
+        width: 1200,
+        height: 630,
+        alt: "Prithvi Global School",
+      },
+    ],
+  },
+  icons: {
+    icon: "/logoglobe.png",
+    shortcut: "/logoglobe.png",
+    apple: "/logoglobe.png",
+  },
+};
 
 export default function AboutPage() {
-  const router = useRouter();                 // defines router
-  const [formType, setFormType] = useState(null); // defines setFormType
-const spaces = [
-  {
-    title: "Playgroup",
-    age: "1.5 – 2.5 Years",
-    color: "#438E42",
-    description:
-      "A gentle beginning through play, movement, stories and meaningful experiences.",
-    image: "/playgroup.png",
-  },
-  {
-    title: "Nursery",
-    age: "2.5 – 3.5 Years",
-    color: "#64B0E2",
-    description:
-      "Building early language, confidence and curiosity through play and exploration.",
-    image: "/whoweare1.png",
-  },
-  {
-    title: "PP1",
-    age: "3.5 – 4.5 Years",
-    color: "#F7941D",
-    description:
-      "Developing early skills through hands-on learning, creativity and exploration.",
-    image: "/pp1.png",
-  },
-  {
-    title: "PP2",
-    age: "4.5 – 5.5 Years",
-    color: "#196191",
-    description:
-      "Strengthening foundations while building confidence, curiosity and independence.",
-    image: "/pp2.png",
-  },
-  {
-    title: "Grade 1–5",
-    age: "5.5 – 10.5 Years",
-    color: "#438E42",
-    description:
-      "Building strong academic foundations through curiosity, collaboration and independent thinking.",
-    image: "/class1-5.png",
-  },
-];
-  return (
-    <>
-      <PageBanner
-        image="/aboutusbanner1.png"
-        title="About Us"
-        subtitle="Building strong foundations today for the leaders of tomorrow."
-        imageClassName="!object-top"
-      />
-      <Internationalschool />
-      <OurPhilosophySection />
-      <OurMissionSection />
-      {/* <AgeGroupsSection /> */}
-       <LearningSpacesSection
-      heading="Programs We Offer"
-      // subText="For families exploring the best school in Hyderabad, learning spaces that feel welcoming and purposeful often play an important role in helping children adapt comfortably to their early school years."
-      data={spaces}
-      
-    />
-     <ImageContentSection
-  imageSrc="/aboutbannerdown.png"
-  imageAlt="About banner"
-  title="We’d love to hear from you!"
-  description="Feel free to get in touch, or apply now"
-  primaryBtnText="CONTACT US"
-  secondaryBtnText="APPLY NOW"
-  onPrimaryClick={() => router.push("/contact")}
-  onSecondaryClick={() => setFormType("simple")}
-  imageClassName="lg:scale-110 lg:translate-y-9 origin-bottom"
-/>
-
-      {/* Show your form when APPLY NOW is clicked */}
-      {formType === "simple" && (
-        <div>{/* <ApplyForm onClose={() => setFormType(null)} /> */}</div>
-      )}
-    </>
-  );
+  return <AboutPageClient />;
 }

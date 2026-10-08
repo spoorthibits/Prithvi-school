@@ -44,9 +44,9 @@ export default function LearningSpacesSection({
       <div className="container-custom">
 
         {/* ===== Section Heading ===== */}
-        <div className="text-center mb-10 lg:mb-12">
-          <div className="inline-block bg-lightblue px-5 py-1.5 mb-4">
-            <h2 className="font-playfair !font-bold md:text-5xl !text-[#196191] !leading-[100%]">
+        <div className="text-center mb-4 lg:mb-12">
+          <div className="inline-block bg-lightblue px-2 py-1.5 mb-1">
+            <h2 className="font-playfair !font-bold !text-[#196191] !leading-[100%] !text-[29px] md:!text-[35px]">
               {heading}
             </h2>
           </div>

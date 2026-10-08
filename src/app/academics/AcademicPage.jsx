@@ -1,40 +1,3 @@
-export const metadata = {
-  title: "Academics | Prithvi Global School",
-  description:
-    "Explore academics at Prithvi Global School, where a CBSE-based curriculum and meaningful learning experiences help children build strong foundations, curiosity and independent thinking.",
-  keywords: [
-    "Prithvi Global School Academics",
-    "CBSE-based school",
-    "school curriculum",
-    "early years education",
-    "primary education",
-    "Playgroup",
-    "Nursery",
-    "PP1",
-    "PP2",
-    "Grade 1 to 5",
-  ],
-  openGraph: {
-    title: "Academics | Prithvi Global School",
-    description:
-      "Discover Prithvi Global School's academic approach, learning journey and curriculum from the early years through Grade 5.",
-    type: "website",
-    siteName: "Prithvi Global School",
-    images: [
-      {
-        url: "/acad.png",
-        width: 1200,
-        height: 630,
-        alt: "Prithvi Global School Academics",
-      },
-    ],
-  },
-  icons: {
-    icon: "/logoglobe.png",
-    shortcut: "/logoglobe.png",
-    apple: "/logoglobe.png",
-  },
-};
 import Image from "next/image";
 import PageBanner from "@/components/PageBanner";
 import ScrollSlider from "@/components/ScrollSlider";
@@ -42,7 +5,7 @@ import VideoHero from "@/components/VideoHero";
 import BeyondClassroom from "@/components/BeyondClassroom";
 import ImageContentSection from "@/components/ImageContentSection";
 import CardGridSection from "@/components/CardGridSection";
-export default function Academics() {
+export default function AcademicPage() {
 const aboutSlides = [
   {
     image: "/curriculum1.png",
