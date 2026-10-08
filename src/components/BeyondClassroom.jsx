@@ -16,7 +16,7 @@ const sections = [
     description:
       "There’s more to learning than a classroom. From sport and the arts to hands-on activities and collaborative experiences, children have the space to explore new interests, build friendships and discover what they love.",
     heroImage: "/academics-mainimg1.png",
-    sideImage: "/academics-side2.png",
+    sideImage: "/Joyful Classroom Block Tower Builders.png",
     moreLabel: "MORE ABOUT CO-CURRICULARS",
   },
 
@@ -25,8 +25,8 @@ const sections = [
     title: "Learning by Doing",
     description:
       "Children learn through meaningful experiences that encourage them to explore, create and understand the world around them. Learning by doing helps build curiosity, confidence and practical skills.",
-    heroImage: "/experiential-main.jpg",
-    sideImage: "/experiential-side.jpg",
+    heroImage: "/main1.png",
+    sideImage: "/sub1.png",
     moreLabel: "MORE ABOUT EXPERIENTIAL LEARNING",
   },
 
@@ -36,7 +36,7 @@ const sections = [
     description:
       "Sport, creativity and hands-on activities give children opportunities to try something new, express themselves and develop confidence beyond the classroom.",
     heroImage: "/service-main.jpg",
-    sideImage: "/service-side.jpg",
+    sideImage: "/academics-side2.png",
     moreLabel: "EXPLORE LIFE AT PRITHVI",
   },
 ];
@@ -229,7 +229,7 @@ export default function BeyondClassroom() {
                 src={current.sideImage}
                 alt=""
                 fill
-                className="object-cover"
+                className="object-cover object-top"
               />
 
             </div>

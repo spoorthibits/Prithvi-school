@@ -24,7 +24,7 @@ export default function ImageContentSection({
   const sectionStyle = { ...(bgColor ? { background: bgColor } : {}), ...style };
 
   return (
-    <section style={sectionStyle} className="py-10 lg:py-9">
+    <section style={sectionStyle} className="py-10 lg:py-9 bg-[#F7F6F2]">
       <div className="container-custom">
         <div className={`grid grid-cols-1 lg:grid-cols-2 ${gridGap} items-center`}>
           {/* Image */}

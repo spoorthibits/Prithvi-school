@@ -9,7 +9,7 @@ const SECTIONS = [
     title: "Vision",
     description:
       "To nurture mindful, confident and compassionate young minds who are grounded in strong values, connected to the world around them and ready to grow into responsible global citizens.",
-    image: "/curriculum-3new.png",
+    image: "/sub1.png",
     alt: "Our Vision",
     bg: "linear-gradient(160deg, #EAF3FB 0%, #DCEBF7 100%)",
     ring: "#64B0E2",

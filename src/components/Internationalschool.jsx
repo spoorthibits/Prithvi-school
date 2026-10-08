@@ -24,11 +24,11 @@ export default function Internationalschool() {
           <div className="w-full">
             <div className="relative aspect-[1.45/1] w-full overflow-hidden">
               <Image
-                src="/curriculum-3new.png"
+                src="/kids2.png"
                 alt="Prithvi Global School students"
                 fill
                 priority
-                className="object-cover object-center"
+                className="object-cover object-top"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 43vw"
               />
             </div>

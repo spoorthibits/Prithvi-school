@@ -12,21 +12,21 @@ const programs = [
     title: "Playgroup",
     age: "1.5 – 2.5 Years",
     desc: "A joyful beginning where children explore through play, movement, stories and meaningful experiences.",
-    image: "/curriculum1.png",
+    image: "/playgroup.png",
     color: "#438E42",
   },
   {
     title: "Nursery",
     age: "2.5 – 3.5 Years",
     desc: "Building early language, confidence and curiosity through play, exploration and everyday discovery.",
-    image: "/curriculum-3new.png",
+    image: "/whoweare1.png",
     color: "#64B0E2",
   },
   {
     title: "PP1",
     age: "3.5 – 4.5 Years",
     desc: "Encouraging children to learn through hands-on experiences, creativity, exploration and growing independence.",
-    image: "/curriculum-2new.png",
+    image: "/pp1.png",
     color: "#F7941D",
   },
   {
@@ -104,7 +104,7 @@ function ProgramCard({ item }) {
           </span>
         </div>
 
-        <p className="mt-2 flex-1 text-[10px] leading-[1.6] text-[#666666]">
+        <p className="mt-2 flex-1 !text-[16px] leading-[1.6] text-[#666666]">
           {item.desc}
         </p>
       </div>
