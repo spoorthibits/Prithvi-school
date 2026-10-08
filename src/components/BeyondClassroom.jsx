@@ -31,8 +31,8 @@ const sections = [
     title: "Explore. Create. Grow.",
     description:
       "Sport, creativity and hands-on activities give children opportunities to try something new, express themselves and develop confidence beyond the classroom.",
-    heroImage: "/service-main.jpg",
-    sideImage: "/service-side.jpg",
+    heroImage: "/sport-main.png",
+    sideImage: "/academics-side2.png",
     moreLabel: "EXPLORE LIFE AT PRITHVI",
   },
 ];
