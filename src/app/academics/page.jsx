@@ -86,35 +86,38 @@ const aboutSlides = [
          title="Academics"
          subtitle="Building essential skills while encouraging children to question, understand and think independently."
       />
-       <ScrollSlider
- 
-        slides={[
-          {
-            smallTitle: "Our Curriculum",
-            title: "What we follow",
-            description: (
-              <>
-                The academic framework at Prithvi Global School is designed to support concept clarity, application, and clear communication. Following a CBSE curriculum integrated with Cambridge learning frameworks, we help students build strong academic foundations while developing the confidence to express ideas and understand concepts deeply.
-              </>
-            ),
-            image: "/OurCurriculum.png",
-          },
-          {
-            smallTitle: "Our Approach",
-            title: "How learning progresses",
-            description:
-              "Subjects are structured to build understanding gradually across grades — from pre-primary through 5th class — allowing children to connect ideas and strengthen foundations year on year. This steady, age-appropriate progression supports every learner as they grow through the early stages of schooling.",
-            image: "/Our-Approach.png",
-          },
-          {
-            smallTitle: "Our Philosophy",
-            title: "Why this matters",
-            description:
-              "This approach helps students move beyond memorization and develop confidence in applying what they learn. By focusing on understanding rather than rote learning, children at Prithvi Global School develop stronger thinking skills and a genuine curiosity for learning.",
-            image: "/OurPhilosophy.png",
-          },
-        ]}
-      />
+      <ScrollSlider
+  slides={[
+    {
+      smallTitle: "Our Curriculum",
+      title: "What we follow",
+      description: (
+        <>
+          Prithvi Global School follows a CBSE-based approach supported by
+          the NEXT Education curriculum. Our learning framework brings
+          together strong academic foundations, curiosity, creativity and
+          meaningful learning experiences, helping children understand
+          concepts, develop essential skills and learn with confidence.
+        </>
+      ),
+      image: "/OurCurriculum.png",
+    },
+    {
+      smallTitle: "Our Approach",
+      title: "How learning progresses",
+      description:
+        "Learning at Prithvi is designed to grow with every child, from Playgroup and Nursery through PP1, PP2 and Grade 1 to 5. Each stage builds on the previous one through age-appropriate experiences that encourage children to explore, question, understand and develop essential skills.",
+      image: "/Our-Approach.png",
+    },
+    {
+      smallTitle: "Our Philosophy",
+      title: "Why this matters",
+      description:
+        "We believe meaningful learning goes beyond memorisation. By encouraging children to question, explore and think independently, we help them build confidence, curiosity and a deeper understanding of the world around them.",
+      image: "/OurPhilosophy.png",
+    },
+  ]}
+/>
       <VideoHero
   videoSrc="/acad.mp4"
   title="LEARNING JOURNEY"
