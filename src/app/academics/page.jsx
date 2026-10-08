@@ -78,25 +78,25 @@ const aboutSlides = [
         ]}
       />
       <VideoHero
-              videoSrc="/acad.mp4"
-              title="LEARNING JOURNEY"
-              slides={[
-                {
-                  headingTop: "EARLY YEARS",
-                  subTitle: "Empathy, Healthy,",
-                  description:
-                    "The early years are shaped around warmth, security, and gentle exploration. Children are encouraged to observe, ask questions, and engage with the world through play, stories, movement, and conversation. Learning experiences are thoughtfully guided to help children develop language, social awareness, and early thinking skills. With consistent routines and a caring environment, children begin to feel safe, confident, and ready to learn.",
-                  image: "/Eearly-years.png",
-                },
-                {
-                  headingTop: "PRIMARY YEARS",
-                  subTitle: "Simple. Personal. Child-first.",
-                  description:
-                    "The primary years focus on building strong academic foundations while developing independence and curiosity. Learning becomes more structured, helping children make connections, express ideas clearly, and develop confidence in their abilities.Teachers support students in understanding concepts deeply rather than memorizing outcomes. Equal importance is given to academic growth, emotional development, and responsible behaviour.",
-                  image: "/primary-years.png",
-                },
-              ]}
-            />
+  videoSrc="/acad.mp4"
+  title="LEARNING JOURNEY"
+  slides={[
+    {
+      headingTop: "EARLY YEARS",
+      subTitle: "Curiosity begins here.",
+      description:
+        "The early years are a time for children to explore, discover and build their first connections with learning. Through play, stories, movement, creativity and meaningful experiences, children are encouraged to ask questions, express themselves and develop confidence. A caring environment helps them build strong foundations while discovering the joy of learning.",
+      image: "/Eearly-years.png",
+    },
+    {
+      headingTop: "PRIMARY YEARS",
+      subTitle: "Strong foundations. Curious minds.",
+      description:
+        "The primary years build on these early foundations through a growing focus on concepts, exploration and independent thinking. Children are encouraged to question, understand and connect what they learn with the world around them. Alongside academic growth, they develop confidence, responsibility and the skills to become thoughtful, curious learners.",
+      image: "/primary-years.png",
+    },
+  ]}
+/>
             
 
             {/* Assessment Section */}

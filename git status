@@ -1,0 +1,112 @@
+[1mdiff --cc src/app/academics/page.jsx[m
+[1mindex 09bef41,510d4e0..0000000[m
+[1m--- a/src/app/academics/page.jsx[m
+[1m+++ b/src/app/academics/page.jsx[m
+[36m@@@ -76,80 -81,34 +76,102 @@@[m [mconst aboutSlides = [m
+              image: "/OurPhilosophy.png",[m
+            },[m
+          ]}[m
+[31m -        />[m
+[31m -      [m
+[32m +      />[m
+        <VideoHero[m
+[32m++<<<<<<< HEAD[m
+[32m +              videoSrc="/acad.mp4"[m
+[32m +              title="LEARNING JOURNEY"[m
+[32m +              slides={[[m
+[32m +                {[m
+[32m +                  headingTop: "EARLY YEARS",[m
+[32m +                  subTitle: "Empathy, Healthy,",[m
+[32m +                  description:[m
+[32m +                    "The early years are shaped around warmth, security, and gentle exploration. Children are encouraged to observe, ask questions, and engage with the world through play, stories, movement, and conversation. Learning experiences are thoughtfully guided to help children develop language, social awareness, and early thinking skills. With consistent routines and a caring environment, children begin to feel safe, confident, and ready to learn.",[m
+[32m +                  image: "/Eearly-years.png",[m
+[32m +                },[m
+[32m +                {[m
+[32m +                  headingTop: "PRIMARY YEARS",[m
+[32m +                  subTitle: "Simple. Personal. Child-first.",[m
+[32m +                  description:[m
+[32m +                    "The primary years focus on building strong academic foundations while developing independence and curiosity. Learning becomes more structured, helping children make connections, express ideas clearly, and develop confidence in their abilities.Teachers support students in understanding concepts deeply rather than memorizing outcomes. Equal importance is given to academic growth, emotional development, and responsible behaviour.",[m
+[32m +                  image: "/primary-years.png",[m
+[32m +                },[m
+[32m +              ]}[m
+[32m +            />[m
+[32m++=======[m
+[32m+   videoSrc="/acad.mp4"[m
+[32m+   title="LEARNING JOURNEY"[m
+[32m+   slides={[[m
+[32m+   {[m
+[32m+     headingTop: "EARLY YEARS",[m
+[32m+     subTitle: "Curiosity begins here.",[m
+[32m+     description:[m
+[32m+       "The early years are a time of wonder, discovery and growing confidence. At Prithvi, children are given the space to explore their surroundings, ask questions and develop their first connections with learning. Through play, stories, movement, creativity and meaningful experiences, they begin to express themselves, build relationships and understand the world around them. With gentle guidance and a caring environment, children develop early language, social and thinking skills while discovering the joy of learning.",[m
+[32m+     image: "/Eearly-years.png",[m
+[32m+   },[m
+[32m+   {[m
+[32m+     headingTop: "PRIMARY YEARS",[m
+[32m+     subTitle: "Strong foundations. Curious minds.",[m
+[32m+     description:[m
+[32m+       "The primary years build on the curiosity and confidence developed in the early years. As learning becomes more structured, children are encouraged to understand concepts, ask questions, explore ideas and make connections across what they learn. Alongside strong academic foundations, they develop the confidence to express their thoughts, work with others and approach challenges with an open mind. Through meaningful learning experiences, children gradually develop independence, responsibility and the ability to think for themselves.",[m
+[32m+     image: "/primary-years.png",[m
+[32m+   },[m
+[32m+ ]}[m
+[32m+ />[m
+[32m++>>>>>>> 7369e7d6d15ac9575becb7fc0c0c09fd4e6d53b9[m
+              [m
+  [m
+[31m -           [m
+[32m +            {/* Assessment Section */}[m
+[32m +            {/* <ImageContentSection[m
+[32m +                imageSrc="/curriculum2.png"[m
+[32m +                imageAlt="Our amazing product"[m
+[32m +                imageOnRight={false}[m
+[32m +[m
+[32m +                mobileImageFirst={true}[m
+[32m +                className="    "[m
+[32m +            >[m
+[32m +[m
+[32m +                <div className="sm:space-y-3    space-y-0   lg:pr-32 pr-0 md:pr-0   sm:py-8 ">[m
+[32m +[m
+[32m +[m
+[32m +                    <p className="para  sm:mb-4  mb-3 text-[#4C4C4C] ">[m
+[32m +                        Our teachers encourage children to think independently, communicate with confidence, and collaborate with openness. Inquiry-based learning, STEAM integration, design thinking and project work help students connect ideas across subjects and see the world as an interconnected whole.[m
+[32m +[m
+[32m +[m
+[32m +                    </p>[m
+[32m +                    <p className="para  text-[#4C4C4C] ">At the same time, values, mindfulness, and everyday discipline shape their character and emotional strength. With teachers as mentors and co-learners, our classrooms become vibrant spaces where knowledge grows, individuality is honoured and every child finds their unique path to excellence.</p>[m
+[32m +[m
+[32m +                </div>[m
+[32m +[m
+[32m +            </ImageContentSection>[m
+[32m +             <ImageContentSection[m
+[32m +                imageSrc="/curriculum4.png"[m
+[32m +                imageAlt="Our amazing product"[m
+[32m +                imageOnRight={true}[m
+[32m +[m
+[32m +                mobileImageFirst={true}[m
+[32m +                className="    "[m
+[32m +            >[m
+[32m +[m
+[32m +                <div className="sm:space-y-3 lg:pl-32 pl-0 md:pl-0    space-y-0  py-4  sm:py-8 ">[m
+[32m +[m
+[32m +                    <div className="border w-fit border-[#D2AD8B] text-[#164950]  font-semibold  px-6 py-2  rounded-full  ">Pedagogy</div>[m
+[32m +[m
+[32m +                    <h2 className="heading !py-1   ">[m
+[32m +                        Our Pedagogy[m
+[32m +                    </h2>[m
+[32m +[m
+[32m +                    <p className="para  text-[#4C4C4C] ">[m
+[32m +                        We believe that teaching is a benevolent act, rooted in curiosity, culture, and compassion. Our pedagogy blends global best practices with India’s timeless learning traditions, creating a balanced approach where children learn by exploring, questioning, experimenting, and reflecting.[m
+[32m +                    </p>[m
+[32m +                    [m
+[32m +[m
+[32m +                </div>[m
+[32m +[m
+[32m +            </ImageContentSection> */}[m
+       <CardGridSection[m
+[31m -  badge="Our Approach"[m
+[31m -  description="Learning at Prithvi goes beyond textbooks. We create meaningful experiences that encourage children to question, explore, create and grow with confidence."[m
+[32m +  badge="Our Pedagogy"[m
+[32m +  description="At our school, pedagogy goes beyond textbooks — it's about how children learn to think, question, and grow every day."[m
+    items={[[m
+      {[m
+        image: "/Inquiry-Based-Learning.png",[m
