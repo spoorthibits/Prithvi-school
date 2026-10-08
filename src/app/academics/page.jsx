@@ -82,7 +82,7 @@ const aboutSlides = [
     <>
       <PageBanner
         image = "/academicsbannerimg.png"
-        mobileImage="/academics-banner.png"
+        mobileImage="/academicsmobile.png"
          title="Academics"
          subtitle="Building essential skills while encouraging children to question, understand and think independently."
       />
@@ -194,19 +194,19 @@ const aboutSlides = [
   items={[
     {
       image: "/Inquiry-Based-Learning.png",
-      title: "Curiosity and Exploration",
+      title: "Curiosity & Exploration",
       description:
         "Children are encouraged to ask questions, explore ideas and discover the joy of learning through meaningful experiences.",
     },
     {
       image: "/steam-tech.png",
-      title: "Creativity and Innovation",
+      title: "Creativity & Innovation",
       description:
         "Children have opportunities to create, experiment and approach ideas with an open and curious mind.",
     },
     {
       image: "/values.png",
-      title: "Values and Responsibility",
+      title: "Values & Responsibility",
       description:
         "Alongside academics, children develop kindness, respect, empathy and a sense of responsibility towards others and the world around them.",
     },
