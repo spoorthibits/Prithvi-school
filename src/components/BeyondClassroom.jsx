@@ -3,11 +3,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import {
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const sections = [
   {
@@ -35,7 +31,7 @@ const sections = [
     title: "Explore. Create. Grow.",
     description:
       "Sport, creativity and hands-on activities give children opportunities to try something new, express themselves and develop confidence beyond the classroom.",
-    heroImage: "/service-main.jpg",
+    heroImage: "/sport-main.png",
     sideImage: "/service-side.jpg",
     moreLabel: "EXPLORE LIFE AT PRITHVI",
   },
@@ -83,17 +79,12 @@ export default function BeyondClassroom() {
   }, [active, expanded]);
 
   return (
-    <section
-      className="pt-14 pb-16 md:pb-20"
-      style={{ background: "#f1ebe3" }}
-    >
+    <section className="pt-14 pb-16 md:pb-20" style={{ background: "#f1ebe3" }}>
       <div className="container-custom">
-
         {/* =========================
             TOP TABS
         ========================== */}
         <div className="relative mb-3">
-
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {sections.map((item, i) => (
               <button
@@ -101,10 +92,7 @@ export default function BeyondClassroom() {
                 onClick={() => selectSection(i)}
                 className="text-nav whitespace-nowrap font-bold tracking-wide transition-colors"
                 style={{
-                  color:
-                    active === i
-                      ? "var(--orange)"
-                      : "var(--dark-green)",
+                  color: active === i ? "var(--orange)" : "var(--dark-green)",
                   opacity: active === i ? 1 : 0.9,
                 }}
               >
@@ -153,9 +141,7 @@ export default function BeyondClassroom() {
             HERO IMAGE
         ========================== */}
         <div className="relative">
-
           <div className="relative h-[380px] w-full overflow-hidden md:h-[420px] lg:w-[68%]">
-
             <Image
               src={current.heroImage}
               alt={current.title}
@@ -165,7 +151,6 @@ export default function BeyondClassroom() {
 
             {/* Dark gradient + content */}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-7 pt-24">
-
               <h3
                 className="mb-2 uppercase"
                 style={{
@@ -211,7 +196,6 @@ export default function BeyondClassroom() {
                   {expanded ? "less" : "...more"}
                 </button>
               )}
-
             </div>
           </div>
 
@@ -222,16 +206,13 @@ export default function BeyondClassroom() {
               Visible on desktop
           ========================== */}
           <div className="absolute bottom-[-16px] -right-10 hidden w-[38%] min-w-[240px] max-w-[360px] lg:block lg:right-15">
-
             <div className="relative h-40 w-full overflow-hidden shadow-2xl md:h-58">
-
               <Image
                 src={current.sideImage}
                 alt=""
                 fill
                 className="object-cover"
               />
-
             </div>
 
             <button
@@ -240,7 +221,6 @@ export default function BeyondClassroom() {
                 background: "var(--white)",
               }}
             >
-
               <span
                 className="text-cta pr-4 uppercase"
                 style={{
@@ -260,7 +240,6 @@ export default function BeyondClassroom() {
               >
                 <ArrowRight size={14} />
               </span>
-
             </button>
           </div>
         </div>
@@ -270,7 +249,6 @@ export default function BeyondClassroom() {
             Hidden on laptop + desktop
         ========================== */}
         <div className="mt-6 flex items-center justify-center gap-4 lg:hidden">
-
           {/* Previous Button */}
           <button
             onClick={goPrevious}
@@ -296,9 +274,7 @@ export default function BeyondClassroom() {
                 style={{
                   width: active === i ? "28px" : "8px",
                   background:
-                    active === i
-                      ? "var(--green)"
-                      : "rgba(0,0,0,0.18)",
+                    active === i ? "var(--green)" : "rgba(0,0,0,0.18)",
                 }}
               />
             ))}
@@ -317,9 +293,7 @@ export default function BeyondClassroom() {
           >
             <ChevronRight size={20} />
           </button>
-
         </div>
-
       </div>
     </section>
   );

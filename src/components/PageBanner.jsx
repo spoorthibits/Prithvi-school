@@ -41,7 +41,7 @@ export default function PageBanner({
         fill
         priority
         fetchPriority="high"
-        className={`!object-cover !hidden lg:!block ${imageClassName}`}
+        className={`!object-cover !hidden lg:!block !object-[center_70%] ${imageClassName}`}
         sizes="100vw"
         quality={85}
       />
