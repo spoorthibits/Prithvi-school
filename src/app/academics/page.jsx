@@ -188,27 +188,27 @@ const aboutSlides = [
                 </div>
 
             </ImageContentSection> */}
-     <CardGridSection
-  badge="Our Pedagogy"
-  description="At our school, pedagogy goes beyond textbooks — it's about how children learn to think, question, and grow every day."
+    <CardGridSection
+  badge="Our Approach"
+  description="Learning at Prithvi goes beyond textbooks. We create meaningful experiences that encourage children to question, explore, create and grow with confidence."
   items={[
     {
       image: "/Inquiry-Based-Learning.png",
-      title: "Inquiry-Based Learning",
+      title: "Curiosity and Exploration",
       description:
-        "Children explore concepts through questions and hands-on discovery rather than rote instruction.",
+        "Children are encouraged to ask questions, explore ideas and discover the joy of learning through meaningful experiences.",
     },
     {
       image: "/steam-tech.png",
-      title: "STEAM Integration",
+      title: "Creativity and Innovation",
       description:
-        "Science, technology, engineering, arts, and math come together in real, connected projects.",
+        "Children have opportunities to create, experiment and approach ideas with an open and curious mind.",
     },
     {
       image: "/values.png",
-      title: "Values & Mindfulness",
+      title: "Values and Responsibility",
       description:
-        "Daily practices build emotional strength, discipline, and character alongside academics.",
+        "Alongside academics, children develop kindness, respect, empathy and a sense of responsibility towards others and the world around them.",
     },
   ]}
 />
