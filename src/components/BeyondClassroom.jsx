@@ -1,8 +1,9 @@
-// BeyondClassroom.jsx
+
 "use client";
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const sections = [
@@ -14,8 +15,8 @@ const sections = [
     heroImage: "/academics-mainimg1.png",
     sideImage: "/Joyful Classroom Block Tower Builders.png",
     moreLabel: "MORE ABOUT CO-CURRICULARS",
+    link: "/academics#co-curriculars",
   },
-
   {
     tab: "EXPERIENTIAL LEARNING",
     title: "Learning by Doing",
@@ -24,8 +25,8 @@ const sections = [
     heroImage: "/main1.png",
     sideImage: "/sub1.png",
     moreLabel: "MORE ABOUT EXPERIENTIAL LEARNING",
+    link: "/academics#experiential-learning",
   },
-
   {
     tab: "SPORTS & CREATIVITY",
     title: "Explore. Create. Grow.",
@@ -34,6 +35,7 @@ const sections = [
     heroImage: "/sport-main.png",
     sideImage: "/academics-side2.png",
     moreLabel: "EXPLORE LIFE AT PRITHVI",
+    link: "/academics#sports-creativity",
   },
 ];
 
@@ -45,7 +47,7 @@ export default function BeyondClassroom() {
 
   const current = sections[active];
 
-  // Switch section and always collapse the description
+  // Switch section and collapse the description
   const selectSection = (index) => {
     setActive(index);
     setExpanded(false);
@@ -61,8 +63,7 @@ export default function BeyondClassroom() {
     selectSection(active === sections.length - 1 ? 0 : active + 1);
   };
 
-  // Detect whether the text is actually cut off (mobile only, since the
-  // clamp is removed from sm and up, so nothing is cut off there).
+  // Detect whether the description is cut off on mobile
   useEffect(() => {
     const el = descRef.current;
     if (!el) return;
@@ -75,24 +76,28 @@ export default function BeyondClassroom() {
 
     check();
     window.addEventListener("resize", check);
+
     return () => window.removeEventListener("resize", check);
   }, [active, expanded]);
 
   return (
-    <section className="pt-14 pb-16 md:pb-20" style={{ background: "#f1ebe3" }}>
+    <section
+      className="pt-14 pb-16 md:pb-20"
+      style={{ background: "#f1ebe3" }}
+    >
       <div className="container-custom">
-        {/* =========================
-            TOP TABS
-        ========================== */}
+        {/* TOP TABS */}
         <div className="relative mb-3">
           <div className="flex flex-wrap gap-x-8 gap-y-2">
             {sections.map((item, i) => (
               <button
                 key={item.tab}
+                type="button"
                 onClick={() => selectSection(i)}
                 className="text-nav whitespace-nowrap font-bold tracking-wide transition-colors"
                 style={{
-                  color: active === i ? "var(--orange)" : "var(--dark-green)",
+                  color:
+                    active === i ? "var(--orange)" : "var(--dark-green)",
                   opacity: active === i ? 1 : 0.9,
                 }}
               >
@@ -101,10 +106,7 @@ export default function BeyondClassroom() {
             ))}
           </div>
 
-          {/* =========================
-              LAPTOP + DESKTOP HEADING
-              Visible from lg and above
-          ========================== */}
+          {/* LAPTOP + DESKTOP HEADING */}
           <h2
             className="absolute right-5 -top-32 z-20 hidden text-right uppercase lg:block"
             style={{
@@ -124,10 +126,7 @@ export default function BeyondClassroom() {
             Thinkers
           </h2>
 
-          {/* =========================
-              MOBILE + TABLET HEADING
-              Hidden
-          ========================== */}
+          {/* MOBILE + TABLET HEADING — PRESERVED */}
           <h2 className="hidden">
             Cultivating
             <br />
@@ -137,9 +136,7 @@ export default function BeyondClassroom() {
           </h2>
         </div>
 
-        {/* =========================
-            HERO IMAGE
-        ========================== */}
+        {/* HERO IMAGE */}
         <div className="relative">
           <div className="relative h-[380px] w-full overflow-hidden md:h-[420px] lg:w-[68%]">
             <Image
@@ -149,7 +146,7 @@ export default function BeyondClassroom() {
               className="object-cover"
             />
 
-            {/* Dark gradient + content */}
+            {/* DARK GRADIENT + CONTENT */}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-7 pt-24">
               <h3
                 className="mb-2 uppercase"
@@ -164,13 +161,12 @@ export default function BeyondClassroom() {
                 {current.title}
               </h3>
 
-              {/* Mobile: clamped to 3 lines until expanded.
-                  sm and up: full text, no clamp. */}
+              {/* DESCRIPTION */}
               <p
                 ref={descRef}
-                className={`max-w-md leading-relaxed sm:line-clamp-none ${
+                className={`max-w-md leading-relaxed ${
                   expanded ? "" : "line-clamp-3"
-                }`}
+                } sm:line-clamp-none`}
                 style={{
                   color: "var(--white)",
                   opacity: 0.95,
@@ -181,7 +177,7 @@ export default function BeyondClassroom() {
                 {current.description}
               </p>
 
-              {/* ...more / less toggle (mobile only) */}
+              {/* MORE / LESS TOGGLE ON MOBILE */}
               {(isClamped || expanded) && (
                 <button
                   type="button"
@@ -199,27 +195,25 @@ export default function BeyondClassroom() {
             </div>
           </div>
 
-          {/* =========================
-              OVERLAPPING SIDE CARD
-              
-              Hidden below lg
-              Visible on desktop
-          ========================== */}
+          {/* DESKTOP SIDE CARD + WORKING LINK */}
           <div className="absolute bottom-[-16px] -right-10 hidden w-[38%] min-w-[240px] max-w-[360px] lg:block lg:right-15">
             <div className="relative h-40 w-full overflow-hidden shadow-2xl md:h-58">
               <Image
                 src={current.sideImage}
-                alt=""
+                alt={current.title}
                 fill
                 className="object-cover object-top"
               />
             </div>
 
-            <button
+            <Link
+              href={current.link}
               className="flex w-full items-center justify-between px-5 py-3 text-left shadow-2xl"
               style={{
                 background: "var(--white)",
+                textDecoration: "none",
               }}
+              aria-label={current.moreLabel}
             >
               <span
                 className="text-cta pr-4 uppercase"
@@ -240,17 +234,48 @@ export default function BeyondClassroom() {
               >
                 <ArrowRight size={14} />
               </span>
-            </button>
+            </Link>
           </div>
         </div>
 
-        {/* =========================
-            MOBILE + TABLET NAVIGATION
-            Hidden on laptop + desktop
-        ========================== */}
+        {/* MOBILE + TABLET MORE ABOUT LINK */}
+        <div className="mt-4 lg:hidden">
+          <Link
+            href={current.link}
+            className="flex w-full items-center justify-between gap-3 px-5 py-3 text-left shadow-md"
+            style={{
+              background: "var(--white)",
+              textDecoration: "none",
+            }}
+            aria-label={current.moreLabel}
+          >
+            <span
+              className="text-cta pr-4 uppercase"
+              style={{
+                color: "var(--dark-green)",
+                fontSize: "13px",
+              }}
+            >
+              {current.moreLabel}
+            </span>
+
+            <span
+              className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full"
+              style={{
+                background: "var(--green)",
+                color: "var(--white)",
+              }}
+            >
+              <ArrowRight size={14} />
+            </span>
+          </Link>
+        </div>
+
+        {/* MOBILE + TABLET NAVIGATION */}
         <div className="mt-6 flex items-center justify-center gap-4 lg:hidden">
-          {/* Previous Button */}
+          {/* PREVIOUS BUTTON */}
           <button
+            type="button"
             onClick={goPrevious}
             aria-label="Previous section"
             className="flex h-10 w-10 items-center justify-center rounded-full border transition-all"
@@ -263,11 +288,12 @@ export default function BeyondClassroom() {
             <ChevronLeft size={20} />
           </button>
 
-          {/* Dots */}
+          {/* DOTS */}
           <div className="flex items-center gap-2">
-            {sections.map((_, i) => (
+            {sections.map((item, i) => (
               <button
-                key={i}
+                key={item.tab}
+                type="button"
                 onClick={() => selectSection(i)}
                 aria-label={`Go to section ${i + 1}`}
                 className="h-2 rounded-full transition-all duration-300"
@@ -280,8 +306,9 @@ export default function BeyondClassroom() {
             ))}
           </div>
 
-          {/* Next Button */}
+          {/* NEXT BUTTON */}
           <button
+            type="button"
             onClick={goNext}
             aria-label="Next section"
             className="flex h-10 w-10 items-center justify-center rounded-full border transition-all"

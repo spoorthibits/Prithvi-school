@@ -71,10 +71,10 @@ export default function Footer() {
                 <p className="font-manrope !text-[#B9C9BE] !text-[17px]">
                   <span className="font-manrope font-bold !text-white">MAIL US :</span>{" "}
                   <a
-                    href="mailto:info@yourschool.com"
+                    href="mailto:prithviglobalschool@gmail.com "
                     className="!text-[#B9C9BE] transition-colors hover:!text-[#E8962E]"
                   >
-                    info@yourschool.com
+                    prithviglobalschool@gmail.com 
                   </a>
                 </p>
 
@@ -84,7 +84,7 @@ export default function Footer() {
                     href="tel:+919553566056"
                     className="!text-[#B9C9BE] transition-colors hover:!text-[#E8962E]"
                   >
-                    +91 95535 66056
+                    +91 9666660263
                   </a>
                 </p>
               </div>
@@ -154,7 +154,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="mailto:info@yourschool.com"
+                  href="mailto:prithviglobalschool@gmail.com "
                   aria-label="Email"
                   className="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-white/60 transition-colors hover:border-[#E8962E] hover:text-[#E8962E]"
                 >
@@ -185,15 +185,15 @@ export default function Footer() {
           <p className="font-manrope !text-[15px] !font-normal !leading-6 !text-[#B9C9BE]">
             <span className="font-manrope !text-[15px] !font-bold !text-white">MAIL US :</span>
             <br />
-            <a href="mailto:info@yourschool.com" className="!text-[#B9C9BE]">
-              info@yourschool.com
+            <a href="mailto:prithviglobalschool@gmail.com " className="!text-[#B9C9BE]">
+              prithviglobalschool@gmail.com 
             </a>
           </p>
 
           <p className="font-manrope !text-[15px] !font-normal !leading-6 !text-[#B9C9BE]">
             <span className="font-manrope !text-[15px] !font-bold !text-white">CALL US :</span>{" "}
             <a href="tel:+919553566056" className="!text-[#B9C9BE]">
-              +91 95535 66056
+              +91 9666660263
             </a>
           </p>
         </div>
@@ -254,7 +254,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="mailto:info@yourschool.com"
+            href="mailto:prithviglobalschool@gmail.com "
             aria-label="Email"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-white/40 transition-colors hover:border-[#E8962E] hover:text-[#E8962E]"
           >

@@ -6,33 +6,35 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, ArrowUpRight } from "lucide-react";
 
+
 const FAQS = [
   {
-    question: "What age groups does Prithvi Global School admit?",
+    question: "Which age groups does Prithvi Global School admit?",
     answer:
-      "We welcome children from Pre-Nursery (age 2.5+) through Grade 12, with age-appropriate curricula designed around each developmental stage.",
+      "Prithvi Global School welcomes children from Pre-primary through Grade 5. Our Early Years programme includes Playgroup, Nursery, PP1 and PP2, followed by Primary School from Grade 1 onwards. Admissions are based on applicable age and eligibility guidelines, while considering each child's developmental readiness.",
   },
   {
-    question: "What is the admission process like?",
+    question: "What is the admission process?",
     answer:
-      "Admissions begin with an online enquiry, followed by a campus tour, an informal interaction with the child, and document verification. Our team guides you through every step.",
+      "Our admission process begins with an enquiry through our website or by contacting the admissions team. Parents can then connect with our team to learn about the school's programmes, understand age eligibility and admission requirements, and arrange a campus visit. The team will guide families through the application, required documentation and subsequent admission formalities.",
   },
   {
     question: "Do you offer transport facilities?",
     answer:
-      "Yes, we operate GPS-tracked buses across major routes in Hyderabad, with real-time tracking available to parents through our school app.",
+      "Yes, Prithvi Global School provides transport facilities for students. For details about available routes, pick-up and drop-off points, and transport arrangements, please contact our admissions team.",
   },
   {
     question: "What extracurricular activities are available?",
     answer:
-      "From robotics and music to football, art, and debate club, students choose from over 20 co-curricular programs each term to explore their interests.",
+      "We offer a range of co-curricular experiences that encourage children to collaborate, express themselves and learn to co-exist. Activities include sports, arts, music, dance, nature awareness and yoga, supporting creativity, teamwork, well-being and holistic development.",
   },
   {
-    question: "How do you support students with different learning needs?",
+    question: "How do you support different learning needs?",
     answer:
-      "Our counselors and trained faculty work closely with families to build individualized support plans, ensuring every child learns at a pace that works for them.",
+      "We strive to create a supportive learning environment that respects each child's individual pace, interests and developmental needs. Through guidance, encouragement and meaningful learning experiences, we help children build confidence, develop their abilities and grow into independent learners.",
   },
 ];
+
 
 function AccordionItem({ index, faq, isOpen, onToggle }) {
   return (

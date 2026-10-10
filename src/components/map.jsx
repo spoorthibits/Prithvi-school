@@ -1,37 +1,47 @@
+
 "use client";
 
-import { Landmark, Phone } from "lucide-react";
+import { Landmark, Phone, Mail } from "lucide-react";
 
 // ─── Edit details here ────────────────────────────────────────────────────
 const SCHOOL = {
   name: "Prithvi Global School",
   addressLines: [
-    "Plot No: 64, Mallikarjuna Swamy Temple Rd,",
+    "Bandlaguda, Nagaram,",
     "Cheeriyal, Secunderabad, Telangana - 501303",
   ],
-  phone: "+91 00000 00000", // <- replace with your number
+  phone: "9666660263",
+  email: "prithviglobalschool@gmail.com",
 };
 
-const FULL_ADDRESS =
-  "Plot no 64, Mallikarjuna Swamy Temple Rd, near Mallanna temple, colony Chiryala Village, Cheeriyal, Secunderabad, Hyderabad, Telangana 501303";
+const MAP_URL =
+  "https://www.google.com/maps/place/Prithvi+Global+School/@17.5053123,78.6241248,208m/data=!3m1!1e3!4m6!3m5!1s0x3bcb9dd4cca7df03:0x493fd8ebfe336702!8m2!3d17.5051415!4d78.6240263!16s%2Fg%2F11ntsp845n?entry=ttu";
 
-const EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
-  FULL_ADDRESS
-)}&output=embed`;
+const EMBED_URL =
+  "https://maps.google.com/maps?q=17.5051415,78.6240263&z=16&output=embed";
 
 export default function MapSection() {
   return (
     <section className="!relative !w-full !bg-[#EEF3F8] lg:!bg-white">
       {/* Map */}
       <div className="!relative !w-full !h-[300px] sm:!h-[380px] lg:!h-[440px]">
-        <iframe
-          src={EMBED_URL}
-          title={`${SCHOOL.name} location`}
-          className="!absolute !inset-0 !w-full !h-full !border-0"
-          loading="lazy"
-          allowFullScreen
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+        <a
+          href={MAP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Prithvi Global School in Google Maps"
+          className="!absolute !inset-0 !block !w-full !h-full"
+        >
+          <iframe
+            src={EMBED_URL}
+            title={`${SCHOOL.name} location`}
+            className="!absolute !inset-0 !w-full !h-full !border-0 !pointer-events-none"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            tabIndex={-1}
+          />
+        </a>
       </div>
 
       {/* Info card
@@ -74,6 +84,13 @@ export default function MapSection() {
             >
               <Phone size={15} color="#4B5563" />
               {SCHOOL.phone}
+            </a>
+            <a
+              href={`mailto:${SCHOOL.email}`}
+              className="!mt-2 !inline-flex !items-center !gap-2 !text-[13px] sm:!text-sm !font-medium !text-[#4B5563] hover:!underline"
+            >
+              <Mail size={15} color="#4B5563" />
+              {SCHOOL.email}
             </a>
           </div>
         </div>

@@ -26,15 +26,15 @@ const iconMap = {
 
 export const defaultFeaturesData = [
   {
-    icon: "sprout",
-    iconBg: "bg-[#F4C77A]",
-    title: "CAMPUS",
-    lead: "Room to explore.",
-    description:
-      "Surrounded by open, green spaces, children have room to move, observe, play and discover beyond the classroom.",
-    image: "/campus.png",
-    mobileImage: "/green-space-mbl.webp",
-  },
+  icon: "sprout",
+  iconBg: "bg-[#F4C77A]",
+  title: "CAMPUS",
+  lead: "A safe space to grow.",
+  description:
+    "Designed to international standards, our enclosed campus features CCTV surveillance, a safe and secure environment, and lush green surroundings where children can explore, play and learn with confidence.",
+  image: "/campus1.png",
+  mobileImage: "/green-space-mbl.webp",
+},
 
   {
     icon: "sun",
@@ -75,21 +75,21 @@ export const defaultFeaturesData = [
     title: "CORE VALUES",
     lead: "",
     description:
-      "Alongside academics, children learn the importance of kindness, responsibility, respect and empathy. These values become part of how they learn, collaborate and connect with the world around them.",
+      "Alongside academics, children learn the importance of kindness, responsibility, respect and empathy. These values become part of how they learn, collaborate and connect with the world around them.- make a text with a blend of the above one which you mentioned with focus towards love for nature and the sense of responsibility towards the world.",
     image: "/corevalues.png",
     mobileImage: "/global-standards-mbl.webp",
   },
 
   {
-    icon: "clock",
-    iconBg: "bg-[#64B0E2]",
-    title: "BEYOND THE CLASSROOM",
-    lead: "More to discover.",
-    description:
-      "Sport, creativity, activities and hands-on experiences give children the freedom to explore their interests, try something new and discover what they enjoy.",
-    image: "/ec5f8a5d-27eb-4df8-b641-0c094fb46ca1.png",
-    mobileImage: "/activities-mbl.webp",
-  },
+  icon: "clock",
+  iconBg: "bg-[#64B0E2]",
+  title: "BEYOND THE CLASSROOM",
+  lead: "More to discover.",
+  description:
+    "Sports, creativity and hands-on experiences let children explore their interests and discover new passions. Nature walks, kitchen garden activities, learning about plants, and field and farm visits connect children with the outside world, helping them understand nature, develop curiosity and learn through real-life experiences.",
+  image: "/ec5f8a5d-27eb-4df8-b641-0c094fb46ca1.png",
+  mobileImage: "/activities-mbl.webp",
+},
 ];
 
 /* ================= COMPONENT ================= */

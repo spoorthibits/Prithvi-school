@@ -7,18 +7,24 @@ import { ArrowUpRight } from "lucide-react";
 
 const sections = [
   {
-    title: "Our Curriculum",
-    label: "LEARNING AT PRITHVI",
-    description:
-      "Our CBSE-based approach, supported by the NEXT Education curriculum, brings together academic learning, curiosity, creativity and meaningful experiences.",
-    image: "/curriculum-1.png",
-    accent: "#438E42",
-  },
+  title: "Co-Curriculars",
+  label: "LEARNING BEYOND CLASSROOMS",
+  description: (
+    <>
+      At Prithvi, co-curricular activities encourage children to work
+      together, appreciate diverse perspectives and grow through shared
+      experiences, building teamwork, empathy and a spirit of co-existence.
+      <strong> Collaborating Together. Growing to Co-exist.</strong>
+    </>
+  ),
+  image: "/curriculum-1.png",
+  accent: "#438E42",
+},
   {
     title: "Pre-Primary",
     label: "EARLY YEARS",
     description:
-      "A joyful beginning where children learn through play, stories, movement, exploration and meaningful experiences that build confidence and curiosity.",
+      "A joyful beginning where children learn through play, stories, movement, exploration and meaningful activities that build confidence and curiosity.",
     image: "/curriculum-2.png",
     accent: "#64B0E2",
   },
@@ -26,7 +32,7 @@ const sections = [
     title: "Primary School",
     label: "GRADE 1–5",
     description:
-      "Children build strong academic foundations while learning to question, explore, collaborate and think independently in a supportive environment.",
+      "Children build strong academic foundations while developing curiosity, creativity and independent thinking. Meaningful experiences encourage them to question, explore and understand the world around them.",
     image: "/curriculum3new.png",
     accent: "#F7941D",
   },

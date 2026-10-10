@@ -1,26 +1,28 @@
 export const metadata = {
-  title: "Prithvi Global School | Growing Curious Minds",
+  title: "Prithvi Global School | Where Curiosity Takes Root",
   description:
-    "Prithvi Global School is a CBSE-based school nurturing curious, confident and responsible learners through meaningful experiences, strong values and academic excellence.",
+    "Discover Prithvi Global School, a CBSE-based school nurturing curious thinkers, compassionate individuals and confident learners through strong values, creativity and meaningful learning experiences.",
+
   keywords: [
     "Prithvi Global School",
-    "CBSE school",
     "CBSE-based school",
-    "primary school",
-    "pre-primary school",
+    "Pre-primary education",
+    "Primary school",
     "Playgroup",
     "Nursery",
     "PP1",
     "PP2",
     "Grade 1 to 5",
+    "NEXT Education curriculum",
   ],
+
   authors: [{ name: "Prithvi Global School" }],
   creator: "Prithvi Global School",
 
   openGraph: {
-    title: "Prithvi Global School | Growing Curious Minds",
+    title: "Prithvi Global School | Where Curiosity Takes Root",
     description:
-      "A CBSE-based school nurturing curious, confident and responsible learners through strong values, meaningful learning and academic excellence.",
+      "A learning environment rooted in strong values and inspired by curiosity, creativity, nature and meaningful experiences.",
     type: "website",
     siteName: "Prithvi Global School",
     images: [
@@ -35,9 +37,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Prithvi Global School | Growing Curious Minds",
+    title: "Prithvi Global School | Where Curiosity Takes Root",
     description:
-      "A CBSE-based school nurturing curious, confident and responsible learners.",
+      "Nurturing curious thinkers, compassionate individuals and confident learners through meaningful learning experiences.",
     images: ["/og-image.png"],
   },
 
@@ -155,12 +157,7 @@ export default function Home() {
             
           "
         >
-          At Prithvi Global School, we believe every child deserves the space to
-          question, explore and grow. Rooted in strong values and connected to the
-          world around them, children are encouraged to learn with curiosity,
-          confidence and purpose. Through meaningful learning experiences, we nurture
-          thoughtful, responsible and compassionate young minds ready to shape the
-          world they inherit.
+          At Prithvi Global School, we believe every child deserves the freedom to question, explore and grow. Rooted in strong values and inspired by the world around us, our learning environment brings together academic excellence, creativity, nature and meaningful experiences. We nurture curious thinkers, compassionate individuals and confident learners who are prepared to embrace the future while staying grounded in the values that matter.
         </p>
 
       </div>
