@@ -1,26 +1,22 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import ApplyModal from "@/components/ApplyModel";
 
 /**
  * ContactSchool
  * Full building photo shown COMPLETELY (no cropping, no zoom).
  * Built with Prithvi's global tokens (--dark-green, --orange, --white).
  *
- * RESPONSIVE APPROACH:
- * Below `sm` (640px), a dedicated mobile image (imageSrcMobile) is used
- * instead of the desktop banner. The heading/subheading/CTAs are overlaid
- * directly ON TOP of that mobile image (centered, stacked buttons).
+ * Below `sm` (640px) a dedicated mobile image (imageSrcMobile) is used.
+ * From `sm` up, the desktop image (imageSrc) is shown full and uncropped.
  *
- * From `sm` up, the desktop image (imageSrc) is shown full and uncropped,
- * with heading/subheading/CTAs overlaid on top of it.
+ * "Contact Us" links to contactHref.
+ * "Apply Now" opens the Apply popup (or runs onApplyClick if you pass one).
  *
  * Usage:
  *   <ContactSchool imageSrc="/schoolbuilding.png" imageSrcMobile="/contactmobile.png" />
- *
- * NOTE: files placed in /public are referenced from the root — a file
- * at public/schoolbuilding.png is "/schoolbuilding.png", never
- * "public/schoolbuilding.png".
  */
 export default function ContactSchool({
   imageSrc = "/contactfooterbannerimg.webp",
@@ -28,19 +24,20 @@ export default function ContactSchool({
   imageAlt = "Prithvi Global School building",
   imageWidth = 1900,
   imageHeight = 700,
-  imageWidthMobile = 800,
-  imageHeightMobile = 1000,
   heading = "We'd love to hear from you!",
   subheading = "Feel free to get in touch, or apply now.",
   contactHref = "/contact",
-  applyHref = "/ContactSection",
+  onApplyClick,
 }) {
+  const [applyOpen, setApplyOpen] = useState(false);
+
+  // If no onApplyClick is passed, Apply Now opens the popup
+  const handleApply = onApplyClick ?? (() => setApplyOpen(true));
+
   return (
     <section className="relative m-0 block w-full overflow-hidden p-0">
       {/* ---------------- Desktop / tablet (sm and up) ---------------- */}
       <div className="relative hidden w-full sm:block">
-        {/* Full, uncropped desktop image — height comes purely from its own
-            aspect ratio (w-full h-auto). Nothing here forces a crop. */}
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -53,11 +50,11 @@ export default function ContactSchool({
 
         {/* Light gradient — tablet/desktop only. */}
         <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.06) 40%, rgba(0,0,0,0.03) 75%, rgba(0,0,0,0) 100%)",
-        }}
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.06) 40%, rgba(0,0,0,0.03) 75%, rgba(0,0,0,0) 100%)",
+          }}
         />
 
         {/* Black overlay */}
@@ -93,16 +90,14 @@ export default function ContactSchool({
               >
                 Contact Us
               </a>
-              <a
-                href={applyHref}
+              <button
+                type="button"
+                onClick={handleApply}
                 className="text-cta rounded-full px-4 py-2 text-center text-xs uppercase transition hover:opacity-90 sm:px-6 sm:py-3 sm:text-sm lg:px-8 lg:py-3.5 lg:text-base"
-                style={{
-                  background: "#196191",
-                  color: "var(--white)",
-                }}
+                style={{ background: "#196191", color: "var(--white)" }}
               >
                 Apply Now
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -159,16 +154,19 @@ export default function ContactSchool({
             >
               Contact Us
             </a>
-            <a
-              href={applyHref}
+            <button
+              type="button"
+              onClick={handleApply}
               className="text-cta flex-1 whitespace-nowrap rounded-full px-4 py-3 text-center text-xs uppercase transition hover:opacity-90"
               style={{ background: "#196191", color: "var(--white)" }}
             >
               Apply Now
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      <ApplyModal open={applyOpen} onClose={() => setApplyOpen(false)} />
     </section>
   );
 }
