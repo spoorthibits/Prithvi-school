@@ -38,7 +38,23 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+/* =========================================
+   BUTTONS & LINKS
+========================================= */
 
+button,
+a {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Pointer cursor on every button, always */
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer !important;
+}
 /* =========================================
    GLOBAL TYPOGRAPHY
 ========================================= */

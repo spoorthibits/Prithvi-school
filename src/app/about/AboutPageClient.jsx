@@ -83,7 +83,6 @@ const spaces = [
   primaryBtnText="CONTACT US"
   secondaryBtnText="APPLY NOW"
   onPrimaryClick={() => router.push("/contact")}
-  onSecondaryClick={() => setFormType("simple")}
   imageClassName="lg:scale-110 lg:translate-y-9 origin-bottom"
 />
 

@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import ApplyModal from "@/components/ApplyModel";
 
 export default function ImageContentSection({
   imageSrc,
@@ -21,7 +25,11 @@ export default function ImageContentSection({
   style,
   mobileImageFirst = true,
 }) {
+  const [applyOpen, setApplyOpen] = useState(false);
   const sectionStyle = { ...(bgColor ? { background: bgColor } : {}), ...style };
+
+  // If no onPrimaryClick is passed, the primary button opens the Apply popup
+  const handleSecondary = onSecondaryClick ?? (() => setApplyOpen(true));
 
   return (
     <section style={sectionStyle} className="py-10 lg:py-9 bg-[#F7F6F2]">
@@ -79,31 +87,33 @@ export default function ImageContentSection({
               )}
 
               {(primaryBtnText || secondaryBtnText) && (
-  <div className="flex flex-nowrap gap-3 justify-center lg:justify-start lg:flex-wrap lg:gap-4">
-    {primaryBtnText && (
-      <button
-        onClick={onPrimaryClick}
-        className="px-5 py-3 lg:px-8 lg:py-4 rounded-full bg-[#196191] text-white text-xs lg:text-sm font-semibold uppercase tracking-wide whitespace-nowrap hover:opacity-90 transition"
-      >
-        {primaryBtnText}
-      </button>
-    )}
-    {secondaryBtnText && (
-      <button
-        onClick={onSecondaryClick}
-        className="px-5 py-3 lg:px-8 lg:py-4 rounded-full bg-[#e88f1b] text-white text-xs lg:text-sm font-semibold uppercase tracking-wide whitespace-nowrap hover:opacity-90 transition"
-      >
-        {secondaryBtnText}
-      </button>
-    )}
-  </div>
-)}
+                <div className="flex flex-nowrap gap-3 justify-center lg:justify-start lg:flex-wrap lg:gap-4">
+                  {primaryBtnText && (
+                    <button
+                      onClick={onPrimaryClick}
+                      className="px-5 py-3 lg:px-8 lg:py-4 rounded-full bg-[#196191] text-white text-xs lg:text-sm font-semibold uppercase tracking-wide whitespace-nowrap hover:opacity-90 transition"
+                    >
+                      {primaryBtnText}
+                    </button>
+                  )}
+                  {secondaryBtnText && (
+                    <button
+                      onClick={handleSecondary}
+                      className="px-5 py-3 lg:px-8 lg:py-4 rounded-full bg-[#e88f1b] text-white text-xs lg:text-sm font-semibold uppercase tracking-wide whitespace-nowrap hover:opacity-90 transition"
+                    >
+                      {secondaryBtnText}
+                    </button>
+                  )}
+                </div>
+              )}
 
               {children}
             </div>
           </div>
         </div>
       </div>
+
+      <ApplyModal open={applyOpen} onClose={() => setApplyOpen(false)} />
     </section>
   );
 }
