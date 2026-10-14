@@ -16,17 +16,26 @@ export default function CardGridSection({
           
         >
           <h2
-            className="uppercase leading-[100%] tracking-wide !text-[29px]
-            md:!text-[39px]"
-            style={{
-              fontFamily: "Playfair Display, serif",
-              fontWeight: 700,
-              fontSize: "clamp(26px, 2vw, 20px)",
-              color: "#196191",
-            }}
-          >
-            {badge}
-          </h2>
+  className="
+    uppercase
+    leading-[100%]
+    tracking-wide
+    !text-[29px]
+    md:!text-[39px]
+  "
+  style={{
+    fontFamily: "Playfair Display, serif",
+    fontWeight: 700,
+    color: "#196191",
+  }}
+>
+  <span className="block whitespace-nowrap md:inline">
+    LEARNING BEYOND
+  </span>{" "}
+  <span className="block md:inline">
+    TEXTBOOKS
+  </span>
+</h2>
         </div>
 
         {/* Subtext */}

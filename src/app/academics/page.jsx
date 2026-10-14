@@ -189,26 +189,26 @@ const aboutSlides = [
 
             </ImageContentSection> */}
     <CardGridSection
-  badge="Our Approach"
+  badge="Learning Beyond Textbooks"
   description="Learning at Prithvi goes beyond textbooks. We create meaningful experiences that encourage children to question, explore, create and grow with confidence."
   items={[
     {
-      image: "/Inquiry-Based-Learning.png",
-      title: "Curiosity & Exploration",
+      image: "/stem2.png",
+      title: "STEM and Innovation",
       description:
-        "Children are encouraged to ask questions, explore ideas and discover the joy of learning through meaningful experiences.",
+        "Hands-on learning develops logical thinking, experimentation and problem-solving skills.",
     },
     {
-      image: "/steam-tech.png",
-      title: "Creativity & Innovation",
+      image: "/Curious Mind at Work.png",
+      title: "Critical Thinking",
       description:
-        "Children have opportunities to create, experiment and approach ideas with an open and curious mind.",
+        "Children learn to analyse, question and approach challenges with confidence.",
     },
     {
-      image: "/values.png",
-      title: "Values & Responsibility",
+      image: "/communication.png",
+      title: "Communication and Collaboration",
       description:
-        "Alongside academics, children develop kindness, respect, empathy and a sense of responsibility towards others and the world around them.",
+        "Children learn to express themselves, listen to others and work together.",
     },
   ]}
 />
