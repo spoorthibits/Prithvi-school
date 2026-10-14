@@ -106,7 +106,7 @@ export default function Academics() {
 
             
     <CardGridSection
-  badge="Learnings Beyond Textbooks"
+  badge="Learning's Beyond Textbooks"
   description="Learning at Prithvi goes beyond textbooks. We create meaningful experiences that encourage children to question, explore, create and grow with confidence."
   items={[
     {
