@@ -189,7 +189,7 @@ const aboutSlides = [
 
             </ImageContentSection> */}
     <CardGridSection
-  badge="Learning Beyond Textbooks"
+  badge="Learnings Beyond Textbooks"
   description="Learning at Prithvi goes beyond textbooks. We create meaningful experiences that encourage children to question, explore, create and grow with confidence."
   items={[
     {
